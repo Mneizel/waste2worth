@@ -17,10 +17,19 @@ describe('localApi.mediaUrl', () => {
     expect(mediaUrl('data:image/svg+xml,<svg/>')).toBe('data:image/svg+xml,<svg/>');
     expect(mediaUrl('blob:abc')).toBe('blob:abc');
   });
-  it('resolves relative media paths against the base URL', () => {
+  it('inlines known catalogue artwork as data URIs', () => {
+    expect(mediaUrl('media/ideas/self-watering-planter-final.svg')).toMatch(
+      /^data:image\/svg\+xml,/,
+    );
+    expect(mediaUrl('/media/steps/self-watering-planter-1.svg')).toMatch(
+      /^data:image\/svg\+xml,/,
+    );
+  });
+
+  it('falls back to the base URL for unknown media paths', () => {
     const base = import.meta.env.BASE_URL;
-    expect(mediaUrl('media/x.svg')).toBe(`${base}media/x.svg`);
-    expect(mediaUrl('/media/x.svg')).toBe(`${base}media/x.svg`);
+    expect(mediaUrl('media/nope.svg')).toBe(`${base}media/nope.svg`);
+    expect(mediaUrl('/media/nope.svg')).toBe(`${base}media/nope.svg`);
   });
 });
 

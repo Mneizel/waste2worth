@@ -5,6 +5,7 @@
  * static prototype ships with; swap `VITE_API_MODE=remote` to use `httpApi.ts`.
  */
 import { IDEAS, VARIANTS } from '../data/catalogue';
+import { MEDIA } from '../data/media';
 import type {
   IdeaDetail,
   IdeaSummary,
@@ -27,7 +28,8 @@ export class ApiError extends Error {
 
 export function mediaUrl(path: string): string {
   if (/^(https?:|data:|blob:)/i.test(path)) return path;
-  return `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+  const key = path.replace(/^\//, '');
+  return MEDIA[key] ?? `${import.meta.env.BASE_URL}${key}`;
 }
 
 const CANDIDATE_VOLUMES_ML = [250, 330, 500, 600, 750, 1000, 1500];

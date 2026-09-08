@@ -30,21 +30,31 @@ npm run dev            # http://localhost:5173   (local mode — nothing else to
 `npm run gen:data` regenerates `src/data/catalogue.ts` and the placeholder artwork
 in `public/media/` from the backend seed (only needed if the seed changes).
 
+## Builds
+
+| Command | Output | Use |
+| --- | --- | --- |
+| `npm run build` | `dist/` (index.html + `assets/`) | **Hosting.** Upload to a static host. |
+| `npm run build:standalone` | `dist-standalone/index.html` (one file, ~360 kB) | **Double-click.** Everything — JS, CSS, artwork — inlined. Opens straight from the file system, no server. |
+
+> A normal multi-file build **will show a blank page if you just double-click
+> `index.html`** — browsers block loading the JS from `file://`. Either host it,
+> or use the standalone single file.
+
 ## Deploy the prototype (for the judging committee)
 
-The build in `dist/` is plain HTML/CSS/JS — host it anywhere, no server:
-
 - **Netlify Drop (fastest):** go to <https://app.netlify.com/drop> and drag the
-  whole `dist` folder onto the page. You get a public link in seconds.
-- **GitHub Pages (automatic):** push this repo to GitHub, then in
-  **Settings → Pages** set **Source: GitHub Actions**. The workflow in
-  `.github/workflows/deploy.yml` builds and publishes on every push to `main`.
-  The link is `https://<your-username>.github.io/<repo-name>/`.
-- **GitHub Pages (manual upload):** create a repo, upload the **contents** of
-  `dist/`, then **Settings → Pages → Deploy from a branch → main → /(root)**.
+  `dist` folder onto the page. Public link in seconds.
+- **GitHub Pages (automatic):** push this repo, then **Settings → Pages →
+  Source: GitHub Actions**. `.github/workflows/deploy.yml` builds and publishes
+  on every push to `main`. Link: `https://<username>.github.io/<repo>/`.
+- **GitHub Pages (manual):** upload the **contents** of `dist/`, then
+  **Settings → Pages → Deploy from a branch → main → /(root)**.
+- **No hosting at all:** send someone `dist-standalone/index.html` — they open
+  it by double-clicking.
 
-`base: './'` + `HashRouter` mean the site works from any host and any sub-path,
-including opening it through a local static server.
+`base: './'` + `HashRouter` mean the site works from any host, any sub-path, and
+the file system.
 
 ## Tests
 
