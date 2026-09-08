@@ -8,3 +8,5 @@ dist-ssr/
 .env.*.local
 !.env.example
 .vite/
+
+waste-2-worth-standalone.html
