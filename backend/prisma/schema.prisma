@@ -1,0 +1,164 @@
+// Waste 2 Worth — data model.
+// SQLite for local/dev/test; swap `provider` to "postgresql" for production
+// (no schema changes needed — no enums, no native JSON).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// A kind of waste item the app can guide you through. MVP ships only "bottle".
+model ItemCategory {
+  id        String        @id @default(cuid())
+  key       String        @unique // "bottle"
+  name      String
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  variants  ItemVariant[]
+}
+
+/// A concrete, standardised variant of an item — e.g. a 500 ml PET water bottle.
+/// The set of variants is the "standard bottle sizes known worldwide" catalogue.
+model ItemVariant {
+  id              String   @id @default(cuid())
+  categoryId      String
+  category        ItemCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  key             String   @unique // "pet-water-500ml"
+  label           String            // "Standard water bottle (500 ml)"
+  materialType    String            // "PET" | "GLASS" | "HDPE" | "ALUMINIUM" ...
+  volumeMl        Int
+  heightMm        Int
+  diameterMm      Int
+  region          String   @default("GLOBAL")
+  typicalContents String   @default("water")
+  isCommon        Boolean  @default(true)
+  sortOrder       Int      @default(0)
+  notes           String   @default("")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  ideaLinks      IdeaVariant[]
+  aiGuessScans   Scan[]       @relation("ScanAiGuessVariant")
+  confirmedScans Scan[]       @relation("ScanConfirmedVariant")
+
+  @@index([categoryId])
+}
+
+/// An upcycling project for one or more item variants.
+model Idea {
+  id               String  @id @default(cuid())
+  slug             String  @unique
+  title            String
+  summary          String
+  difficulty       String  @default("easy") // "easy" | "medium" | "hard"
+  estimatedMinutes Int     @default(30)
+  minAge           Int     @default(6)
+  finalImageUrl    String
+  thumbnailUrl     String
+  model3dUrl       String
+  model3dPreviewUrl String
+  safetyNotes      String  @default("")
+  published        Boolean @default(true)
+  sortOrder        Int     @default(0)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  variantLinks    IdeaVariant[]
+  tools           IdeaTool[]
+  steps           IdeaStep[]
+  selectedByScans Scan[]        @relation("ScanSelectedIdea")
+}
+
+/// Join table: which variants an idea applies to.
+model IdeaVariant {
+  ideaId    String
+  variantId String
+  idea      Idea        @relation(fields: [ideaId], references: [id], onDelete: Cascade)
+  variant   ItemVariant @relation(fields: [variantId], references: [id], onDelete: Cascade)
+
+  @@id([ideaId, variantId])
+  @@index([variantId])
+}
+
+/// A tool or material needed for an idea. Shown before the steps.
+model IdeaTool {
+  id        String  @id @default(cuid())
+  ideaId    String
+  idea      Idea    @relation(fields: [ideaId], references: [id], onDelete: Cascade)
+  kind      String  @default("tool") // "tool" | "material"
+  name      String
+  imageUrl  String
+  quantity  String  @default("1")
+  optional  Boolean @default(false)
+  note      String  @default("")
+  sortOrder Int     @default(0)
+
+  @@index([ideaId])
+}
+
+/// One illustrated, plain-language step of an idea.
+model IdeaStep {
+  id          String   @id @default(cuid())
+  ideaId      String
+  idea        Idea     @relation(fields: [ideaId], references: [id], onDelete: Cascade)
+  stepNumber  Int
+  title       String
+  instruction String
+  imageUrl    String
+  tip         String   @default("")
+  warning     String   @default("")
+  icon        String   @default("")
+  createdAt   DateTime @default(now())
+
+  @@unique([ideaId, stepNumber])
+  @@index([ideaId])
+}
+
+/// An anonymous run through the flow: photo -> guess -> confirm/correct -> idea.
+model Scan {
+  id     String @id @default(cuid())
+  /// "PENDING_CONFIRMATION" | "CONFIRMED" | "REJECTED" | "VARIANT_SELECTED" | "IDEA_SELECTED"
+  status String @default("PENDING_CONFIRMATION")
+
+  imageFilename  String
+  imagePath      String
+  imageMimeType  String
+  imageSizeBytes Int
+  imageSha256    String
+
+  aiCategoryKey    String?
+  aiGuessLabel     String?
+  aiGuessVolumeMl  Int?
+  aiConfidence     Float?
+  aiRawJson        String  @default("{}")
+  aiGuessVariantId String?
+  aiGuessVariant   ItemVariant? @relation("ScanAiGuessVariant", fields: [aiGuessVariantId], references: [id], onDelete: SetNull)
+
+  confirmedVariantId String?
+  confirmedVariant   ItemVariant? @relation("ScanConfirmedVariant", fields: [confirmedVariantId], references: [id], onDelete: SetNull)
+
+  selectedIdeaId String?
+  selectedIdea   Idea?  @relation("ScanSelectedIdea", fields: [selectedIdeaId], references: [id], onDelete: SetNull)
+
+  events    ScanEvent[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  @@index([status])
+}
+
+/// Append-only audit trail of what happened during a scan.
+model ScanEvent {
+  id        String   @id @default(cuid())
+  scanId    String
+  scan      Scan     @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  type      String
+  dataJson  String   @default("{}")
+  createdAt DateTime @default(now())
+
+  @@index([scanId])
+}

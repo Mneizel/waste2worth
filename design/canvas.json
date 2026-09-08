@@ -1,0 +1,12 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "A · Eco Playful", "x": 0, "y": 0, "w": 1200, "h": 1460 },
+    { "file": "OptionB.dc.html", "title": "B · Clean Minimal", "x": 1360, "y": 0, "w": 1200, "h": 1560 },
+    { "file": "OptionC.dc.html", "title": "C · Bold & Clear", "x": 2720, "y": 0, "w": 1200, "h": 1500 },
+    { "file": "OptionD.dc.html", "title": "D · Guided Wizard", "x": 4080, "y": 0, "w": 1200, "h": 1440 }
+  ],
+  "annotations": [
+    { "id": "brief", "x": 0, "y": -150, "w": 900, "text": "Waste 2 Worth — 4 frontend directions. Each artboard shows the same 4 core screens: 1 Upload (drag & drop / choose file)  ·  2 Confirm the AI guess + pick 1 of 3 sizes  ·  3 Ideas grid (name + photo)  ·  4 Guide (tools first, then illustrated steps, then 3D compare). Pick the one that feels right and I'll build it for real." }
+  ],
+  "launch": { "view": "canvas" }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
+  <text x="26" y="150" fill="hsl(140 30% 60%)" font-family="'Segoe UI',Arial,sans-serif" font-size="120" font-weight="800" opacity="0.28">7</text>
+  <g transform="translate(96 60)" fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 4h20v10l8 14v58a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5V28l8-14z"/>
+  </g>
+  <g fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M120 20v18M129 20v18M138 20v18"/><path d="M104 44h50l-6 46h-38z"/></g>
+</svg>

@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700&family=Baloo+Bhaijaan+2:wght@500;700&display=swap');
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Nunito', 'Baloo Bhaijaan 2', 'Segoe UI', Tahoma, sans-serif; }
+    a { color: #3f7d4f; } a:hover { color: #2c5c39; }
+    .disp { font-family: 'Baloo 2', 'Baloo Bhaijaan 2', 'Segoe UI', Tahoma, sans-serif; }
+  </style>
+</helmet>
+
+<div style="width: 1200px; padding: 36px; background: #f4efe3; color: #2f3a2e;">
+
+  <!-- direction header -->
+  <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span class="disp" style="font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #6a8f5c;">OPTION A</span>
+      <h1 class="disp" style="margin: 0; font-size: 30px; font-weight: 700; color: #2c5c39;">Eco Playful &nbsp;·&nbsp; بيئي ومرح</h1>
+    </div>
+    <p style="margin: 0; font-size: 15px; max-width: 780px; line-height: 1.5;">
+      Warm paper tones, rounded shapes, chunky friendly buttons and big illustrations.
+      Feels approachable for families and kids. <strong>Trade-off:</strong> the soft, decorative
+      style is less "serious tool" and takes more illustration work to keep consistent.
+    </p>
+  </div>
+
+  <!-- 2x2 screen grid -->
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px;">
+
+    <!-- 1 UPLOAD -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="disp" style="font-size: 14px; font-weight: 700; color: #6a8f5c;">1 · Upload — رفع صورة</div>
+      <div style="border-radius: 22px; background: #fff; box-shadow: 0 14px 30px rgba(47,58,46,.10); overflow: hidden;">
+        <div style="display: flex; gap: 7px; padding: 13px 16px; background: #eaf3e4;">
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f2b8a2;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f4d79a;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #9ccb86;"></span>
+        </div>
+        <div style="padding: 26px;">
+          <div style="border: 3px dashed #9ccb86; border-radius: 20px; background: #f6fbf2; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center;">
+            <svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#3f7d4f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 16V7"/><path d="m8 11 4-4 4 4"/>
+              <path d="M20 16.5A3.5 3.5 0 0 0 18 10a5.5 5.5 0 0 0-10.7-1.3A4 4 0 0 0 6 16.5"/>
+            </svg>
+            <div class="disp" style="font-size: 19px; font-weight: 700; color: #2c5c39;">اسحب صورة القنينة هون</div>
+            <div style="font-size: 14px; color: #5c6b56;">Drag &amp; drop a bottle photo — or</div>
+            <button class="disp" style="border: none; border-radius: 999px; background: #3f7d4f; color: #fff; font-size: 16px; font-weight: 700; padding: 13px 26px; box-shadow: 0 6px 0 #2c5c39;">اختَر صورة · Choose file</button>
+            <a href="#" style="font-size: 13px; text-decoration: none;">أو استخدم الكاميرا · use camera</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 CONFIRM -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="disp" style="font-size: 14px; font-weight: 700; color: #6a8f5c;">2 · Confirm guess — تأكيد التخمين</div>
+      <div style="border-radius: 22px; background: #fff; box-shadow: 0 14px 30px rgba(47,58,46,.10); overflow: hidden;">
+        <div style="display: flex; gap: 7px; padding: 13px 16px; background: #eaf3e4;">
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f2b8a2;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f4d79a;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #9ccb86;"></span>
+        </div>
+        <div style="padding: 22px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <div style="width: 74px; height: 96px; border-radius: 14px; background: #eef5e9; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="34" height="60" viewBox="0 0 24 40" fill="none" stroke="#3f7d4f" stroke-width="1.7"><path d="M9 2h6v4l3 5v25a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V11l3-5z"/></svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <div class="disp" style="font-size: 18px; font-weight: 700; color: #2c5c39;">هاي قنينة مياه ٢٥٠ مل؟</div>
+              <div style="font-size: 13px; color: #5c6b56;">A 250 ml water bottle?</div>
+              <div style="width: 150px; height: 8px; border-radius: 999px; background: #e6efe0;"><div style="width: 78%; height: 100%; border-radius: 999px; background: #6aa84f;"></div></div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <button class="disp" style="flex: 1; border: none; border-radius: 999px; background: #3f7d4f; color: #fff; font-weight: 700; font-size: 15px; padding: 12px; box-shadow: 0 5px 0 #2c5c39;">أيوا · Yes</button>
+            <button class="disp" style="flex: 1; border: 2px solid #3f7d4f; border-radius: 999px; background: #fff; color: #2c5c39; font-weight: 700; font-size: 15px; padding: 12px;">لأ · No</button>
+          </div>
+          <div style="border-top: 2px dashed #e0e9d8; padding-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 13px; color: #5c6b56;">اختَر الحجم الصح · Pick the right size</div>
+            <div style="display: flex; gap: 10px;">
+              <div style="flex: 1; border: 2px solid #d7e6cc; border-radius: 14px; padding: 10px; text-align: center;"><div class="disp" style="font-weight: 700; color: #2c5c39;">330 ml</div><div style="font-size: 11px; color: #7a8a72;">15×6 cm</div></div>
+              <div style="flex: 1; border: 2px solid #6aa84f; background: #f2f8ec; border-radius: 14px; padding: 10px; text-align: center;"><div class="disp" style="font-weight: 700; color: #2c5c39;">500 ml</div><div style="font-size: 11px; color: #7a8a72;">21×7 cm</div></div>
+              <div style="flex: 1; border: 2px solid #d7e6cc; border-radius: 14px; padding: 10px; text-align: center;"><div class="disp" style="font-weight: 700; color: #2c5c39;">750 ml</div><div style="font-size: 11px; color: #7a8a72;">25×7 cm</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 IDEAS -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="disp" style="font-size: 14px; font-weight: 700; color: #6a8f5c;">3 · Ideas — أفكار</div>
+      <div style="border-radius: 22px; background: #fff; box-shadow: 0 14px 30px rgba(47,58,46,.10); overflow: hidden;">
+        <div style="display: flex; gap: 7px; padding: 13px 16px; background: #eaf3e4;">
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f2b8a2;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f4d79a;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #9ccb86;"></span>
+        </div>
+        <div style="padding: 22px; display: flex; flex-direction: column; gap: 14px;">
+          <div class="disp" style="font-size: 17px; font-weight: 700; color: #2c5c39;">أفكار لإعادة التدوير · Upcycling ideas</div>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 7px;"><div style="height: 78px; border-radius: 14px; background: linear-gradient(135deg,#dcecd0,#c3e0b0);"></div><div style="font-size: 12px; font-weight: 700; color: #34452f;">مزهرية ذاتية الري<br><span style="font-weight: 400; color: #7a8a72;">Self-watering planter</span></div></div>
+            <div style="display: flex; flex-direction: column; gap: 7px;"><div style="height: 78px; border-radius: 14px; background: linear-gradient(135deg,#e6ddc8,#d6c9a8);"></div><div style="font-size: 12px; font-weight: 700; color: #34452f;">مطعم عصافير<br><span style="font-weight: 400; color: #7a8a72;">Bird feeder</span></div></div>
+            <div style="display: flex; flex-direction: column; gap: 7px;"><div style="height: 78px; border-radius: 14px; background: linear-gradient(135deg,#d9e7ef,#bcd6e6);"></div><div style="font-size: 12px; font-weight: 700; color: #34452f;">حصّالة نقود<br><span style="font-weight: 400; color: #7a8a72;">Coin bank</span></div></div>
+            <div style="display: flex; flex-direction: column; gap: 7px;"><div style="height: 78px; border-radius: 14px; background: linear-gradient(135deg,#efe3d2,#e2cdb0);"></div><div style="font-size: 12px; font-weight: 700; color: #34452f;">حامل أقلام<br><span style="font-weight: 400; color: #7a8a72;">Pen pot</span></div></div>
+            <div style="display: flex; flex-direction: column; gap: 7px;"><div style="height: 78px; border-radius: 14px; background: linear-gradient(135deg,#dcecd0,#b7d99f);"></div><div style="font-size: 12px; font-weight: 700; color: #34452f;">رشّاش نبات<br><span style="font-weight: 400; color: #7a8a72;">Plant waterer</span></div></div>
+            <div style="display: flex; flex-direction: column; gap: 7px;"><div style="height: 78px; border-radius: 14px; background: linear-gradient(135deg,#e8dcc0,#dcc9a0);"></div><div style="font-size: 12px; font-weight: 700; color: #34452f;">بولينغ<br><span style="font-weight: 400; color: #7a8a72;">Bowling set</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 GUIDE -->
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="disp" style="font-size: 14px; font-weight: 700; color: #6a8f5c;">4 · Guide — الدليل</div>
+      <div style="border-radius: 22px; background: #fff; box-shadow: 0 14px 30px rgba(47,58,46,.10); overflow: hidden;">
+        <div style="display: flex; gap: 7px; padding: 13px 16px; background: #eaf3e4;">
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f2b8a2;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f4d79a;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #9ccb86;"></span>
+        </div>
+        <div style="padding: 22px; display: flex; flex-direction: column; gap: 14px;">
+          <div class="disp" style="font-size: 15px; font-weight: 700; color: #2c5c39;">الأدوات يللي بتحتاجها · Tools you need</div>
+          <div style="display: flex; gap: 10px;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; background: #f4f8ef; border-radius: 14px; padding: 12px 6px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3f7d4f" stroke-width="1.7"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.1 8.1 20 20M8.1 15.9 20 4"/></svg>
+              <span style="font-size: 11px; font-weight: 700;">مقص · Scissors</span>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; background: #f4f8ef; border-radius: 14px; padding: 12px 6px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3f7d4f" stroke-width="1.7"><path d="M4 12c4-6 12-6 16 0-4 6-12 6-16 0Z"/><circle cx="12" cy="12" r="2"/></svg>
+              <span style="font-size: 11px; font-weight: 700;">خيط · String</span>
+            </div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; background: #f4f8ef; border-radius: 14px; padding: 12px 6px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3f7d4f" stroke-width="1.7"><path d="M3 21l4-1L20 7l-3-3L4 17l-1 4Z"/></svg>
+              <span style="font-size: 11px; font-weight: 700;">قلم · Marker</span>
+            </div>
+          </div>
+          <div class="disp" style="font-size: 15px; font-weight: 700; color: #2c5c39;">الخطوات · Steps</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <div class="disp" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: #3f7d4f; color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center;">١</div>
+              <div style="width: 96px; height: 60px; flex-shrink: 0; border-radius: 10px; background: #2c5c39; display: flex; align-items: center; justify-content: center;">
+                <svg width="60" height="44" viewBox="0 0 60 44" fill="none" stroke="#bfe0ab" stroke-width="1.5"><rect x="20" y="4" width="20" height="36" rx="3"/><path d="M8 22h44" stroke-dasharray="3 3"/></svg>
+              </div>
+              <div style="font-size: 13px;">اغسل القنينة كويس · Wash the bottle</div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <div class="disp" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: #3f7d4f; color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center;">٢</div>
+              <div style="width: 96px; height: 60px; flex-shrink: 0; border-radius: 10px; background: #2c5c39; display: flex; align-items: center; justify-content: center;">
+                <svg width="60" height="44" viewBox="0 0 60 44" fill="none" stroke="#bfe0ab" stroke-width="1.5"><rect x="22" y="4" width="16" height="36" rx="3"/><path d="M14 20h32" stroke-dasharray="2 3"/><path d="M46 20l-4-3M46 20l-4 3"/></svg>
+              </div>
+              <div style="font-size: 13px;">قصّ القنينة من النص (بمساعدة كبير) · An adult cuts it in half</div>
+            </div>
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <div class="disp" style="width: 34px; height: 34px; flex-shrink: 0; border-radius: 50%; background: #3f7d4f; color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center;">٣</div>
+              <div style="width: 96px; height: 60px; flex-shrink: 0; border-radius: 10px; background: #2c5c39; display: flex; align-items: center; justify-content: center;">
+                <svg width="60" height="44" viewBox="0 0 60 44" fill="none" stroke="#bfe0ab" stroke-width="1.5"><path d="M18 40V22l12-8 12 8v18z"/><path d="M26 40V30h8v10"/></svg>
+              </div>
+              <div style="font-size: 13px;">احطّ التربة والنبتة · Add soil and the plant</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: center; background: #f2f8ec; border-radius: 16px; padding: 14px;">
+            <div style="width: 78px; height: 78px; flex-shrink: 0; border-radius: 14px; background: #fff; display: flex; align-items: center; justify-content: center;">
+              <svg width="46" height="46" viewBox="0 0 46 46" fill="none" stroke="#3f7d4f" stroke-width="1.6"><path d="M23 6 39 15v16L23 40 7 31V15z"/><path d="M23 6v34M7 15l16 9 16-9"/></svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <div class="disp" style="font-size: 14px; font-weight: 700; color: #2c5c39;">قارن مع النموذج ٣D</div>
+              <div style="font-size: 12px; color: #5c6b56;">Rotate the 3D model and compare with what you made</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

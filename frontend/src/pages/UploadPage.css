@@ -1,0 +1,102 @@
+.drop {
+  border: 3px dashed var(--dot-c);
+  border-radius: 20px;
+  background: var(--mint-soft);
+  padding: 34px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    transform 0.1s ease;
+}
+.drop--over {
+  border-color: var(--green);
+  background: var(--mint);
+  transform: scale(1.01);
+}
+.drop--has {
+  padding: 14px;
+  background: #fff;
+  border-style: solid;
+  border-color: var(--line-strong);
+}
+
+.drop__icon {
+  color: var(--green);
+}
+.drop__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--green-dark);
+}
+.drop__preview {
+  max-height: 240px;
+  width: auto;
+  border-radius: 14px;
+  object-fit: contain;
+}
+
+.drop__file {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+.drop__file-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.drop__clear {
+  background: transparent;
+  border: none;
+  color: var(--green);
+  font-weight: 700;
+  font-family: var(--font-body);
+}
+
+.hint-toggle {
+  margin-top: 16px;
+  background: transparent;
+  border: none;
+  color: var(--ink-faint);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 4px 0;
+}
+
+.hint-box {
+  margin-top: 8px;
+  background: var(--mint);
+  border-radius: var(--radius-inset);
+  padding: 12px 14px;
+}
+.hint-box code {
+  background: #fff;
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 0.85em;
+}
+.hint-input {
+  width: 100%;
+  border: 2px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: #fff;
+}
+.hint-input:focus {
+  outline: none;
+  border-color: var(--green);
+}

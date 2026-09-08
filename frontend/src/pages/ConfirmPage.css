@@ -1,0 +1,123 @@
+.cf__head {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.cf__photo {
+  width: 84px;
+  height: 108px;
+  border-radius: 14px;
+  background: var(--mint);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.cf__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cf__conf {
+  width: 160px;
+  max-width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--line);
+  overflow: hidden;
+}
+.cf__conf span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--leaf);
+}
+
+.cf__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cf__pick {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cf__pick-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.cf__sizes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.cf__sizes--all {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  max-height: 280px;
+  overflow-y: auto;
+  padding-inline-end: 4px;
+}
+
+.chip {
+  border: 2px solid var(--line-strong);
+  background: #fff;
+  border-radius: 14px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: center;
+  font-family: var(--font-body);
+  transition:
+    border-color 0.12s ease,
+    background 0.12s ease,
+    transform 0.08s ease;
+}
+.chip:hover:not(:disabled) {
+  border-color: var(--leaf);
+  background: var(--mint-soft);
+}
+.chip:active:not(:disabled) {
+  transform: translateY(2px);
+}
+.chip:disabled {
+  opacity: 0.5;
+}
+.chip__vol {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--green-dark);
+  font-size: 1rem;
+}
+.chip__label {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  line-height: 1.25;
+}
+.chip__dim {
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+}
+
+.cf__more {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: var(--green);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 2px 0;
+}

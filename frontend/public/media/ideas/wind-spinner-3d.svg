@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="hsl(12 30% 20%)"/>
+  <g fill="none" stroke="hsl(12 45% 72%)" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M320 90 470 175v170L320 430 170 345V175z"/>
+    <path d="M320 90v340M170 175l150 85 150-85"/>
+  </g>
+  <circle cx="320" cy="260" r="8" fill="hsl(12 55% 78%)"/>
+  <text x="320" y="452" text-anchor="middle" fill="hsl(12 30% 78%)" font-family="'Segoe UI',Arial,sans-serif" font-size="20">Garden wind spinner — 3D</text>
+</svg>

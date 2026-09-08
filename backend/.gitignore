@@ -1,0 +1,21 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+# local databases
+*.db
+*.db-journal
+prisma/*.db
+prisma/*.db-journal
+
+# uploaded scan images (runtime data)
+public/uploads/
+
+# env
+.env
+.env.*.local
+!.env.example
+
+# test artifacts
+tests/.tmp/
