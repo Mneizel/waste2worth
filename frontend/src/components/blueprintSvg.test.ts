@@ -38,11 +38,11 @@ describe('renderBlueprint', () => {
       expect(svg.startsWith('<svg')).toBe(true);
       expect(svg).toContain('خطوة ٣');
       expect(svg).toContain(`عنوان ${kind}`);
-      expect(svg).toContain('viewBox="0 0 520 340"');
+      expect(svg).toContain('viewBox="0 0 560 360"');
     }
   });
 
-  it('renders the measurement, tip and warning notes plus a positioned feature', () => {
+  it('renders the instruction + measurement notes plus a positioned feature', () => {
     const svg = renderBlueprint({
       kind: 'cut-around',
       stepNumber: 2,
@@ -58,9 +58,9 @@ describe('renderBlueprint', () => {
       warning: 'انتبه، القصّ للكبار.',
     });
     expect(svg).toContain('٧٫٦ سم من الغطا');
-    expect(svg).toContain('نصيحة مفيدة');
-    expect(svg).toContain('انتبه');
     expect(svg).toContain('على أكثر من سطر');
+    // the notes text sits in the right-hand column, clear of the drawing
+    expect(svg).toContain(`x="${560 - 38}"`);
   });
 
   it('handles the cap detail kind and a short-and-wide bottle', () => {
