@@ -225,3 +225,9 @@
     height: 92px;
   }
 }
+
+.gd__source {
+  margin: -8px 0 20px;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}

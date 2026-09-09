@@ -87,6 +87,7 @@ export interface IdeaStep {
 
 export interface IdeaDetail extends IdeaSummary {
   safetyNotes: string;
+  source: string;
   model3dUrl: string;
   model3dPreviewUrl: string;
   tools: IdeaTool[];

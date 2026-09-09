@@ -53,6 +53,7 @@ function ideaDetail(over: Partial<IdeaDetail> & { id: string; slug: string; titl
     thumbnailUrl: `/static/images/ideas/${over.slug}-thumb.svg`,
     finalImageUrl: `/static/images/ideas/${over.slug}-final.svg`,
     safetyNotes: 'An adult should do the cutting.',
+    source: 'test source',
     model3dUrl: `/static/models/${over.slug}.glb`,
     model3dPreviewUrl: `/static/images/ideas/${over.slug}-3d.svg`,
     variantKeys: ['v500'],

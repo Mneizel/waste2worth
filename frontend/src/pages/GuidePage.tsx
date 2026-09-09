@@ -84,6 +84,10 @@ export function GuidePage() {
         </div>
       )}
 
+      {idea.source && (
+        <p className="gd__source">الطريقة والقياسات مبنيّة على: {idea.source}</p>
+      )}
+
       <section className="gd__section">
         <h2 className="gd__h2">١ · الأدوات والمواد اللي بتحتاجها</h2>
         <div className="gd__tools">

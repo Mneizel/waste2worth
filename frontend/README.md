@@ -2,7 +2,7 @@
 
 Web client for the Waste 2 Worth flow. **React + Vite + TypeScript**, styled in the
 "Eco Playful" direction (warm paper tones, rounded cards, chunky buttons),
-Arabic-first / bilingual, RTL.
+**Arabic-only**, RTL.
 
 ## Two modes
 
@@ -27,8 +27,15 @@ npm run dev            # http://localhost:5173   (local mode — nothing else to
 `npm run build` type-checks and produces a self-contained static site in `dist/`.
 `npm run preview` serves that build.
 
-`npm run gen:data` regenerates `src/data/catalogue.ts` and the placeholder artwork
-in `public/media/` from the backend seed (only needed if the seed changes).
+### Adding / editing projects
+
+All project content — titles, steps, per-step measurements, tools, safety notes,
+which `blueprint` diagram each step uses, the source credit — lives in
+**`src/data/content.ts`** (`IDEAS_AR`). Edit it, then run `npm run gen:data` to
+regenerate `src/data/catalogue.ts`, the step blueprints and the product
+illustrations in `src/data/media.ts` / `public/media/`. Numeric bottle specs come
+from the backend seed. Swap a `-final.svg` for a real photo (same filename) and
+re-run `gen:data` to inline it.
 
 ## Builds
 
@@ -59,7 +66,7 @@ the file system.
 ## Tests
 
 ```bash
-npm test              # Vitest run (102 tests)
+npm test              # Vitest run (107 tests)
 npm run test:coverage # enforces 100% coverage (statements / branches / functions / lines)
 ```
 
@@ -82,7 +89,7 @@ npm run test:coverage # enforces 100% coverage (statements / branches / function
 
 ```
 src/
-  data/catalogue.ts   GENERATED — 24 bottle sizes + 10 ideas (with tools & steps)
+  data/catalogue.ts   GENERATED from src/data/content.ts — 24 bottle sizes + 4 detailed ideas
   lib/
     api.ts            local/remote switch + re-exports
     localApi.ts       in-browser API: bundled data + on-device recogniser

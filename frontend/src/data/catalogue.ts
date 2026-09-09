@@ -370,11 +370,12 @@ export const IDEAS: IdeaDetail[] = [
     "id": "idea-self-watering-planter",
     "slug": "self-watering-planter",
     "title": "مزهرية تسقي نفسها",
-    "summary": "حوّل القنينة لمزهرية فيها خزّان مي بالأسفل، والنبتة تشرب لحالها لمّا تحتاج.",
+    "summary": "القنينة تنقصّ نصّين: الجزء العلوي مقلوب يحمل التراب والنبتة، والسفلي خزّان مي، وفتيل قماش يوصل المي للتراب.",
     "difficulty": "easy",
     "estimatedMinutes": 20,
     "minAge": 6,
-    "safetyNotes": "القصّ يعمله شخص كبير. غطِّ الحواف المقصوصة بشريط لاصق حتى ما تجرح.",
+    "safetyNotes": "القصّ يعمله شخص كبير. غطِّ الحافة المقصوصة بشريط لاصق.",
+    "source": "الطريقة الشائعة (Red Ted Art · The Spruce Crafts · أدلة المكتبات)",
     "thumbnailUrl": "media/ideas/self-watering-planter-thumb.svg",
     "finalImageUrl": "media/ideas/self-watering-planter-final.svg",
     "model3dUrl": "",
@@ -387,7 +388,7 @@ export const IDEAS: IdeaDetail[] = [
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": "لقصّ القنينة."
+        "note": "للقصّ — بيد شخص كبير."
       },
       {
         "id": "tool-self-watering-planter-1",
@@ -401,18 +402,18 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-self-watering-planter-2",
         "kind": "material",
-        "name": "القنينة البلاستيك نظيفة",
+        "name": "قنينة بلاستيك نظيفة",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": ""
+        "note": "٥٠٠ مل حتى ٢ لتر."
       },
       {
         "id": "tool-self-watering-planter-3",
         "kind": "material",
-        "name": "خيط قطن أو رباط حذاء قديم",
+        "name": "شريط قماش قطني (من تيشيرت قديم)",
         "imageUrl": "",
-        "quantity": "١٥ سم",
+        "quantity": "٢–٣ سم عرض × ٢٥ سم طول",
         "optional": false,
         "note": ""
       },
@@ -421,7 +422,7 @@ export const IDEAS: IdeaDetail[] = [
         "kind": "material",
         "name": "تراب زراعة",
         "imageUrl": "",
-        "quantity": "حفنتين",
+        "quantity": "كوب إلى كوبين",
         "optional": false,
         "note": ""
       },
@@ -441,14 +442,14 @@ export const IDEAS: IdeaDetail[] = [
         "imageUrl": "",
         "quantity": "١",
         "optional": true,
-        "note": "لتغطية الحواف."
+        "note": "لتغطية الحافة."
       }
     ],
     "steps": [
       {
         "stepNumber": 1,
         "title": "نظّف القنينة",
-        "instruction": "شيل الورقة اللاصقة واغسل القنينة بالمي وخلّيها تنشف.",
+        "instruction": "انزع الملصق، واغسل القنينة والغطا بالمي، وخلّيها تنشف تماماً.",
         "imageUrl": "media/steps/self-watering-planter-1.svg",
         "tip": "",
         "warning": "",
@@ -456,53 +457,53 @@ export const IDEAS: IdeaDetail[] = [
       },
       {
         "stepNumber": 2,
-        "title": "علّم النص",
-        "instruction": "ارسم خط دائري حوالين القنينة بالنص بالقلم.",
+        "title": "علّم خط القصّ",
+        "instruction": "علّم خطاً دائرياً حوالين القنينة على بُعد ثلث ارتفاعها من الغطا تقريباً (قنينة ٥٠٠ مل ≈ ٧ سم من الغطا، قنينة ٢ لتر ≈ ١٥ سم).",
         "imageUrl": "media/steps/self-watering-planter-2.svg",
-        "tip": "سنّد القلم على كومة كتب ودوّر القنينة حتى يطلع الخط مستقيم.",
+        "tip": "سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيم.",
         "warning": "",
         "icon": "measure-mark"
       },
       {
         "stepNumber": 3,
-        "title": "قصّ القنينة لنصّين",
-        "instruction": "شخص كبير يقصّ على الخط، فيصير عندك جزء فوق وجزء تحت.",
+        "title": "اقصّ القنينة نصّين",
+        "instruction": "شخص كبير يقصّ على الخط بالضبط. بيصير عندك جزء علوي (بالغطا) وجزء سفلي.",
         "imageUrl": "media/steps/self-watering-planter-3.svg",
         "tip": "",
-        "warning": "هاي الخطوة للكبار بس.",
+        "warning": "القصّ للكبار بس.",
         "icon": "cut-around"
       },
       {
         "stepNumber": 4,
-        "title": "غطِّ الحواف",
-        "instruction": "حطّ شريط لاصق على الحواف المقصوصة حتى ما تكون حادّة.",
+        "title": "أمّن الحافة",
+        "instruction": "غطِّ حافة القصّ على القطعتين بشريط لاصق حتى ما تجرح.",
         "imageUrl": "media/steps/self-watering-planter-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "decorate"
+        "icon": "edge"
       },
       {
         "stepNumber": 5,
         "title": "ركّب الفتيل",
-        "instruction": "مرّر الخيط من فتحة الغطا: نصّه ينزل داخل القنينة ونصّه يتدلّى تحت.",
+        "instruction": "مرّر شريط القماش من فتحة الغطا: نصفه ينزل داخل الجزء العلوي، ونصفه يتدلّى تحت الغطا.",
         "imageUrl": "media/steps/self-watering-planter-5.svg",
-        "tip": "إذا ما في فتحة، شخص كبير يعمل ثقب صغير بالغطا.",
+        "tip": "إذا الفتحة صغيرة، افتح الغطا واعمل فيه ثقب ٥ ملّي بمسمار.",
         "warning": "",
         "icon": "thread"
       },
       {
         "stepNumber": 6,
-        "title": "اقلب الجزء العلوي",
-        "instruction": "حطّ الجزء العلوي مقلوب داخل الجزء السفلي، مثل القمع.",
+        "title": "اقلب الجزء العلوي داخل السفلي",
+        "instruction": "اقلب الجزء العلوي رأساً على عقب (الغطا للتحت) وحطّه داخل الجزء السفلي مثل القمع.",
         "imageUrl": "media/steps/self-watering-planter-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "invert"
+        "icon": "nest"
       },
       {
         "stepNumber": 7,
         "title": "حطّ التراب والنبتة",
-        "instruction": "عبّي الجزء العلوي تراب وازرع البذور أو النبتة الصغيرة.",
+        "instruction": "عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ تحت التراب، بعدين ازرع البذور أو النبتة.",
         "imageUrl": "media/steps/self-watering-planter-7.svg",
         "tip": "",
         "warning": "",
@@ -511,9 +512,9 @@ export const IDEAS: IdeaDetail[] = [
       {
         "stepNumber": 8,
         "title": "عبّي الخزّان",
-        "instruction": "صبّ مي بالجزء السفلي حتى يلمس الخيط المي. صار النبات يشرب لحاله.",
+        "instruction": "ارفع الجزء العلوي وصبّ مي بالجزء السفلي حتى يلمس المي طرف الفتيل، وبدون ما يوصل لرقبة القنينة. رجّع الجزء العلوي مكانه.",
         "imageUrl": "media/steps/self-watering-planter-8.svg",
-        "tip": "زوّد المي لمّا تشوف الخزّان فاضي.",
+        "tip": "زوّد المي كل كم يوم لمّا يقلّ.",
         "warning": "",
         "icon": "fill-water"
       }
@@ -530,12 +531,13 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-bird-feeder",
     "slug": "bird-feeder",
-    "title": "مطعم عصافير معلّق",
-    "summary": "مطعم بسيط يتعلّق بشجرة، والعصافير توصل للحَب من فتحتين صغيرتين.",
+    "title": "مطعم عصافير بالملاعق",
+    "summary": "قنينة معلّقة، تمرّ فيها ملعقتان خشب كمسند، وفوق كل ملعقة فتحة صغيرة يطلع منها الحَب لمّا يقف العصفور.",
     "difficulty": "easy",
     "estimatedMinutes": 25,
     "minAge": 7,
     "safetyNotes": "الثقوب يعملها شخص كبير. علّقه بمكان بعيد عن القطط.",
+    "source": "طريقة الملاعق الخشبية الشائعة (Instructables)",
     "thumbnailUrl": "media/ideas/bird-feeder-thumb.svg",
     "finalImageUrl": "media/ideas/bird-feeder-final.svg",
     "model3dUrl": "",
@@ -544,20 +546,20 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-bird-feeder-0",
         "kind": "tool",
-        "name": "مقص أو سكين ورق",
+        "name": "سكين ورق",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": ""
+        "note": "للثقوب — بيد شخص كبير."
       },
       {
         "id": "tool-bird-feeder-1",
         "kind": "tool",
-        "name": "قلم رصاص",
+        "name": "قلم تحديد",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": "لعمل ثقوب المسند."
+        "note": ""
       },
       {
         "id": "tool-bird-feeder-2",
@@ -566,12 +568,12 @@ export const IDEAS: IdeaDetail[] = [
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": ""
+        "note": "١ لتر حتى ٢ لتر."
       },
       {
         "id": "tool-bird-feeder-3",
         "kind": "material",
-        "name": "ملعقتين خشب أو عودين",
+        "name": "ملعقتان خشب طويلتان",
         "imageUrl": "",
         "quantity": "٢",
         "optional": false,
@@ -580,7 +582,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-bird-feeder-4",
         "kind": "material",
-        "name": "خيط",
+        "name": "خيط أو دوبارة",
         "imageUrl": "",
         "quantity": "٤٠ سم",
         "optional": false,
@@ -600,7 +602,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "stepNumber": 1,
         "title": "نظّف القنينة ونشّفها",
-        "instruction": "اغسل القنينة والغطا، شيل الورقة اللاصقة، وخلّيها تنشف تماماً.",
+        "instruction": "اغسل القنينة والغطا، انزع الملصق، وخلّيها تنشف تماماً.",
         "imageUrl": "media/steps/bird-feeder-1.svg",
         "tip": "",
         "warning": "",
@@ -608,8 +610,8 @@ export const IDEAS: IdeaDetail[] = [
       },
       {
         "stepNumber": 2,
-        "title": "علّم ثقبين قرب القاع",
-        "instruction": "ارسم دائرة صغيرة على كل جهة من القنينة، قريب من القاع.",
+        "title": "علّم مكان الملعقة الأولى",
+        "instruction": "على جهتين متقابلتين، علّم نقطتين على ارتفاع ٥ سم من قاع القنينة.",
         "imageUrl": "media/steps/bird-feeder-2.svg",
         "tip": "",
         "warning": "",
@@ -617,17 +619,17 @@ export const IDEAS: IdeaDetail[] = [
       },
       {
         "stepNumber": 3,
-        "title": "اعمل الثقوب",
-        "instruction": "شخص كبير يقصّ الثقبين مكان ما علّمت.",
+        "title": "مرّر الملعقة الأولى",
+        "instruction": "شخص كبير يعمل ثقبين صغيرين مكان العلامتين، ثم مرّر ملعقة الخشب حتى تطلع من الجهتين بالتساوي.",
         "imageUrl": "media/steps/bird-feeder-3.svg",
         "tip": "",
-        "warning": "القصّ للكبار بس.",
-        "icon": "holes-body"
+        "warning": "الثقوب للكبار بس.",
+        "icon": "insert-rod"
       },
       {
         "stepNumber": 4,
-        "title": "مرّر المسند",
-        "instruction": "دخّل ملعقة الخشب من الثقبين حتى تطلع من الجهتين ليقف عليها العصفور.",
+        "title": "مرّر الملعقة الثانية",
+        "instruction": "علّم ثقبين آخرين على ارتفاع ٣ سم فوق الأولى وبزاوية ربع دورة (متقاطعة معها)، ومرّر الملعقة الثانية.",
         "imageUrl": "media/steps/bird-feeder-4.svg",
         "tip": "",
         "warning": "",
@@ -635,26 +637,26 @@ export const IDEAS: IdeaDetail[] = [
       },
       {
         "stepNumber": 5,
-        "title": "ضيف مسند ثاني أعلى",
-        "instruction": "اعمل ثقبين آخرين أعلى، بزاوية ربع دورة، ومرّر الملعقة الثانية.",
+        "title": "افتح منافذ الحَب",
+        "instruction": "فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة صغيرة قطرها ١ سم تقريباً ليخرج منها الحَب.",
         "imageUrl": "media/steps/bird-feeder-5.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "insert-rod"
-      },
-      {
-        "stepNumber": 6,
-        "title": "افتح منافذ الأكل",
-        "instruction": "فوق كل مسند بقليل، اقصّ فتحة صغيرة بحجم قطعة نقود ليخرج منها الحَب.",
-        "imageUrl": "media/steps/bird-feeder-6.svg",
         "tip": "",
         "warning": "",
         "icon": "cut-window"
       },
       {
+        "stepNumber": 6,
+        "title": "اعمل معلاقة",
+        "instruction": "اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر الخيط، واعمل عروة.",
+        "imageUrl": "media/steps/bird-feeder-6.svg",
+        "tip": "",
+        "warning": "",
+        "icon": "hang"
+      },
+      {
         "stepNumber": 7,
         "title": "عبّي الحَب",
-        "instruction": "صبّ حَب العصافير جوّا القنينة من فوق وسكّر الغطا.",
+        "instruction": "صبّ حَب العصافير جوّا القنينة من فوق، وسكّر الغطا.",
         "imageUrl": "media/steps/bird-feeder-7.svg",
         "tip": "",
         "warning": "",
@@ -663,153 +665,31 @@ export const IDEAS: IdeaDetail[] = [
       {
         "stepNumber": 8,
         "title": "علّقه",
-        "instruction": "اربط الخيط حوالين رقبة القنينة وعلّقه بغصن شجرة.",
+        "instruction": "علّق المطعم بغصن شجرة، بمكان تقدر تشوفه من الشبّاك وبعيد عن القطط.",
         "imageUrl": "media/steps/bird-feeder-8.svg",
-        "tip": "علّقه مكان تقدر تشوفه من الشبّاك.",
+        "tip": "",
         "warning": "",
         "icon": "hang"
       }
     ],
     "variantKeys": [
-      "pet-water-500ml",
-      "pet-water-600ml",
       "pet-water-1000ml",
+      "pet-oil-1000ml",
       "pet-water-1500ml",
-      "pet-soda-2000ml"
-    ]
-  },
-  {
-    "id": "idea-pen-pot-organizer",
-    "slug": "pen-pot-organizer",
-    "title": "علبة أقلام للمكتب",
-    "summary": "علبة سريعة للأقلام والمقص، من قاع القنينة.",
-    "difficulty": "easy",
-    "estimatedMinutes": 15,
-    "minAge": 6,
-    "safetyNotes": "القصّ يعمله شخص كبير. غطِّ الحافة بشريط أو اطوِها للخارج.",
-    "thumbnailUrl": "media/ideas/pen-pot-organizer-thumb.svg",
-    "finalImageUrl": "media/ideas/pen-pot-organizer-final.svg",
-    "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/pen-pot-organizer-3d.svg",
-    "tools": [
-      {
-        "id": "tool-pen-pot-organizer-0",
-        "kind": "tool",
-        "name": "مقص أو سكين ورق",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-pen-pot-organizer-1",
-        "kind": "tool",
-        "name": "قلم تحديد",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-pen-pot-organizer-2",
-        "kind": "material",
-        "name": "القنينة البلاستيك نظيفة",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-pen-pot-organizer-3",
-        "kind": "material",
-        "name": "شريط ملوّن أو دهان",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": true,
-        "note": "للتزيين."
-      }
-    ],
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title": "نظّف القنينة",
-        "instruction": "اغسل القنينة، شيل الورقة، ونشّفها.",
-        "imageUrl": "media/steps/pen-pot-organizer-1.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "clean"
-      },
-      {
-        "stepNumber": 2,
-        "title": "اختَر الارتفاع",
-        "instruction": "قرّر شو ارتفاع العلبة. حوالي ١٠ سم مناسب للأقلام.",
-        "imageUrl": "media/steps/pen-pot-organizer-2.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "measure-mark"
-      },
-      {
-        "stepNumber": 3,
-        "title": "ارسم خط القصّ",
-        "instruction": "ارسم خط دائري حوالين القنينة عند هذا الارتفاع.",
-        "imageUrl": "media/steps/pen-pot-organizer-3.svg",
-        "tip": "دوّر القنينة على قلم ثابت ليطلع الخط منظّم.",
-        "warning": "",
-        "icon": "measure-mark"
-      },
-      {
-        "stepNumber": 4,
-        "title": "اقصّ الجزء العلوي",
-        "instruction": "شخص كبير يقصّ على الخط. احتفظ بالجزء السفلي.",
-        "imageUrl": "media/steps/pen-pot-organizer-4.svg",
-        "tip": "",
-        "warning": "القصّ للكبار بس.",
-        "icon": "cut-around"
-      },
-      {
-        "stepNumber": 5,
-        "title": "أمّن الحافة",
-        "instruction": "اطوِ الحافة المقصوصة للخارج أو غطّيها بشريط لاصق.",
-        "imageUrl": "media/steps/pen-pot-organizer-5.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "decorate"
-      },
-      {
-        "stepNumber": 6,
-        "title": "زيّنها",
-        "instruction": "لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.",
-        "imageUrl": "media/steps/pen-pot-organizer-6.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "decorate"
-      },
-      {
-        "stepNumber": 7,
-        "title": "عبّيها",
-        "instruction": "وقّف أقلامك جوّاها.",
-        "imageUrl": "media/steps/pen-pot-organizer-7.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "stand"
-      }
-    ],
-    "variantKeys": [
-      "pet-water-500ml",
-      "pet-water-600ml",
-      "pet-sports-750ml",
-      "pet-water-1000ml"
+      "pet-soda-2000ml",
+      "pet-juice-1000ml"
     ]
   },
   {
     "id": "idea-coin-bank",
     "slug": "coin-bank",
     "title": "حصّالة نقود",
-    "summary": "حصّالة شفّافة. تنزّل القروش من شقّ قرب الغطا وتشوفها تتجمّع.",
+    "summary": "قنينة كاملة فيها شقّ ضيّق على جنبها تنزّل منه القروش، وتفرّغها بفتح الغطا.",
     "difficulty": "easy",
-    "estimatedMinutes": 20,
+    "estimatedMinutes": 15,
     "minAge": 6,
     "safetyNotes": "شقّ النقود يعمله شخص كبير.",
+    "source": "الطريقة الشائعة (NOAA · All Free Crafts)",
     "thumbnailUrl": "media/ideas/coin-bank-thumb.svg",
     "finalImageUrl": "media/ideas/coin-bank-final.svg",
     "model3dUrl": "",
@@ -822,7 +702,7 @@ export const IDEAS: IdeaDetail[] = [
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": "لشقّ النقود."
+        "note": "للشقّ — بيد شخص كبير."
       },
       {
         "id": "tool-coin-bank-1",
@@ -845,7 +725,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-coin-bank-3",
         "kind": "material",
-        "name": "ورق ولاصق، أو دهان",
+        "name": "ورق ملوّن ولاصق، أو دهان",
         "imageUrl": "",
         "quantity": "١",
         "optional": true,
@@ -856,7 +736,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "stepNumber": 1,
         "title": "نظّف القنينة ونشّفها",
-        "instruction": "اغسل القنينة والغطا، شيل الورقة، ونشّفها.",
+        "instruction": "اغسل القنينة والغطا، انزع الملصق، ونشّفها. خلّي الغطا مسكّراً.",
         "imageUrl": "media/steps/coin-bank-1.svg",
         "tip": "",
         "warning": "",
@@ -864,54 +744,45 @@ export const IDEAS: IdeaDetail[] = [
       },
       {
         "stepNumber": 2,
-        "title": "خلّي القنينة كاملة",
-        "instruction": "ما رح تقصّها نصّين. خلّي الغطا مكانه.",
+        "title": "علّم الشقّ",
+        "instruction": "ضع القنينة على جنبها. على الجهة اللي لفوق، علّم مستطيلاً رفيعاً: طوله ٣ سم وعرضه ٣–٤ ملّي (أطول شوي من أكبر قرش عندك).",
         "imageUrl": "media/steps/coin-bank-2.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "generic"
-      },
-      {
-        "stepNumber": 3,
-        "title": "علّم شقّ النقود",
-        "instruction": "على كتف القنينة، ارسم مستطيل رفيع أطول شوي من أكبر قرش عندك.",
-        "imageUrl": "media/steps/coin-bank-3.svg",
         "tip": "",
         "warning": "",
         "icon": "measure-mark"
       },
       {
-        "stepNumber": 4,
+        "stepNumber": 3,
         "title": "اقصّ الشقّ",
-        "instruction": "شخص كبير يقصّ على المستطيل ليصير شقّ.",
-        "imageUrl": "media/steps/coin-bank-4.svg",
+        "instruction": "شخص كبير يقصّ على المستطيل بسكين الورق ليصير شقّاً.",
+        "imageUrl": "media/steps/coin-bank-3.svg",
         "tip": "",
         "warning": "القصّ للكبار بس.",
         "icon": "cut-window"
       },
       {
-        "stepNumber": 5,
-        "title": "جرّب قرش",
-        "instruction": "جرّب تدخّل قرش. كبّر الشقّ شوي إذا كان ضيّق.",
-        "imageUrl": "media/steps/coin-bank-5.svg",
+        "stepNumber": 4,
+        "title": "جرّب قرشاً",
+        "instruction": "جرّب تدخّل أكبر قرش من الشقّ. إذا كان ضيّقاً، وسّعه ١–٢ ملّي فقط.",
+        "imageUrl": "media/steps/coin-bank-4.svg",
         "tip": "",
         "warning": "",
         "icon": "generic"
       },
       {
-        "stepNumber": 6,
+        "stepNumber": 5,
         "title": "زيّنها",
-        "instruction": "لفّ القنينة بورق أو ادهنها. خلّي الشقّ مكشوف.",
-        "imageUrl": "media/steps/coin-bank-6.svg",
+        "instruction": "لفّ القنينة بورق ملوّن أو ادهنها، وخلّي الشقّ مكشوفاً.",
+        "imageUrl": "media/steps/coin-bank-5.svg",
         "tip": "",
         "warning": "",
         "icon": "decorate"
       },
       {
-        "stepNumber": 7,
+        "stepNumber": 6,
         "title": "ابدأ توفّر",
-        "instruction": "نزّل القروش من الشقّ. لتفريغها، افتح الغطا بس.",
-        "imageUrl": "media/steps/coin-bank-7.svg",
+        "instruction": "نزّل القروش من الشقّ. لتفريغها، افتح الغطا فقط.",
+        "imageUrl": "media/steps/coin-bank-6.svg",
         "tip": "",
         "warning": "",
         "icon": "stand"
@@ -921,750 +792,104 @@ export const IDEAS: IdeaDetail[] = [
       "pet-water-500ml",
       "pet-water-600ml",
       "pet-water-1000ml",
-      "pet-water-1500ml"
-    ]
-  },
-  {
-    "id": "idea-watering-can",
-    "slug": "watering-can",
-    "title": "رشّاشة نباتات صغيرة",
-    "summary": "اثقب الغطا ثقوب صغيرة، وتصير القنينة رشّاشة لطيفة للنباتات.",
-    "difficulty": "easy",
-    "estimatedMinutes": 10,
-    "minAge": 6,
-    "safetyNotes": "الثقوب يعملها شخص كبير بمسمار أو دبّوس سميك.",
-    "thumbnailUrl": "media/ideas/watering-can-thumb.svg",
-    "finalImageUrl": "media/ideas/watering-can-final.svg",
-    "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/watering-can-3d.svg",
-    "tools": [
-      {
-        "id": "tool-watering-can-0",
-        "kind": "tool",
-        "name": "مسمار أو دبّوس سميك",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": "لعمل الثقوب."
-      },
-      {
-        "id": "tool-watering-can-1",
-        "kind": "tool",
-        "name": "شاكوش",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": true,
-        "note": "لدقّ المسمار."
-      },
-      {
-        "id": "tool-watering-can-2",
-        "kind": "material",
-        "name": "قنينة نظيفة مع غطاها",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      }
-    ],
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title": "نظّف القنينة",
-        "instruction": "اغسل القنينة والغطا منيح، خصوصاً إذا كانت لعصير أو حليب.",
-        "imageUrl": "media/steps/watering-can-1.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "clean"
-      },
-      {
-        "stepNumber": 2,
-        "title": "شيل الغطا",
-        "instruction": "فكّ الغطا وحطّه على لوح خشب.",
-        "imageUrl": "media/steps/watering-can-2.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "holes-cap"
-      },
-      {
-        "stepNumber": 3,
-        "title": "اعمل الثقوب",
-        "instruction": "شخص كبير يدقّ المسمار بالغطا من ٨ إلى ١٢ مرة ليعمل ثقوب صغيرة.",
-        "imageUrl": "media/steps/watering-can-3.svg",
-        "tip": "",
-        "warning": "للكبار بس.",
-        "icon": "holes-cap"
-      },
-      {
-        "stepNumber": 4,
-        "title": "عبّي مي",
-        "instruction": "عبّي القنينة مي من الحنفيّة.",
-        "imageUrl": "media/steps/watering-can-4.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "fill-water"
-      },
-      {
-        "stepNumber": 5,
-        "title": "رجّع الغطا",
-        "instruction": "سكّر الغطا المثقوب على القنينة المليانة.",
-        "imageUrl": "media/steps/watering-can-5.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "holes-cap"
-      },
-      {
-        "stepNumber": 6,
-        "title": "اسقِ نباتاتك",
-        "instruction": "اقلب القنينة فوق النبات واعصرها بهدوء. المي يطلع مثل الشتا الخفيف.",
-        "imageUrl": "media/steps/watering-can-6.svg",
-        "tip": "فكّ الغطا شوي إذا بدك تدفق أسرع.",
-        "warning": "",
-        "icon": "generic"
-      }
-    ],
-    "variantKeys": [
-      "pet-water-1000ml",
       "pet-water-1500ml",
-      "pet-soda-2000ml",
-      "pet-juice-1000ml"
+      "pet-oil-1000ml"
     ]
   },
   {
-    "id": "idea-drip-irrigation-spike",
-    "slug": "drip-irrigation-spike",
-    "title": "سقّاية تنقيط بطيئة",
-    "summary": "قنينة مقلوبة مغروزة بالتراب تسقي نبتة وحدة بالتنقيط لأيام.",
+    "id": "idea-pen-pot-organizer",
+    "slug": "pen-pot-organizer",
+    "title": "علبة أقلام للمكتب",
+    "summary": "قاع القنينة ينقصّ ليصير علبة تحمل الأقلام والمقص على المكتب.",
     "difficulty": "easy",
-    "estimatedMinutes": 10,
-    "minAge": 7,
-    "safetyNotes": "الثقوب يعملها شخص كبير.",
-    "thumbnailUrl": "media/ideas/drip-irrigation-spike-thumb.svg",
-    "finalImageUrl": "media/ideas/drip-irrigation-spike-final.svg",
+    "estimatedMinutes": 15,
+    "minAge": 6,
+    "safetyNotes": "القصّ يعمله شخص كبير. أمّن الحافة بطيّها للخارج أو بشريط.",
+    "source": "الطريقة الشائعة (wikiHow · The Spruce Crafts)",
+    "thumbnailUrl": "media/ideas/pen-pot-organizer-thumb.svg",
+    "finalImageUrl": "media/ideas/pen-pot-organizer-final.svg",
     "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/drip-irrigation-spike-3d.svg",
+    "model3dPreviewUrl": "media/ideas/pen-pot-organizer-3d.svg",
     "tools": [
       {
-        "id": "tool-drip-irrigation-spike-0",
+        "id": "tool-pen-pot-organizer-0",
         "kind": "tool",
-        "name": "مسمار رفيع أو دبّوس",
+        "name": "مقص أو سكين ورق",
+        "imageUrl": "",
+        "quantity": "١",
+        "optional": false,
+        "note": "للقصّ — بيد شخص كبير."
+      },
+      {
+        "id": "tool-pen-pot-organizer-1",
+        "kind": "tool",
+        "name": "قلم تحديد",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
-        "id": "tool-drip-irrigation-spike-1",
+        "id": "tool-pen-pot-organizer-2",
         "kind": "material",
-        "name": "قنينة نظيفة مع غطاها",
+        "name": "قنينة بلاستيك نظيفة",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": ""
-      }
-    ],
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title": "نظّف القنينة",
-        "instruction": "اغسل القنينة والغطا وشيل الورقة اللاصقة.",
-        "imageUrl": "media/steps/drip-irrigation-spike-1.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "clean"
+        "note": "٥٠٠ مل حتى ١ لتر."
       },
       {
-        "stepNumber": 2,
-        "title": "ثقوب صغيرة بالغطا",
-        "instruction": "شخص كبير يعمل من ٢ إلى ٤ ثقوب صغيرة جداً بالغطا.",
-        "imageUrl": "media/steps/drip-irrigation-spike-2.svg",
-        "tip": "",
-        "warning": "للكبار بس.",
-        "icon": "holes-cap"
-      },
-      {
-        "stepNumber": 3,
-        "title": "ثقب قرب القاع",
-        "instruction": "اعمل ثقب صغير بقاع القنينة ليدخل الهوا.",
-        "imageUrl": "media/steps/drip-irrigation-spike-3.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "holes-body"
-      },
-      {
-        "stepNumber": 4,
-        "title": "عبّي مي",
-        "instruction": "عبّي القنينة مي وسكّر الغطا.",
-        "imageUrl": "media/steps/drip-irrigation-spike-4.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "fill-water"
-      },
-      {
-        "stepNumber": 5,
-        "title": "اغرزها بالتراب",
-        "instruction": "اقلب القنينة وادفع طرف الغطا بالتراب جنب نبتتك.",
-        "imageUrl": "media/steps/drip-irrigation-spike-5.svg",
-        "tip": "اكبس التراب حوالينها حتى تقف.",
-        "warning": "",
-        "icon": "invert"
-      },
-      {
-        "stepNumber": 6,
-        "title": "خلّيها تشتغل",
-        "instruction": "المي بينقّط ببطء خلال أيام. عبّيها لمّا تفضى.",
-        "imageUrl": "media/steps/drip-irrigation-spike-6.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "generic"
-      }
-    ],
-    "variantKeys": [
-      "pet-water-500ml",
-      "pet-water-600ml",
-      "pet-water-1000ml",
-      "pet-water-1500ml"
-    ]
-  },
-  {
-    "id": "idea-kids-bowling-set",
-    "slug": "kids-bowling-set",
-    "title": "طقم بولينغ من القناني",
-    "summary": "ست قناني تصير قوارير بولينغ. حطّ فيها شوي مي حتى تثبت واضربها بكرة.",
-    "difficulty": "easy",
-    "estimatedMinutes": 30,
-    "minAge": 5,
-    "safetyNotes": "خلّي الأغطية محكمة حتى ما تسكب مي. العب بعيد عن الدرج.",
-    "thumbnailUrl": "media/ideas/kids-bowling-set-thumb.svg",
-    "finalImageUrl": "media/ideas/kids-bowling-set-final.svg",
-    "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/kids-bowling-set-3d.svg",
-    "tools": [
-      {
-        "id": "tool-kids-bowling-set-0",
-        "kind": "material",
-        "name": "قناني نظيفة مع أغطية",
-        "imageUrl": "",
-        "quantity": "٦",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-kids-bowling-set-1",
-        "kind": "material",
-        "name": "كرة صغيرة طريّة",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-kids-bowling-set-2",
+        "id": "tool-pen-pot-organizer-3",
         "kind": "material",
         "name": "شريط ملوّن أو دهان",
         "imageUrl": "",
         "quantity": "١",
         "optional": true,
         "note": ""
-      },
-      {
-        "id": "tool-kids-bowling-set-3",
-        "kind": "material",
-        "name": "مي أو رمل",
-        "imageUrl": "",
-        "quantity": "شوي",
-        "optional": false,
-        "note": "للثقل."
-      }
-    ],
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title": "نظّف ست قناني",
-        "instruction": "اغسل ست قناني وأغطيتها وشيل الورق اللاصق.",
-        "imageUrl": "media/steps/kids-bowling-set-1.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "clean"
-      },
-      {
-        "stepNumber": 2,
-        "title": "ضيف ثقل بسيط",
-        "instruction": "حطّ كم سنتيمتر مي أو رمل ناشف بكل قنينة حتى ما تقع بسهولة.",
-        "imageUrl": "media/steps/kids-bowling-set-2.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "fill-water"
-      },
-      {
-        "stepNumber": 3,
-        "title": "سكّرها محكم",
-        "instruction": "سكّر كل غطا منيح. تأكّد ما في تسريب.",
-        "imageUrl": "media/steps/kids-bowling-set-3.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "holes-cap"
-      },
-      {
-        "stepNumber": 4,
-        "title": "زيّن القوارير",
-        "instruction": "لفّ كل قنينة بشريط ملوّن أو اكتب عليها أرقام.",
-        "imageUrl": "media/steps/kids-bowling-set-4.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "decorate"
-      },
-      {
-        "stepNumber": 5,
-        "title": "رتّبها مثلث",
-        "instruction": "وقّف القناني بشكل مثلث: وحدة قدّام، بعدين ثنتين، بعدين ثلاثة.",
-        "imageUrl": "media/steps/kids-bowling-set-5.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "stand"
-      },
-      {
-        "stepNumber": 6,
-        "title": "دحرج الكرة",
-        "instruction": "ارجع كم خطوة ودحرج الكرة حتى توقّع القوارير.",
-        "imageUrl": "media/steps/kids-bowling-set-6.svg",
-        "tip": "عُدّ كم قارورة وقّعت كل دور.",
-        "warning": "",
-        "icon": "generic"
-      }
-    ],
-    "variantKeys": [
-      "pet-water-500ml",
-      "pet-water-600ml",
-      "pet-softdrink-330ml"
-    ]
-  },
-  {
-    "id": "idea-wind-spinner",
-    "slug": "wind-spinner",
-    "title": "دوّارة رياح للحديقة",
-    "summary": "اقصّ زعانف بالقنينة حتى تدور وتلمع لمّا تهبّ الريح.",
-    "difficulty": "medium",
-    "estimatedMinutes": 35,
-    "minAge": 8,
-    "safetyNotes": "كل القصّ يعمله شخص كبير. زوايا الزعانف حادّة — قصّها مدوّرة.",
-    "thumbnailUrl": "media/ideas/wind-spinner-thumb.svg",
-    "finalImageUrl": "media/ideas/wind-spinner-final.svg",
-    "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/wind-spinner-3d.svg",
-    "tools": [
-      {
-        "id": "tool-wind-spinner-0",
-        "kind": "tool",
-        "name": "سكين ورق",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-wind-spinner-1",
-        "kind": "tool",
-        "name": "مقص",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-wind-spinner-2",
-        "kind": "tool",
-        "name": "قلم تحديد",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-wind-spinner-3",
-        "kind": "material",
-        "name": "قنينة نظيفة مع غطاها",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-wind-spinner-4",
-        "kind": "material",
-        "name": "خيط",
-        "imageUrl": "",
-        "quantity": "٣٠ سم",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-wind-spinner-5",
-        "kind": "material",
-        "name": "ملصقات عاكسة أو دهان",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": true,
-        "note": ""
       }
     ],
     "steps": [
       {
         "stepNumber": 1,
         "title": "نظّف القنينة",
-        "instruction": "اغسل القنينة ونشّفها. خلّي الغطا مكانه.",
-        "imageUrl": "media/steps/wind-spinner-1.svg",
+        "instruction": "اغسل القنينة، انزع الملصق، ونشّفها.",
+        "imageUrl": "media/steps/pen-pot-organizer-1.svg",
         "tip": "",
         "warning": "",
         "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "ارسم خطوط الزعانف",
-        "instruction": "ارسم من ٦ إلى ٨ خطوط مستقيمة بطول الجزء الأوسط من القنينة، متباعدة بالتساوي.",
-        "imageUrl": "media/steps/wind-spinner-2.svg",
-        "tip": "",
+        "title": "حدّد الارتفاع",
+        "instruction": "حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على ارتفاع = طول القلم ناقص ٢ سم (عادةً ١٠ إلى ١٣ سم من القاع).",
+        "imageUrl": "media/steps/pen-pot-organizer-2.svg",
+        "tip": "دوّر القنينة على قلم ثابت ليطلع الخط منظّماً.",
         "warning": "",
         "icon": "measure-mark"
       },
       {
         "stepNumber": 3,
-        "title": "اقصّ الزعانف",
-        "instruction": "شخص كبير يقصّ على كل خط، بالجزء الأوسط بس، مش الطرفين.",
-        "imageUrl": "media/steps/wind-spinner-3.svg",
+        "title": "اقصّ الجزء العلوي",
+        "instruction": "شخص كبير يقصّ على الخط بالضبط. احتفظ بالجزء السفلي.",
+        "imageUrl": "media/steps/pen-pot-organizer-3.svg",
         "tip": "",
         "warning": "القصّ للكبار بس.",
-        "icon": "twist-fins"
+        "icon": "cut-around"
       },
       {
         "stepNumber": 4,
-        "title": "لوِّ الزعانف",
-        "instruction": "ادفع أعلى وأسفل القنينة لبعض بهدوء ولفّ شوي حتى تنثني الزعانف للخارج.",
-        "imageUrl": "media/steps/wind-spinner-4.svg",
+        "title": "أمّن الحافة",
+        "instruction": "اطوِ الحافة المقصوصة للخارج، أو غطّيها بشريط لاصق.",
+        "imageUrl": "media/steps/pen-pot-organizer-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "twist-fins"
+        "icon": "edge"
       },
       {
         "stepNumber": 5,
-        "title": "دوّر الزوايا",
-        "instruction": "قصّ الزوايا الحادّة من كل زعنفة بالمقص.",
-        "imageUrl": "media/steps/wind-spinner-5.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "decorate"
-      },
-      {
-        "stepNumber": 6,
-        "title": "زيّنها",
-        "instruction": "حطّ ملصقات عاكسة أو دهان حتى تعكس الضو.",
-        "imageUrl": "media/steps/wind-spinner-6.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "decorate"
-      },
-      {
-        "stepNumber": 7,
-        "title": "اعمل معلاقة",
-        "instruction": "شخص كبير يعمل ثقب صغير بالقاع. مرّر الخيط واعمل عروة.",
-        "imageUrl": "media/steps/wind-spinner-7.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "hang"
-      },
-      {
-        "stepNumber": 8,
-        "title": "علّقها برّا",
-        "instruction": "علّق الدوّارة بغصن أو خطّاف مكان توصله الريح.",
-        "imageUrl": "media/steps/wind-spinner-8.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "hang"
-      }
-    ],
-    "variantKeys": [
-      "pet-water-500ml",
-      "pet-water-600ml",
-      "pet-sports-750ml"
-    ]
-  },
-  {
-    "id": "idea-vertical-herb-garden",
-    "slug": "vertical-herb-garden",
-    "title": "حديقة أعشاب معلّقة",
-    "summary": "قناني ممدّدة على جنبها ومعلّقة بصفّ تصير حديقة حائط صغيرة للأعشاب.",
-    "difficulty": "medium",
-    "estimatedMinutes": 40,
-    "minAge": 9,
-    "safetyNotes": "الفتحات والثقوب يعملها شخص كبير. علّقها على خطّاف قوي.",
-    "thumbnailUrl": "media/ideas/vertical-herb-garden-thumb.svg",
-    "finalImageUrl": "media/ideas/vertical-herb-garden-final.svg",
-    "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/vertical-herb-garden-3d.svg",
-    "tools": [
-      {
-        "id": "tool-vertical-herb-garden-0",
-        "kind": "tool",
-        "name": "سكين ورق",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-vertical-herb-garden-1",
-        "kind": "tool",
-        "name": "قلم تحديد",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-vertical-herb-garden-2",
-        "kind": "tool",
-        "name": "مسمار",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": "لثقوب التصريف والحبل."
-      },
-      {
-        "id": "tool-vertical-herb-garden-3",
-        "kind": "material",
-        "name": "قناني نظيفة مع أغطية",
-        "imageUrl": "",
-        "quantity": "٣",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-vertical-herb-garden-4",
-        "kind": "material",
-        "name": "حبل أو دوبارة قوية",
-        "imageUrl": "",
-        "quantity": "٢ متر",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-vertical-herb-garden-5",
-        "kind": "material",
-        "name": "تراب زراعة",
-        "imageUrl": "",
-        "quantity": "٣ حفنات",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-vertical-herb-garden-6",
-        "kind": "material",
-        "name": "شتلات أعشاب أو بذور",
-        "imageUrl": "",
-        "quantity": "٣",
-        "optional": false,
-        "note": ""
-      }
-    ],
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title": "نظّف القناني",
-        "instruction": "اغسل ثلاث قناني وأغطيتها وشيل الورق اللاصق.",
-        "imageUrl": "media/steps/vertical-herb-garden-1.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "clean"
-      },
-      {
-        "stepNumber": 2,
-        "title": "مدّد القنينة على جنبها",
-        "instruction": "حطّ الغطا ومدّد القنينة. جهة الغطا رح تكون للجنب لمّا تتعلّق.",
-        "imageUrl": "media/steps/vertical-herb-garden-2.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "generic"
-      },
-      {
-        "stepNumber": 3,
-        "title": "ارسم فتحة طويلة",
-        "instruction": "على الجهة اللي لفوق، ارسم مستطيل كبير، وخلّي طرفي القنينة بدون قصّ.",
-        "imageUrl": "media/steps/vertical-herb-garden-3.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "measure-mark"
-      },
-      {
-        "stepNumber": 4,
-        "title": "اقصّ الفتحة",
-        "instruction": "شخص كبير يقصّ المستطيل. من هون يدخل التراب والنبتة.",
-        "imageUrl": "media/steps/vertical-herb-garden-4.svg",
-        "tip": "",
-        "warning": "القصّ للكبار بس.",
-        "icon": "cut-window"
-      },
-      {
-        "stepNumber": 5,
-        "title": "ثقوب تصريف",
-        "instruction": "اعمل ٣ أو ٤ ثقوب صغيرة على الجهة المقابلة ليخرج المي الزايد.",
-        "imageUrl": "media/steps/vertical-herb-garden-5.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "holes-body"
-      },
-      {
-        "stepNumber": 6,
-        "title": "ثقوب الحبل",
-        "instruction": "قرب كل طرف من القنينة، اعمل ثقبين ليمرّ منهم الحبل.",
-        "imageUrl": "media/steps/vertical-herb-garden-6.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "holes-body"
-      },
-      {
-        "stepNumber": 7,
-        "title": "مرّر الحبل",
-        "instruction": "مرّر الحبل من ثقوب أطراف القناني الثلاثة حتى تتعلّق فوق بعض مع فراغات.",
-        "imageUrl": "media/steps/vertical-herb-garden-7.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "thread"
-      },
-      {
-        "stepNumber": 8,
-        "title": "عبّي وازرع",
-        "instruction": "ضيف تراب من الفتحة وازرع عشبة وحدة بكل قنينة.",
-        "imageUrl": "media/steps/vertical-herb-garden-8.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "fill-soil"
-      },
-      {
-        "stepNumber": 9,
-        "title": "علّق واسقِ",
-        "instruction": "علّق الحبل على خطّاف قوي بمكان مشمس واسقِ برفق.",
-        "imageUrl": "media/steps/vertical-herb-garden-9.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "hang"
-      }
-    ],
-    "variantKeys": [
-      "pet-water-1500ml",
-      "pet-soda-2000ml",
-      "pet-juice-1000ml"
-    ]
-  },
-  {
-    "id": "idea-phone-charging-holder",
-    "slug": "phone-charging-holder",
-    "title": "حامل شحن للجوّال",
-    "summary": "رفّ صغير يتعلّق على مقبس الكهربا ويمسك الجوّال وهو يشحن.",
-    "difficulty": "medium",
-    "estimatedMinutes": 25,
-    "minAge": 9,
-    "safetyNotes": "القصّ يعمله شخص كبير. خلّي الحامل بعيد عن المي والحرارة.",
-    "thumbnailUrl": "media/ideas/phone-charging-holder-thumb.svg",
-    "finalImageUrl": "media/ideas/phone-charging-holder-final.svg",
-    "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/phone-charging-holder-3d.svg",
-    "tools": [
-      {
-        "id": "tool-phone-charging-holder-0",
-        "kind": "tool",
-        "name": "سكين ورق",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-phone-charging-holder-1",
-        "kind": "tool",
-        "name": "مقص",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-phone-charging-holder-2",
-        "kind": "tool",
-        "name": "قلم تحديد",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-phone-charging-holder-3",
-        "kind": "material",
-        "name": "القنينة البلاستيك نظيفة",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": false,
-        "note": ""
-      },
-      {
-        "id": "tool-phone-charging-holder-4",
-        "kind": "material",
-        "name": "ورق صنفرة أو مبرد أظافر",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": true,
-        "note": "لتنعيم الحواف."
-      },
-      {
-        "id": "tool-phone-charging-holder-5",
-        "kind": "material",
-        "name": "شريط ملوّن",
-        "imageUrl": "",
-        "quantity": "١",
-        "optional": true,
-        "note": ""
-      }
-    ],
-    "steps": [
-      {
-        "stepNumber": 1,
-        "title": "نظّف القنينة ونشّفها",
-        "instruction": "اغسل القنينة منيح ونشّفها. شيل الورقة اللاصقة.",
-        "imageUrl": "media/steps/phone-charging-holder-1.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "clean"
-      },
-      {
-        "stepNumber": 2,
-        "title": "علّم الشكل",
-        "instruction": "ارسم على جنب القنينة شكل له ظهر عالي وجيب أمامي منخفض، مثل صينية الرسائل.",
-        "imageUrl": "media/steps/phone-charging-holder-2.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "measure-mark"
-      },
-      {
-        "stepNumber": 3,
-        "title": "اقصّ الحامل",
-        "instruction": "شخص كبير يقصّ على الخط حتى يصير عندك جيب مفتوح مع ظهر عالي.",
-        "imageUrl": "media/steps/phone-charging-holder-3.svg",
-        "tip": "",
-        "warning": "القصّ للكبار بس.",
-        "icon": "cut-window"
-      },
-      {
-        "stepNumber": 4,
-        "title": "نعّم الحواف",
-        "instruction": "افرك الحواف المقصوصة بورق الصنفرة أو غطّيها بشريط.",
-        "imageUrl": "media/steps/phone-charging-holder-4.svg",
-        "tip": "",
-        "warning": "",
-        "icon": "decorate"
-      },
-      {
-        "stepNumber": 5,
-        "title": "اعمل فتحة للقابس",
-        "instruction": "بالظهر العالي، اقصّ فتحة تكفّي ليمرّ منها قابس الشاحن.",
-        "imageUrl": "media/steps/phone-charging-holder-5.svg",
+        "title": "ثقب تصريف (اختياري)",
+        "instruction": "إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج المي.",
+        "imageUrl": "media/steps/pen-pot-organizer-5.svg",
         "tip": "",
         "warning": "",
         "icon": "holes-body"
@@ -1672,26 +897,28 @@ export const IDEAS: IdeaDetail[] = [
       {
         "stepNumber": 6,
         "title": "زيّنها",
-        "instruction": "لفّ الحامل بشريط ملوّن أو ارسم عليه.",
-        "imageUrl": "media/steps/phone-charging-holder-6.svg",
+        "instruction": "لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.",
+        "imageUrl": "media/steps/pen-pot-organizer-6.svg",
         "tip": "",
         "warning": "",
         "icon": "decorate"
       },
       {
         "stepNumber": 7,
-        "title": "علّقه على الشاحن",
-        "instruction": "مرّر قابس الشاحن من الفتحة وحطّه بالمقبس. سنّد الجوّال بالجيب.",
-        "imageUrl": "media/steps/phone-charging-holder-7.svg",
-        "tip": "تأكّد إنه الجوّال قاعد بدون ما يشدّ السلك.",
+        "title": "استعملها",
+        "instruction": "وقّف أقلامك وأدواتك جوّاها على المكتب.",
+        "imageUrl": "media/steps/pen-pot-organizer-7.svg",
+        "tip": "",
         "warning": "",
         "icon": "stand"
       }
     ],
     "variantKeys": [
+      "pet-water-500ml",
+      "pet-water-600ml",
+      "pet-sports-750ml",
       "pet-water-1000ml",
-      "pet-oil-1000ml",
-      "hdpe-milk-1000ml"
+      "pet-oil-1000ml"
     ]
   }
 ];

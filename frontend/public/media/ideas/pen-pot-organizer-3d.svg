@@ -1,16 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="0.4" y2="1">
-    <stop offset="0" stop-color="hsl(205 22% 22%)"/><stop offset="1" stop-color="hsl(205 24% 15%)"/></linearGradient></defs>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="hsl(32 22% 22%)"/><stop offset="1" stop-color="hsl(32 24% 15%)"/></linearGradient>
+    <pattern id="soil" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="hsl(32 40% 82%)"/><circle cx="9" cy="8" r="1.5" fill="hsl(32 40% 82%)"/></pattern>
+  </defs>
   <rect width="640" height="480" fill="url(#g)"/>
-  <ellipse cx="320" cy="392" rx="150" ry="26" fill="rgba(0,0,0,0.16)"/>
-  <g fill="none" stroke="hsl(205 45% 76%)" stroke-width="7" stroke-linejoin="round">
-    <path d="M270 150h100v34l28 46v150q0 20 -20 20H262q-20 0 -20 -20V230l28 -46z"/>
-    <path d="M244 250h152"/>
-    <path d="M300 150c0 -26 40 -26 40 0"/>
-  </g>
-  <g fill="none" stroke="hsl(205 45% 76%)" stroke-width="6" stroke-linecap="round">
-    <path d="M320 150c-6 -34 -34 -44 -58 -46c4 34 26 46 58 46z"/>
-    <path d="M320 150c6 -30 30 -40 52 -42c-4 30 -22 42 -52 42z"/>
-  </g>
-  <text x="320" y="446" fill="hsl(205 30% 82%)" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle" direction="rtl">علبة أقلام للمكتب</text>
+  <ellipse cx="320" cy="392" rx="160" ry="24" fill="rgba(0,0,0,0.14)"/>
+  <g stroke-linecap="round">
+    <path d="M250 250h140v96q0 18 -18 18H268q-18 0 -18 -18z" fill="none" stroke="hsl(32 40% 82%)" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M250 250q35 -16 70 0t70 0" fill="none" stroke="hsl(32 40% 82%)" stroke-width="7"/>
+    <g stroke-width="9" stroke-linecap="round">
+      <path d="M276 250l-12 -84" stroke="hsl(32 60% 74%)"/>
+      <path d="M304 250l6 -104" stroke="hsl(32 40% 82%)"/>
+      <path d="M330 250l-2 -70" stroke="#3f8f57"/>
+      <path d="M356 250l16 -96" stroke="hsl(32 60% 74%)"/>
+    </g>
+    <circle cx="264" cy="164" r="6" fill="hsl(32 60% 74%)"/><circle cx="372" cy="152" r="6" fill="hsl(32 60% 74%)"/></g>
+  
 </svg>

@@ -225,9 +225,9 @@ describe('localApi errors', () => {
     await expect(api.selectIdea(confirmed.id, 'ghost')).rejects.toMatchObject({
       status: 404,
     });
-    // vertical-herb-garden exists but does not apply to a 500 ml bottle
+    // bird-feeder exists but is only for 1 L+ bottles, not a 500 ml one
     await expect(
-      api.selectIdea(confirmed.id, 'vertical-herb-garden'),
+      api.selectIdea(confirmed.id, 'bird-feeder'),
     ).rejects.toMatchObject({ status: 422 });
   });
 

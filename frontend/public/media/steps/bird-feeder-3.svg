@@ -23,32 +23,34 @@
   <text x="384" y="21" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="12" fill="#5fb499" text-anchor="start" direction="rtl">مخطط عمل — Waste 2 Worth</text>
 
     <g fill="none" stroke="#a7e8cf" stroke-width="2.4" stroke-linejoin="round">
-    <rect x="136.4" y="55" width="27.200000000000003" height="11.549999999999999" rx="2"/>
-    <line x1="139.4" y1="57" x2="139.4" y2="64.55" stroke="#a7e8cf" stroke-width="1.2"/><line x1="144.70000000000002" y1="57" x2="144.70000000000002" y2="64.55" stroke="#a7e8cf" stroke-width="1.2"/><line x1="150" y1="57" x2="150" y2="64.55" stroke="#a7e8cf" stroke-width="1.2"/><line x1="155.3" y1="57" x2="155.3" y2="64.55" stroke="#a7e8cf" stroke-width="1.2"/><line x1="160.60000000000002" y1="57" x2="160.60000000000002" y2="64.55" stroke="#a7e8cf" stroke-width="1.2"/>
-    <path d="M136.4 66.55 v4.950000000000001
-      C 136.4 81.4, 110 79.42, 110 91.3
-      v128.7
-      q0 12.8 12.8 12.8
-      h54.4
-      q12.8 0 12.8 -12.8
-      v-128.7
-      C 190 79.42, 163.6 81.4, 163.6 71.5
-      v-4.950000000000001 z"/>
-    <path d="M110 99.02199999999999 h80" stroke="#5fb499" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <rect x="181.04" y="52" width="29.92" height="11.76" rx="2"/>
+    <line x1="184.04" y1="54" x2="184.04" y2="61.76" stroke="#a7e8cf" stroke-width="1.2"/><line x1="190.01999999999998" y1="54" x2="190.01999999999998" y2="61.76" stroke="#a7e8cf" stroke-width="1.2"/><line x1="196" y1="54" x2="196" y2="61.76" stroke="#a7e8cf" stroke-width="1.2"/><line x1="201.98" y1="54" x2="201.98" y2="61.76" stroke="#a7e8cf" stroke-width="1.2"/><line x1="207.95999999999998" y1="54" x2="207.95999999999998" y2="61.76" stroke="#a7e8cf" stroke-width="1.2"/>
+    <path d="M181.04 63.76 v5.040000000000001
+      C 181.04 78.88, 152 76.864, 152 88.96
+      v131.04
+      q0 14.08 14.08 14.08
+      h59.84
+      q14.08 0 14.08 -14.08
+      v-131.04
+      C 240 76.864, 210.96 78.88, 210.96 68.8
+      v-5.040000000000001 z"/>
+    <path d="M152 96.82239999999999 h88" stroke="#5fb499" stroke-width="1.2" stroke-dasharray="3 3"/>
     
   </g>
-    <g stroke="#ffd98a" stroke-width="1.8"><circle cx="120" cy="175" r="4.5" fill="none"/><path d="M112 175h16M120 167v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="180" cy="175" r="4.5" fill="none"/><path d="M172 175h16M180 167v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="150" cy="120" r="4.5" fill="none"/><path d="M142 120h16M150 112v16"/></g>
-    <g transform="translate(250 120) rotate(25)" fill="none" stroke="#ffd98a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M-6 -10h12l-3 6h-6z"/><path d="M0 -4v18"/><path d="M-4 16l4 4l4 -4" stroke-dasharray="0"/></g>
-    <path d="M244 128l-40 40" stroke="#a7e8cf" stroke-width="1.4" fill="none" marker-end="url(#ah)"/>
+    <line x1="116" y1="150" x2="288" y2="150" stroke="#ffd98a" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="116" cy="150" r="6" fill="none" stroke="#ffd98a" stroke-width="2"/>
+    <circle cx="288" cy="150" r="6" fill="none" stroke="#ffd98a" stroke-width="2"/>
+    <path d="M110 150h-1" stroke="#a7e8cf" stroke-width="1.6" fill="none"/>
+    <path d="M320 150h-26" stroke="#a7e8cf" stroke-width="1.6" fill="none" marker-end="url(#ah)"/>
     <g>
-    <rect x="161" y="187" width="169" height="26" rx="6" fill="#0b2a23" fill-opacity="0.86" stroke="#ffd98a" stroke-width="1"/>
-    <circle cx="322" cy="200" r="3" fill="#ffd98a"/>
-    <text x="314" y="205" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="14" fill="#ffd98a" text-anchor="start" direction="rtl">اثقب عند العلامات</text>
+    <rect x="117" y="183" width="223" height="26" rx="6" fill="#0b2a23" fill-opacity="0.86" stroke="#ffd98a" stroke-width="1"/>
+    <circle cx="332" cy="196" r="3" fill="#ffd98a"/>
+    <text x="324" y="201" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="14" fill="#ffd98a" text-anchor="start" direction="rtl">مرّر الملعقة من الثقبين</text>
   </g>
   
   <g>
     <rect x="14" y="246" width="60" height="22" rx="4" fill="#ffd98a"/>
     <text x="44" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="13" font-weight="700" fill="#0b2a23" text-anchor="middle">خطوة ٣</text>
-    <text x="380" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="15" fill="#dcf4ea" text-anchor="start" direction="rtl">اعمل الثقوب</text>
+    <text x="380" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="15" fill="#dcf4ea" text-anchor="start" direction="rtl">مرّر الملعقة الأولى</text>
   </g>
 </svg>
