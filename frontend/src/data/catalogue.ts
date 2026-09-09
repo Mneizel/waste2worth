@@ -450,7 +450,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 1,
         "title": "نظّف القنينة",
         "instruction": "انزع الملصق، واغسل القنينة والغطا بالماء، وخلّيها تنشف تماماً.",
-        "blueprint": "clean",
+        "op": "clean",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -459,7 +459,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 2,
         "title": "علّم خط القصّ",
         "instruction": "بالمسطرة، علّم خطاً دائرياً حوالين القنينة عند الارتفاع المبيّن بالمخطّط.",
-        "blueprint": "measure-mark",
+        "op": "mark-cut",
         "measure": "planter-cut",
         "tip": "سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيماً.",
         "warning": ""
@@ -468,7 +468,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 3,
         "title": "اقصّ القنينة نصّين",
         "instruction": "شخص كبير يقصّ على الخط بالضبط. بيصير جزء علوي (بالغطا) وجزء سفلي.",
-        "blueprint": "cut-around",
+        "op": "cut",
         "measure": "planter-cut",
         "tip": "",
         "warning": "القصّ للكبار بس."
@@ -477,7 +477,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 4,
         "title": "أمّن الحافة",
         "instruction": "غطِّ حافة القصّ على القطعتين بشريط لاصق حتى ما تجرح.",
-        "blueprint": "edge",
+        "op": "seal-edge",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -486,7 +486,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 5,
         "title": "ركّب الفتيل",
         "instruction": "اقصّ شريط القماش بالمقاس المبيّن، ومرّره من فتحة الغطا: نصفه داخل الجزء العلوي، ونصفه متدلٍّ تحت.",
-        "blueprint": "thread",
+        "op": "wick",
         "measure": "planter-wick",
         "tip": "إذا الفتحة صغيرة، افتح الغطا واعمل فيه ثقب ٥ ملّي بمسمار.",
         "warning": ""
@@ -495,7 +495,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 6,
         "title": "اقلب الجزء العلوي داخل السفلي",
         "instruction": "اقلب الجزء العلوي رأساً على عقب (الغطا للتحت) وحطّه داخل الجزء السفلي مثل القمع.",
-        "blueprint": "nest",
+        "op": "nest",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -504,7 +504,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 7,
         "title": "حطّ التراب والنبتة",
         "instruction": "عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ، بعدين ازرع البذور أو النبتة.",
-        "blueprint": "fill-soil",
+        "op": "fill-soil",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -513,7 +513,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 8,
         "title": "عبّي الخزّان",
         "instruction": "ارفع الجزء العلوي وصبّ الماء في الجزء السفلي حتى الارتفاع المبيّن، بعدين رجّع الجزء العلوي مكانه.",
-        "blueprint": "fill-water",
+        "op": "fill-water",
         "measure": "planter-fill",
         "tip": "زوّد الماء كل كم يوم لمّا يقلّ.",
         "warning": ""
@@ -603,7 +603,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 1,
         "title": "نظّف القنينة ونشّفها",
         "instruction": "اغسل القنينة والغطا، انزع الملصق، وخلّيها تنشف تماماً.",
-        "blueprint": "clean",
+        "op": "clean",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -612,7 +612,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 2,
         "title": "علّم مكان الملعقة الأولى",
         "instruction": "على جهتين متقابلتين، علّم نقطتين على الارتفاع المبيّن بالمخطّط.",
-        "blueprint": "holes-body",
+        "op": "mark-holes",
         "measure": "feeder-perch1",
         "tip": "",
         "warning": ""
@@ -621,7 +621,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 3,
         "title": "مرّر الملعقة الأولى",
         "instruction": "شخص كبير يعمل ثقبين صغيرين مكان العلامتين، ثم مرّر ملعقة الخشب حتى تطلع من الجهتين بالتساوي.",
-        "blueprint": "insert-rod",
+        "op": "rod",
         "measure": "feeder-perch1",
         "tip": "",
         "warning": "الثقوب للكبار بس."
@@ -630,7 +630,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 4,
         "title": "مرّر الملعقة الثانية",
         "instruction": "علّم ثقبين آخرين فوق الأولى بالمسافة المبيّنة وبزاوية ربع دورة، ومرّر الملعقة الثانية.",
-        "blueprint": "insert-rod",
+        "op": "rod",
         "measure": "feeder-perch2",
         "tip": "",
         "warning": ""
@@ -639,7 +639,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 5,
         "title": "افتح منافذ الحَب",
         "instruction": "فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة بالقياس المبيّن ليخرج منها الحَب.",
-        "blueprint": "cut-window",
+        "op": "window",
         "measure": "feeder-opening",
         "tip": "",
         "warning": ""
@@ -648,7 +648,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 6,
         "title": "اعمل معلاقة",
         "instruction": "اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر خيط ٤٠ سم، واعمل عروة.",
-        "blueprint": "hang",
+        "op": "hanger",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -657,7 +657,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 7,
         "title": "عبّي الحَب",
         "instruction": "صبّ حَب العصافير جوّا القنينة من فوق، وسكّر الغطا.",
-        "blueprint": "fill-soil",
+        "op": "fill-seed",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -666,7 +666,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 8,
         "title": "علّقه",
         "instruction": "علّق المطعم بغصن شجرة، بمكان تقدر تشوفه من الشبّاك وبعيد عن القطط.",
-        "blueprint": "hang",
+        "op": "use-hang",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -737,7 +737,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 1,
         "title": "نظّف القنينة ونشّفها",
         "instruction": "اغسل القنينة والغطا، انزع الملصق، ونشّفها. خلّي الغطا مسكّراً.",
-        "blueprint": "clean",
+        "op": "clean",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -746,7 +746,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 2,
         "title": "علّم الشقّ",
         "instruction": "ضع القنينة على جنبها، وعلّم مستطيلاً رفيعاً على الجهة اللي لفوق بالمقاس المبيّن.",
-        "blueprint": "measure-mark",
+        "op": "mark-slot",
         "measure": "bank-slot",
         "tip": "",
         "warning": ""
@@ -755,7 +755,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 3,
         "title": "اقصّ الشقّ",
         "instruction": "شخص كبير يقصّ على المستطيل بسكين الورق ليصير شقّاً.",
-        "blueprint": "cut-window",
+        "op": "slot",
         "measure": "bank-slot",
         "tip": "",
         "warning": "القصّ للكبار بس."
@@ -764,7 +764,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 4,
         "title": "جرّب قرشاً",
         "instruction": "جرّب تدخّل أكبر قرش من الشقّ. إذا كان ضيّقاً، وسّعه ١–٢ ملّي فقط.",
-        "blueprint": "generic",
+        "op": "coin-test",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -773,7 +773,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 5,
         "title": "زيّنها",
         "instruction": "لفّ القنينة بورق ملوّن أو ادهنها، وخلّي الشقّ مكشوفاً.",
-        "blueprint": "decorate",
+        "op": "decorate",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -782,7 +782,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 6,
         "title": "ابدأ توفّر",
         "instruction": "نزّل القروش من الشقّ. لتفريغها، افتح الغطا فقط.",
-        "blueprint": "stand",
+        "op": "use-coins",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -853,7 +853,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 1,
         "title": "نظّف القنينة",
         "instruction": "اغسل القنينة، انزع الملصق، ونشّفها.",
-        "blueprint": "clean",
+        "op": "clean",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -862,7 +862,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 2,
         "title": "حدّد الارتفاع",
         "instruction": "حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على الارتفاع المبيّن بالمخطّط.",
-        "blueprint": "measure-mark",
+        "op": "mark-cut",
         "measure": "pen-height",
         "tip": "دوّر القنينة على قلم ثابت ليطلع الخط منظّماً.",
         "warning": ""
@@ -871,7 +871,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 3,
         "title": "اقصّ الجزء العلوي",
         "instruction": "شخص كبير يقصّ على الخط بالضبط. احتفظ بالجزء السفلي.",
-        "blueprint": "cut-around",
+        "op": "cut-bottom",
         "measure": "pen-height",
         "tip": "",
         "warning": "القصّ للكبار بس."
@@ -880,7 +880,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 4,
         "title": "أمّن الحافة",
         "instruction": "اطوِ الحافة المقصوصة للخارج، أو غطّيها بشريط لاصق.",
-        "blueprint": "edge",
+        "op": "seal-edge",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -889,7 +889,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 5,
         "title": "ثقب تصريف (اختياري)",
         "instruction": "إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج الماء.",
-        "blueprint": "holes-body",
+        "op": "base-hole",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -898,7 +898,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 6,
         "title": "زيّنها",
         "instruction": "لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.",
-        "blueprint": "decorate",
+        "op": "decorate",
         "measure": "",
         "tip": "",
         "warning": ""
@@ -907,7 +907,7 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 7,
         "title": "استعملها",
         "instruction": "وقّف أقلامك وأدواتك جوّاها على المكتب.",
-        "blueprint": "stand",
+        "op": "use-pens",
         "measure": "",
         "tip": "",
         "warning": ""

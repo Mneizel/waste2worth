@@ -7,26 +7,8 @@
 // follow the widely-published versions (Instructables, Red Ted Art,
 // The Spruce Crafts, library/museum guides). Wording and diagrams are our own.
 
+import type { BpOp } from '../components/blueprintSvg';
 import type { MeasureId } from './measure';
-
-export type BlueprintKind =
-  | 'clean'
-  | 'measure-mark'
-  | 'cut-around'
-  | 'cut-window'
-  | 'edge'
-  | 'holes-body'
-  | 'holes-cap'
-  | 'thread'
-  | 'insert-rod'
-  | 'invert'
-  | 'nest'
-  | 'fill-soil'
-  | 'fill-water'
-  | 'decorate'
-  | 'hang'
-  | 'stand'
-  | 'generic';
 
 export interface ContentTool {
   kind: 'tool' | 'material';
@@ -39,7 +21,8 @@ export interface ContentTool {
 export interface ContentStep {
   title: string;
   instruction: string;
-  blueprint: BlueprintKind;
+  /** operation this step performs on the workpiece (drives the runtime blueprint) */
+  op: BpOp;
   /** if set, the exact measurement is computed from the confirmed bottle */
   measure?: MeasureId;
   tip?: string;
@@ -112,14 +95,14 @@ export const IDEAS_AR: ContentIdea[] = [
       { kind: 'material', name: 'شريط لاصق', optional: true, note: 'لتغطية الحافة.' },
     ],
     steps: [
-      { blueprint: 'clean', title: 'نظّف القنينة', instruction: 'انزع الملصق، واغسل القنينة والغطا بالماء، وخلّيها تنشف تماماً.' },
-      { blueprint: 'measure-mark', measure: 'planter-cut', title: 'علّم خط القصّ', instruction: 'بالمسطرة، علّم خطاً دائرياً حوالين القنينة عند الارتفاع المبيّن بالمخطّط.', tip: 'سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيماً.' },
-      { blueprint: 'cut-around', measure: 'planter-cut', title: 'اقصّ القنينة نصّين', instruction: 'شخص كبير يقصّ على الخط بالضبط. بيصير جزء علوي (بالغطا) وجزء سفلي.', warning: 'القصّ للكبار بس.' },
-      { blueprint: 'edge', title: 'أمّن الحافة', instruction: 'غطِّ حافة القصّ على القطعتين بشريط لاصق حتى ما تجرح.' },
-      { blueprint: 'thread', measure: 'planter-wick', title: 'ركّب الفتيل', instruction: 'اقصّ شريط القماش بالمقاس المبيّن، ومرّره من فتحة الغطا: نصفه داخل الجزء العلوي، ونصفه متدلٍّ تحت.', tip: 'إذا الفتحة صغيرة، افتح الغطا واعمل فيه ثقب ٥ ملّي بمسمار.' },
-      { blueprint: 'nest', title: 'اقلب الجزء العلوي داخل السفلي', instruction: 'اقلب الجزء العلوي رأساً على عقب (الغطا للتحت) وحطّه داخل الجزء السفلي مثل القمع.' },
-      { blueprint: 'fill-soil', title: 'حطّ التراب والنبتة', instruction: 'عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ، بعدين ازرع البذور أو النبتة.' },
-      { blueprint: 'fill-water', measure: 'planter-fill', title: 'عبّي الخزّان', instruction: 'ارفع الجزء العلوي وصبّ الماء في الجزء السفلي حتى الارتفاع المبيّن، بعدين رجّع الجزء العلوي مكانه.', tip: 'زوّد الماء كل كم يوم لمّا يقلّ.' },
+      { op: 'clean', title: 'نظّف القنينة', instruction: 'انزع الملصق، واغسل القنينة والغطا بالماء، وخلّيها تنشف تماماً.' },
+      { op: 'mark-cut', measure: 'planter-cut', title: 'علّم خط القصّ', instruction: 'بالمسطرة، علّم خطاً دائرياً حوالين القنينة عند الارتفاع المبيّن بالمخطّط.', tip: 'سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيماً.' },
+      { op: 'cut', measure: 'planter-cut', title: 'اقصّ القنينة نصّين', instruction: 'شخص كبير يقصّ على الخط بالضبط. بيصير جزء علوي (بالغطا) وجزء سفلي.', warning: 'القصّ للكبار بس.' },
+      { op: 'seal-edge', title: 'أمّن الحافة', instruction: 'غطِّ حافة القصّ على القطعتين بشريط لاصق حتى ما تجرح.' },
+      { op: 'wick', measure: 'planter-wick', title: 'ركّب الفتيل', instruction: 'اقصّ شريط القماش بالمقاس المبيّن، ومرّره من فتحة الغطا: نصفه داخل الجزء العلوي، ونصفه متدلٍّ تحت.', tip: 'إذا الفتحة صغيرة، افتح الغطا واعمل فيه ثقب ٥ ملّي بمسمار.' },
+      { op: 'nest', title: 'اقلب الجزء العلوي داخل السفلي', instruction: 'اقلب الجزء العلوي رأساً على عقب (الغطا للتحت) وحطّه داخل الجزء السفلي مثل القمع.' },
+      { op: 'fill-soil', title: 'حطّ التراب والنبتة', instruction: 'عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ، بعدين ازرع البذور أو النبتة.' },
+      { op: 'fill-water', measure: 'planter-fill', title: 'عبّي الخزّان', instruction: 'ارفع الجزء العلوي وصبّ الماء في الجزء السفلي حتى الارتفاع المبيّن، بعدين رجّع الجزء العلوي مكانه.', tip: 'زوّد الماء كل كم يوم لمّا يقلّ.' },
     ],
   },
   {
@@ -143,14 +126,14 @@ export const IDEAS_AR: ContentIdea[] = [
       { kind: 'material', name: 'حَب عصافير', quantity: 'كوب' },
     ],
     steps: [
-      { blueprint: 'clean', title: 'نظّف القنينة ونشّفها', instruction: 'اغسل القنينة والغطا، انزع الملصق، وخلّيها تنشف تماماً.' },
-      { blueprint: 'holes-body', measure: 'feeder-perch1', title: 'علّم مكان الملعقة الأولى', instruction: 'على جهتين متقابلتين، علّم نقطتين على الارتفاع المبيّن بالمخطّط.' },
-      { blueprint: 'insert-rod', measure: 'feeder-perch1', title: 'مرّر الملعقة الأولى', instruction: 'شخص كبير يعمل ثقبين صغيرين مكان العلامتين، ثم مرّر ملعقة الخشب حتى تطلع من الجهتين بالتساوي.', warning: 'الثقوب للكبار بس.' },
-      { blueprint: 'insert-rod', measure: 'feeder-perch2', title: 'مرّر الملعقة الثانية', instruction: 'علّم ثقبين آخرين فوق الأولى بالمسافة المبيّنة وبزاوية ربع دورة، ومرّر الملعقة الثانية.' },
-      { blueprint: 'cut-window', measure: 'feeder-opening', title: 'افتح منافذ الحَب', instruction: 'فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة بالقياس المبيّن ليخرج منها الحَب.' },
-      { blueprint: 'hang', title: 'اعمل معلاقة', instruction: 'اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر خيط ٤٠ سم، واعمل عروة.' },
-      { blueprint: 'fill-soil', title: 'عبّي الحَب', instruction: 'صبّ حَب العصافير جوّا القنينة من فوق، وسكّر الغطا.' },
-      { blueprint: 'hang', title: 'علّقه', instruction: 'علّق المطعم بغصن شجرة، بمكان تقدر تشوفه من الشبّاك وبعيد عن القطط.' },
+      { op: 'clean', title: 'نظّف القنينة ونشّفها', instruction: 'اغسل القنينة والغطا، انزع الملصق، وخلّيها تنشف تماماً.' },
+      { op: 'mark-holes', measure: 'feeder-perch1', title: 'علّم مكان الملعقة الأولى', instruction: 'على جهتين متقابلتين، علّم نقطتين على الارتفاع المبيّن بالمخطّط.' },
+      { op: 'rod', measure: 'feeder-perch1', title: 'مرّر الملعقة الأولى', instruction: 'شخص كبير يعمل ثقبين صغيرين مكان العلامتين، ثم مرّر ملعقة الخشب حتى تطلع من الجهتين بالتساوي.', warning: 'الثقوب للكبار بس.' },
+      { op: 'rod', measure: 'feeder-perch2', title: 'مرّر الملعقة الثانية', instruction: 'علّم ثقبين آخرين فوق الأولى بالمسافة المبيّنة وبزاوية ربع دورة، ومرّر الملعقة الثانية.' },
+      { op: 'window', measure: 'feeder-opening', title: 'افتح منافذ الحَب', instruction: 'فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة بالقياس المبيّن ليخرج منها الحَب.' },
+      { op: 'hanger', title: 'اعمل معلاقة', instruction: 'اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر خيط ٤٠ سم، واعمل عروة.' },
+      { op: 'fill-seed', title: 'عبّي الحَب', instruction: 'صبّ حَب العصافير جوّا القنينة من فوق، وسكّر الغطا.' },
+      { op: 'use-hang', title: 'علّقه', instruction: 'علّق المطعم بغصن شجرة، بمكان تقدر تشوفه من الشبّاك وبعيد عن القطط.' },
     ],
   },
   {
@@ -171,12 +154,12 @@ export const IDEAS_AR: ContentIdea[] = [
       { kind: 'material', name: 'ورق ملوّن ولاصق، أو دهان', quantity: '١', optional: true, note: 'للتزيين.' },
     ],
     steps: [
-      { blueprint: 'clean', title: 'نظّف القنينة ونشّفها', instruction: 'اغسل القنينة والغطا، انزع الملصق، ونشّفها. خلّي الغطا مسكّراً.' },
-      { blueprint: 'measure-mark', measure: 'bank-slot', title: 'علّم الشقّ', instruction: 'ضع القنينة على جنبها، وعلّم مستطيلاً رفيعاً على الجهة اللي لفوق بالمقاس المبيّن.' },
-      { blueprint: 'cut-window', measure: 'bank-slot', title: 'اقصّ الشقّ', instruction: 'شخص كبير يقصّ على المستطيل بسكين الورق ليصير شقّاً.', warning: 'القصّ للكبار بس.' },
-      { blueprint: 'generic', title: 'جرّب قرشاً', instruction: 'جرّب تدخّل أكبر قرش من الشقّ. إذا كان ضيّقاً، وسّعه ١–٢ ملّي فقط.' },
-      { blueprint: 'decorate', title: 'زيّنها', instruction: 'لفّ القنينة بورق ملوّن أو ادهنها، وخلّي الشقّ مكشوفاً.' },
-      { blueprint: 'stand', title: 'ابدأ توفّر', instruction: 'نزّل القروش من الشقّ. لتفريغها، افتح الغطا فقط.' },
+      { op: 'clean', title: 'نظّف القنينة ونشّفها', instruction: 'اغسل القنينة والغطا، انزع الملصق، ونشّفها. خلّي الغطا مسكّراً.' },
+      { op: 'mark-slot', measure: 'bank-slot', title: 'علّم الشقّ', instruction: 'ضع القنينة على جنبها، وعلّم مستطيلاً رفيعاً على الجهة اللي لفوق بالمقاس المبيّن.' },
+      { op: 'slot', measure: 'bank-slot', title: 'اقصّ الشقّ', instruction: 'شخص كبير يقصّ على المستطيل بسكين الورق ليصير شقّاً.', warning: 'القصّ للكبار بس.' },
+      { op: 'coin-test', title: 'جرّب قرشاً', instruction: 'جرّب تدخّل أكبر قرش من الشقّ. إذا كان ضيّقاً، وسّعه ١–٢ ملّي فقط.' },
+      { op: 'decorate', title: 'زيّنها', instruction: 'لفّ القنينة بورق ملوّن أو ادهنها، وخلّي الشقّ مكشوفاً.' },
+      { op: 'use-coins', title: 'ابدأ توفّر', instruction: 'نزّل القروش من الشقّ. لتفريغها، افتح الغطا فقط.' },
     ],
   },
   {
@@ -197,13 +180,13 @@ export const IDEAS_AR: ContentIdea[] = [
       { kind: 'material', name: 'شريط ملوّن أو دهان', quantity: '١', optional: true },
     ],
     steps: [
-      { blueprint: 'clean', title: 'نظّف القنينة', instruction: 'اغسل القنينة، انزع الملصق، ونشّفها.' },
-      { blueprint: 'measure-mark', measure: 'pen-height', title: 'حدّد الارتفاع', instruction: 'حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على الارتفاع المبيّن بالمخطّط.', tip: 'دوّر القنينة على قلم ثابت ليطلع الخط منظّماً.' },
-      { blueprint: 'cut-around', measure: 'pen-height', title: 'اقصّ الجزء العلوي', instruction: 'شخص كبير يقصّ على الخط بالضبط. احتفظ بالجزء السفلي.', warning: 'القصّ للكبار بس.' },
-      { blueprint: 'edge', title: 'أمّن الحافة', instruction: 'اطوِ الحافة المقصوصة للخارج، أو غطّيها بشريط لاصق.' },
-      { blueprint: 'holes-body', title: 'ثقب تصريف (اختياري)', instruction: 'إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج الماء.' },
-      { blueprint: 'decorate', title: 'زيّنها', instruction: 'لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.' },
-      { blueprint: 'stand', title: 'استعملها', instruction: 'وقّف أقلامك وأدواتك جوّاها على المكتب.' },
+      { op: 'clean', title: 'نظّف القنينة', instruction: 'اغسل القنينة، انزع الملصق، ونشّفها.' },
+      { op: 'mark-cut', measure: 'pen-height', title: 'حدّد الارتفاع', instruction: 'حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على الارتفاع المبيّن بالمخطّط.', tip: 'دوّر القنينة على قلم ثابت ليطلع الخط منظّماً.' },
+      { op: 'cut-bottom', measure: 'pen-height', title: 'اقصّ الجزء العلوي', instruction: 'شخص كبير يقصّ على الخط بالضبط. احتفظ بالجزء السفلي.', warning: 'القصّ للكبار بس.' },
+      { op: 'seal-edge', title: 'أمّن الحافة', instruction: 'اطوِ الحافة المقصوصة للخارج، أو غطّيها بشريط لاصق.' },
+      { op: 'base-hole', title: 'ثقب تصريف (اختياري)', instruction: 'إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج الماء.' },
+      { op: 'decorate', title: 'زيّنها', instruction: 'لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.' },
+      { op: 'use-pens', title: 'استعملها', instruction: 'وقّف أقلامك وأدواتك جوّاها على المكتب.' },
     ],
   },
 ];

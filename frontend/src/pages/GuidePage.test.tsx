@@ -37,8 +37,8 @@ describe('GuidePage', () => {
     expect(screen.getByText('سهل')).toBeInTheDocument();
     expect(screen.getByText('من عمر 6+')).toBeInTheDocument();
 
-    // one runtime blueprint SVG per step (the test fixture idea has 2)
-    expect(container.querySelectorAll('.bp svg')).toHaveLength(2);
+    // one runtime blueprint SVG per step (the test fixture idea has 3)
+    expect(container.querySelectorAll('.bp svg')).toHaveLength(3);
     // step 2's cut is computed from the 210 mm test bottle -> 7.6 cm
     expect(screen.getAllByText(/٧٫٦ سم/).length).toBeGreaterThan(0);
     expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();

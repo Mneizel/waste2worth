@@ -69,17 +69,22 @@ export function compute(id: MeasureId, v: Variant): Measure {
       };
     }
     case 'feeder-perch2': {
+      const from1 = Math.max(40, H * 0.16);
       const gap = Math.max(25, D * 0.45);
       return {
         short: `${cm(gap)} سم أعلى`,
         sentence: `علّم ثقبين آخرين على ارتفاع ${cm(gap)} سم فوق الأولى وبزاوية ربع دورة (متقاطعة معها).`,
+        frac: 1 - (from1 + gap) / H,
       };
     }
     case 'feeder-opening': {
       const dia = Math.max(10, D * 0.16);
+      const from1 = Math.max(40, H * 0.16);
+      const gap = Math.max(25, D * 0.45);
       return {
         short: `قطر ${cm(dia)} سم`,
         sentence: `فوق رأس كل ملعقة، وسّع الثقب إلى فتحة قطرها ${cm(dia)} سم تقريباً ليخرج منها الحَب.`,
+        frac: 1 - (from1 + gap * 0.5) / H,
       };
     }
     case 'bank-slot':

@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { Blueprint } from '../components/Blueprint';
-import type { BlueprintKind } from '../components/blueprintSvg';
 import { Button } from '../components/Button';
 import { ErrorBanner, Loading } from '../components/Feedback';
 import { Header } from '../components/Header';
@@ -65,6 +64,13 @@ export function GuidePage() {
   const variant = scan?.confirmedVariant ?? DEFAULT_VARIANT;
   const tools = idea.tools.filter((t) => t.kind === 'tool');
   const materials = idea.tools.filter((t) => t.kind === 'material');
+
+  // The blueprint is stateful: every step needs the whole project's op list so
+  // it can draw the workpiece as it stands after all the earlier steps.
+  const stepOps = idea.steps.map((s) => s.op);
+  const stepFracs = idea.steps.map((s) =>
+    s.measure ? compute(s.measure as MeasureId, variant).frac ?? null : null,
+  );
 
   return (
     <div className="app-shell page-enter">
@@ -129,7 +135,7 @@ export function GuidePage() {
       <section className="gd__section">
         <h2 className="gd__h2">٢ · الخطوات</h2>
         <ol className="gd__steps">
-          {idea.steps.map((s) => {
+          {idea.steps.map((s, idx) => {
             const m = s.measure ? compute(s.measure as MeasureId, variant) : null;
             return (
               <li key={s.stepNumber} className="step">
@@ -137,15 +143,15 @@ export function GuidePage() {
                 <div className="step__body">
                   <div className="step__blueprint">
                     <Blueprint
-                      kind={s.blueprint as BlueprintKind}
-                      stepNumber={s.stepNumber}
+                      ops={stepOps}
+                      fracs={stepFracs}
+                      index={idx}
                       title={s.title}
                       project={idea.title}
                       variant={variant}
                       instruction={s.instruction}
                       measureSentence={m?.sentence}
                       measureShort={m?.short}
-                      frac={m?.frac}
                       tip={s.tip || undefined}
                       warning={s.warning || undefined}
                     />

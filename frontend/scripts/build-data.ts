@@ -68,7 +68,7 @@ const IDEAS: IdeaDetail[] = IDEAS_AR.map((idea) => ({
     stepNumber: i + 1,
     title: s.title,
     instruction: s.instruction,
-    blueprint: s.blueprint,
+    op: s.op,
     measure: s.measure ?? '',
     tip: s.tip ?? '',
     warning: s.warning ?? '',

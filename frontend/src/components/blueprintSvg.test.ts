@@ -1,89 +1,150 @@
 import { VARIANTS } from '../data/catalogue';
-import { renderBlueprint, type BlueprintKind } from './blueprintSvg';
+import { IDEAS_AR } from '../data/content';
+import { compute } from '../data/measure';
+import { renderBlueprint } from './blueprintSvg';
 
 const V500 = VARIANTS.find((v) => v.key === 'pet-water-500ml')!;
 const VFAT = VARIANTS.find((v) => v.key === 'pet-water-5000ml')!;
 
-const ALL: BlueprintKind[] = [
-  'clean',
-  'measure-mark',
-  'cut-around',
-  'cut-window',
-  'edge',
-  'holes-body',
-  'holes-cap',
-  'thread',
-  'insert-rod',
-  'invert',
-  'nest',
-  'fill-soil',
-  'fill-water',
-  'decorate',
-  'hang',
-  'stand',
-  'generic',
-];
+function seq(idea: (typeof IDEAS_AR)[number], variant = V500) {
+  const ops = idea.steps.map((s) => s.op);
+  const fracs = idea.steps.map((s) =>
+    s.measure ? compute(s.measure, variant).frac ?? null : null,
+  );
+  return { ops, fracs };
+}
 
-describe('renderBlueprint', () => {
-  it('draws a titled SVG sheet for every blueprint kind', () => {
-    for (const kind of ALL) {
-      const svg = renderBlueprint({
-        kind,
-        stepNumber: 3,
-        title: `عنوان ${kind}`,
-        project: 'مشروع',
-        variant: V500,
-        instruction: 'تعليمة قصيرة.',
+describe('renderBlueprint (stateful)', () => {
+  it('draws every step of every project as a titled sheet', () => {
+    for (const idea of IDEAS_AR) {
+      const { ops, fracs } = seq(idea);
+      idea.steps.forEach((s, index) => {
+        const m = s.measure ? compute(s.measure, V500) : null;
+        const svg = renderBlueprint({
+          ops,
+          fracs,
+          index,
+          title: s.title,
+          project: idea.title,
+          variant: V500,
+          instruction: s.instruction,
+          measureSentence: m?.sentence,
+          measureShort: m?.short,
+          tip: s.tip,
+          warning: s.warning,
+        });
+        expect(svg.startsWith('<svg')).toBe(true);
+        expect(svg).toContain('viewBox="0 0 640 384"');
+        expect(svg).toContain(`خطوة ${toAr(index + 1)}`);
+        expect(svg).toContain(s.title);
       });
-      expect(svg.startsWith('<svg')).toBe(true);
-      expect(svg).toContain('خطوة ٣');
-      expect(svg).toContain(`عنوان ${kind}`);
-      expect(svg).toContain('viewBox="0 0 560 360"');
     }
   });
 
-  it('renders the instruction + measurement notes plus a positioned feature', () => {
-    const svg = renderBlueprint({
-      kind: 'cut-around',
-      stepNumber: 2,
-      title: 'اقصّ',
-      project: 'مزهرية',
-      variant: V500,
-      instruction:
-        'هاي تعليمة طويلة كفاية لتتلفّ على أكثر من سطر داخل عمود الملاحظات بالمخطّط.',
-      measureSentence: 'علّم على ٧٫٦ سم من الغطا لهاي القنينة.',
-      measureShort: '٧٫٦ سم',
-      frac: 0.36,
-      tip: 'نصيحة مفيدة.',
-      warning: 'انتبه، القصّ للكبار.',
-    });
-    expect(svg).toContain('٧٫٦ سم من الغطا');
-    expect(svg).toContain('على أكثر من سطر');
-    // the notes text sits in the right-hand column, clear of the drawing
-    expect(svg).toContain(`x="${560 - 38}"`);
+  it('shows the "after this step" inset only when the shape changes', () => {
+    const planter = IDEAS_AR.find((i) => i.slug === 'self-watering-planter')!;
+    const { ops, fracs } = seq(planter);
+    const at = (index: number) =>
+      renderBlueprint({
+        ops,
+        fracs,
+        index,
+        title: planter.steps[index]!.title,
+        project: planter.title,
+        variant: V500,
+        instruction: planter.steps[index]!.instruction,
+      });
+    // step 1 (clean) changes nothing -> no inset
+    expect(at(0)).not.toContain('الشكل بعد هالخطوة');
+    // step 3 (cut) severs the bottle -> inset present
+    expect(at(2)).toContain('الشكل بعد هالخطوة');
   });
 
-  it('handles the cap detail kind and a short-and-wide bottle', () => {
-    const cap = renderBlueprint({
-      kind: 'holes-cap',
-      stepNumber: 1,
-      title: 'اثقب الغطا',
-      project: 'رشّاشة',
+  it('accumulates: a later step is drawn on the already-cut workpiece', () => {
+    const planter = IDEAS_AR.find((i) => i.slug === 'self-watering-planter')!;
+    const { ops, fracs } = seq(planter);
+    // "nest" step: the cup + funnel must already be there before the action
+    const nestIdx = ops.indexOf('nest');
+    const svg = renderBlueprint({
+      ops,
+      fracs,
+      index: nestIdx,
+      title: planter.steps[nestIdx]!.title,
+      project: planter.title,
       variant: V500,
-      instruction: 'اثقب الغطا.',
+      instruction: planter.steps[nestIdx]!.instruction,
     });
-    expect(cap.startsWith('<svg')).toBe(true);
+    // marker used by the "drop it in" arrow
+    expect(svg).toContain('url(#bh)');
+    expect(svg).toContain('مخطط عمل');
+  });
 
-    const fat = renderBlueprint({
-      kind: 'fill-water',
-      stepNumber: 4,
-      title: 'عبّي',
-      project: 'مزهرية',
+  it('renders a short-and-wide bottle (shrink-to-width branch)', () => {
+    const feeder = IDEAS_AR.find((i) => i.slug === 'bird-feeder')!;
+    const { ops, fracs } = seq(feeder, VFAT);
+    const svg = renderBlueprint({
+      ops,
+      fracs,
+      index: 3,
+      title: feeder.steps[3]!.title,
+      project: feeder.title,
       variant: VFAT,
-      instruction: 'عبّي الماء.',
+      instruction: feeder.steps[3]!.instruction,
+      measureSentence: 'جملة قياس.',
       measureShort: '٦ سم',
-      frac: 0.7,
     });
-    expect(fat).toContain('خطوة ٤');
+    expect(svg).toContain('خطوة ٤');
+    expect(svg).toContain('جملة قياس');
+  });
+
+  it('tolerates ops with no positions (fallback fracs, empty windows, skipped rod)', () => {
+    const ops = ['cut', 'cut-bottom', 'fill-water', 'rod', 'window', 'base-hole'];
+    const fracs = [null, null, null, null, null, null];
+    ops.forEach((_, index) => {
+      const svg = renderBlueprint({
+        ops,
+        fracs,
+        index,
+        title: `خطوة ${index}`,
+        project: 'اختبار',
+        variant: V500,
+        instruction: 'تعليمة.',
+      });
+      expect(svg.startsWith('<svg')).toBe(true);
+    });
+  });
+
+  it('places a window when there is a bare frac but no rods', () => {
+    const svg = renderBlueprint({
+      ops: ['window'],
+      fracs: [0.5],
+      index: 0,
+      title: 'فتحة',
+      project: 'اختبار',
+      variant: V500,
+      instruction: 'وسّع الفتحة.',
+      measureShort: '٢ سم',
+    });
+    expect(svg.startsWith('<svg')).toBe(true);
+  });
+
+  it('draws position-less actions (seal / wick / mark-slot / fill-water on a whole bottle)', () => {
+    for (const op of ['seal-edge', 'wick', 'mark-slot', 'fill-water']) {
+      const svg = renderBlueprint({
+        ops: [op],
+        fracs: [null],
+        index: 0,
+        title: `خطوة ${op}`,
+        project: 'اختبار',
+        variant: V500,
+        instruction: 'تعليمة بلا مقاس.',
+      });
+      expect(svg.startsWith('<svg')).toBe(true);
+    }
   });
 });
+
+const AR = '٠١٢٣٤٥٦٧٨٩';
+function toAr(n: number): string {
+  return String(n).replace(/\d/g, (d) => AR[Number(d)]!);
+}

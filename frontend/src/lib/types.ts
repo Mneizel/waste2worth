@@ -79,8 +79,8 @@ export interface IdeaStep {
   stepNumber: number;
   title: string;
   instruction: string;
-  /** blueprint kind, drawn at runtime */
-  blueprint: string;
+  /** operation this step performs on the workpiece (drives the runtime blueprint) */
+  op: string;
   /** MeasureId ('' if the step has no computed measurement) */
   measure: string;
   tip: string;
