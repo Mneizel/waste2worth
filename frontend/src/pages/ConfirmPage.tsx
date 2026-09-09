@@ -221,6 +221,13 @@ export function ConfirmPage() {
   );
 }
 
+const MATERIAL_AR: Record<string, string> = {
+  PET: 'بلاستيك',
+  HDPE: 'بلاستيك',
+  GLASS: 'زجاج',
+  ALUMINIUM: 'ألمنيوم',
+};
+
 function SizeChip({
   variant,
   busy,
@@ -236,7 +243,7 @@ function SizeChip({
       <span className="chip__label">{variant.label}</span>
       <span className="chip__dim">
         {Math.round(variant.heightMm / 10)}×{Math.round(variant.diameterMm / 10)} سم ·{' '}
-        {variant.materialType}
+        {MATERIAL_AR[variant.materialType] ?? variant.materialType}
       </span>
     </button>
   );

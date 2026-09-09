@@ -1,7 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
-  <text x="26" y="150" fill="hsl(140 30% 60%)" font-family="'Segoe UI',Arial,sans-serif" font-size="120" font-weight="800" opacity="0.28">2</text>
-  <g transform="translate(96 60)" fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 4h20v10l8 14v58a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5V28l8-14z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280">
+<defs>
+  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#a7e8cf"/>
+  </marker>
+  <marker id="ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#ffd98a"/>
+  </marker>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M20 0H0V20" fill="none" stroke="#123f34" stroke-width="1"/>
+  </pattern>
+  <pattern id="soil" width="9" height="9" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="#5fb499"/><circle cx="6.5" cy="6" r="1.1" fill="#5fb499"/>
+  </pattern>
+  <pattern id="water" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+    <line x1="0" y1="0" x2="0" y2="10" stroke="#5fb499" stroke-width="1"/>
+  </pattern>
+</defs>
+  <rect width="400" height="280" fill="#0b2a23"/>
+  <rect width="400" height="280" fill="url(#grid)"/>
+  <rect x="8" y="8" width="384" height="264" fill="none" stroke="#5fb499" stroke-width="1.4"/>
+  <rect x="8" y="8" width="384" height="18" fill="none" stroke="#5fb499" stroke-width="1"/>
+  <text x="384" y="21" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="12" fill="#5fb499" text-anchor="start" direction="rtl">مخطط عمل — Waste 2 Worth</text>
+
+    <circle cx="170" cy="150" r="82" fill="none" stroke="#a7e8cf" stroke-width="2.6"/>
+    <circle cx="170" cy="150" r="70" fill="none" stroke="#5fb499" stroke-width="1.2"/>
+    <line x1="240" y1="150" x2="252" y2="150" stroke="#a7e8cf" stroke-width="1.4"/><line x1="237.6148078402348" y1="168.11733315717646" x2="249.20591775570358" y2="171.2231616984067" stroke="#a7e8cf" stroke-width="1.4"/><line x1="230.62177826491072" y1="185" x2="241.01408311032398" y2="191" stroke="#a7e8cf" stroke-width="1.4"/><line x1="219.49747468305833" y1="199.49747468305833" x2="227.9827560572969" y2="207.98275605729688" stroke="#a7e8cf" stroke-width="1.4"/><line x1="205" y1="210.6217782649107" x2="211" y2="221.01408311032395" stroke="#a7e8cf" stroke-width="1.4"/><line x1="188.11733315717646" y1="217.6148078402348" x2="191.2231616984067" y2="229.20591775570358" stroke="#a7e8cf" stroke-width="1.4"/><line x1="170" y1="220" x2="170" y2="232" stroke="#a7e8cf" stroke-width="1.4"/><line x1="151.88266684282354" y1="217.6148078402348" x2="148.7768383015933" y2="229.20591775570358" stroke="#a7e8cf" stroke-width="1.4"/><line x1="135" y1="210.62177826491072" x2="129.00000000000003" y2="221.01408311032398" stroke="#a7e8cf" stroke-width="1.4"/><line x1="120.50252531694167" y1="199.49747468305833" x2="112.01724394270312" y2="207.9827560572969" stroke="#a7e8cf" stroke-width="1.4"/><line x1="109.37822173508928" y1="185" x2="98.98591688967602" y2="191" stroke="#a7e8cf" stroke-width="1.4"/><line x1="102.38519215976523" y1="168.11733315717646" x2="90.7940822442964" y2="171.22316169840673" stroke="#a7e8cf" stroke-width="1.4"/><line x1="100" y1="150" x2="88" y2="150" stroke="#a7e8cf" stroke-width="1.4"/><line x1="102.38519215976521" y1="131.88266684282357" x2="90.79408224429639" y2="128.77683830159333" stroke="#a7e8cf" stroke-width="1.4"/><line x1="109.3782217350893" y1="115" x2="98.98591688967603" y2="109" stroke="#a7e8cf" stroke-width="1.4"/><line x1="120.50252531694167" y1="100.50252531694167" x2="112.01724394270309" y2="92.01724394270312" stroke="#a7e8cf" stroke-width="1.4"/><line x1="134.99999999999997" y1="89.37822173508931" x2="128.99999999999997" y2="78.98591688967605" stroke="#a7e8cf" stroke-width="1.4"/><line x1="151.88266684282357" y1="82.38519215976523" x2="148.7768383015933" y2="70.7940822442964" stroke="#a7e8cf" stroke-width="1.4"/><line x1="170" y1="80" x2="169.99999999999997" y2="68" stroke="#a7e8cf" stroke-width="1.4"/><line x1="188.11733315717643" y1="82.38519215976521" x2="191.22316169840667" y2="70.79408224429639" stroke="#a7e8cf" stroke-width="1.4"/><line x1="205" y1="89.3782217350893" x2="211" y2="78.98591688967603" stroke="#a7e8cf" stroke-width="1.4"/><line x1="219.49747468305833" y1="100.50252531694167" x2="227.98275605729688" y2="92.01724394270309" stroke="#a7e8cf" stroke-width="1.4"/><line x1="230.6217782649107" y1="114.99999999999997" x2="241.01408311032395" y2="108.99999999999997" stroke="#a7e8cf" stroke-width="1.4"/><line x1="237.6148078402348" y1="131.88266684282354" x2="249.20591775570358" y2="128.7768383015933" stroke="#a7e8cf" stroke-width="1.4"/>
+    <g stroke="#ffd98a" stroke-width="1.8"><circle cx="150" cy="128" r="4.5" fill="none"/><path d="M142 128h16M150 120v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="190" cy="128" r="4.5" fill="none"/><path d="M182 128h16M190 120v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="150" cy="172" r="4.5" fill="none"/><path d="M142 172h16M150 164v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="190" cy="172" r="4.5" fill="none"/><path d="M182 172h16M190 164v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="170" cy="150" r="4.5" fill="none"/><path d="M162 150h16M170 142v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="130" cy="150" r="4.5" fill="none"/><path d="M122 150h16M130 142v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="210" cy="150" r="4.5" fill="none"/><path d="M202 150h16M210 142v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="170" cy="118" r="4.5" fill="none"/><path d="M162 118h16M170 110v16"/></g><g stroke="#ffd98a" stroke-width="1.8"><circle cx="170" cy="182" r="4.5" fill="none"/><path d="M162 182h16M170 174v16"/></g>
+    <g transform="translate(300 120) rotate(20)" fill="none" stroke="#ffd98a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M-6 -10h12l-3 6h-6z"/><path d="M0 -4v18"/><path d="M-4 16l4 4l4 -4" stroke-dasharray="0"/></g>
+    <g>
+    <rect x="161" y="162" width="169" height="26" rx="6" fill="#0b2a23" fill-opacity="0.86" stroke="#ffd98a" stroke-width="1"/>
+    <circle cx="322" cy="175" r="3" fill="#ffd98a"/>
+    <text x="314" y="180" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="14" fill="#ffd98a" text-anchor="start" direction="rtl">اثقب ٨ إلى ١٢ ثقب</text>
   </g>
-  <g fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="120" cy="34" r="3.4" fill="hsl(140 40% 82%)" stroke="none"/><circle cx="138" cy="34" r="3.4" fill="hsl(140 40% 82%)" stroke="none"/><circle cx="129" cy="50" r="3.4" fill="hsl(140 40% 82%)" stroke="none"/></g>
+  
+  <g>
+    <rect x="14" y="246" width="60" height="22" rx="4" fill="#ffd98a"/>
+    <text x="44" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="13" font-weight="700" fill="#0b2a23" text-anchor="middle">خطوة ٢</text>
+    <text x="380" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="15" fill="#dcf4ea" text-anchor="start" direction="rtl">ثقوب صغيرة بالغطا</text>
+  </g>
 </svg>

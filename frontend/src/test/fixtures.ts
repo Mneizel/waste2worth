@@ -26,7 +26,13 @@ export const VARIANTS: Variant[] = [
   makeVariant({ key: 'v750', volumeMl: 750, sortOrder: 5 }),
   makeVariant({ key: 'v1000', volumeMl: 1000, sortOrder: 6 }),
   makeVariant({ key: 'v1500', volumeMl: 1500, sortOrder: 7 }),
-  makeVariant({ key: 'v2000', volumeMl: 2000, sortOrder: 8, isCommon: false }),
+  makeVariant({
+    key: 'v2000',
+    volumeMl: 2000,
+    sortOrder: 8,
+    isCommon: false,
+    materialType: 'TIN',
+  }),
 ];
 
 interface SeedIdea {

@@ -136,12 +136,15 @@ export const Warning = (p: IconProps) => (
 );
 
 const iconByToolName: Array<[RegExp, (p: IconProps) => JSX.Element]> = [
-  [/scissor|مقص|knife|سكين|قص/i, Scissors],
-  [/string|lace|خيط|حبل|rope|cord/i, StringIcon],
+  [/scissor|knife|مقص|سكين|قصّ|قص\b/i, Scissors],
+  [/string|lace|rope|cord|خيط|حبل|دوبارة|رباط|فتيل/i, StringIcon],
   [/marker|pen|قلم|sharpie/i, Marker],
-  [/tape|لاصق|لزق/i, Tape],
-  [/nail|pin|مسمار|دبوس/i, Nail],
-  [/soil|تربة|seed|بذور|plant|نبت|paint|دهان|water|ماء|مياه|sand|رمل/i, Leaf],
+  [/tape|شريط|لاصق|لزق/i, Tape],
+  [/nail|pin|مسمار|دبّوس|دبوس/i, Nail],
+  [
+    /soil|seed|plant|paint|sand|water|تربة|تراب|بذور|شتل|عشب|نبت|دهان|صنفرة|رمل|ماء|مي\b/i,
+    Leaf,
+  ],
 ];
 
 export function toolIcon(name: string): (p: IconProps) => JSX.Element {

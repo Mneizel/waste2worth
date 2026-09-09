@@ -7,7 +7,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-200ml",
     "key": "pet-water-200ml",
     "categoryKey": "bottle",
-    "label": "Mini water bottle (200 ml)",
+    "label": "قنينة مياه صغيرة جداً (٢٠٠ مل)",
     "materialType": "PET",
     "volumeMl": 200,
     "heightMm": 120,
@@ -22,7 +22,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-250ml",
     "key": "pet-water-250ml",
     "categoryKey": "bottle",
-    "label": "Small water bottle (250 ml)",
+    "label": "قنينة مياه صغيرة (٢٥٠ مل)",
     "materialType": "PET",
     "volumeMl": 250,
     "heightMm": 140,
@@ -37,7 +37,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-softdrink-330ml",
     "key": "pet-softdrink-330ml",
     "categoryKey": "bottle",
-    "label": "Soft-drink bottle (330 ml)",
+    "label": "قنينة مشروب غازي (٣٣٠ مل)",
     "materialType": "PET",
     "volumeMl": 330,
     "heightMm": 150,
@@ -52,7 +52,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-softdrink-350ml",
     "key": "pet-softdrink-350ml",
     "categoryKey": "bottle",
-    "label": "Soft-drink bottle (350 ml)",
+    "label": "قنينة مشروب غازي (٣٥٠ مل)",
     "materialType": "PET",
     "volumeMl": 350,
     "heightMm": 155,
@@ -67,7 +67,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-500ml",
     "key": "pet-water-500ml",
     "categoryKey": "bottle",
-    "label": "Standard water bottle (500 ml)",
+    "label": "قنينة مياه عادية (٥٠٠ مل)",
     "materialType": "PET",
     "volumeMl": 500,
     "heightMm": 210,
@@ -82,7 +82,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-600ml",
     "key": "pet-water-600ml",
     "categoryKey": "bottle",
-    "label": "Water bottle (600 ml)",
+    "label": "قنينة مياه (٦٠٠ مل)",
     "materialType": "PET",
     "volumeMl": 600,
     "heightMm": 230,
@@ -97,7 +97,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-sports-750ml",
     "key": "pet-sports-750ml",
     "categoryKey": "bottle",
-    "label": "Sports water bottle (750 ml)",
+    "label": "قنينة مياه رياضية (٧٥٠ مل)",
     "materialType": "PET",
     "volumeMl": 750,
     "heightMm": 250,
@@ -112,7 +112,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-1000ml",
     "key": "pet-water-1000ml",
     "categoryKey": "bottle",
-    "label": "Large water bottle (1 L)",
+    "label": "قنينة مياه كبيرة (١ لتر)",
     "materialType": "PET",
     "volumeMl": 1000,
     "heightMm": 300,
@@ -127,7 +127,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-oil-1000ml",
     "key": "pet-oil-1000ml",
     "categoryKey": "bottle",
-    "label": "Cooking-oil bottle (1 L)",
+    "label": "قنينة زيت طعام (١ لتر)",
     "materialType": "PET",
     "volumeMl": 1000,
     "heightMm": 290,
@@ -142,7 +142,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-1250ml",
     "key": "pet-water-1250ml",
     "categoryKey": "bottle",
-    "label": "Water bottle (1.25 L)",
+    "label": "قنينة (١٫٢٥ لتر)",
     "materialType": "PET",
     "volumeMl": 1250,
     "heightMm": 310,
@@ -157,7 +157,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-1500ml",
     "key": "pet-water-1500ml",
     "categoryKey": "bottle",
-    "label": "Water bottle (1.5 L)",
+    "label": "قنينة مياه (١٫٥ لتر)",
     "materialType": "PET",
     "volumeMl": 1500,
     "heightMm": 320,
@@ -172,7 +172,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-soda-2000ml",
     "key": "pet-soda-2000ml",
     "categoryKey": "bottle",
-    "label": "Soda bottle (2 L)",
+    "label": "قنينة مشروب غازي (٢ لتر)",
     "materialType": "PET",
     "volumeMl": 2000,
     "heightMm": 330,
@@ -187,7 +187,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-3000ml",
     "key": "pet-water-3000ml",
     "categoryKey": "bottle",
-    "label": "Bulk water bottle (3 L)",
+    "label": "قنينة مياه كبيرة (٣ لتر)",
     "materialType": "PET",
     "volumeMl": 3000,
     "heightMm": 360,
@@ -202,7 +202,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-water-5000ml",
     "key": "pet-water-5000ml",
     "categoryKey": "bottle",
-    "label": "Bulk water bottle (5 L)",
+    "label": "قنينة مياه كبيرة (٥ لتر)",
     "materialType": "PET",
     "volumeMl": 5000,
     "heightMm": 300,
@@ -217,7 +217,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-glass-soda-250ml",
     "key": "glass-soda-250ml",
     "categoryKey": "bottle",
-    "label": "Glass soda bottle (250 ml)",
+    "label": "قنينة مشروب زجاجية (٢٥٠ مل)",
     "materialType": "GLASS",
     "volumeMl": 250,
     "heightMm": 200,
@@ -232,7 +232,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-glass-beer-330ml",
     "key": "glass-beer-330ml",
     "categoryKey": "bottle",
-    "label": "Glass beer bottle (330 ml)",
+    "label": "قنينة زجاجية (٣٣٠ مل)",
     "materialType": "GLASS",
     "volumeMl": 330,
     "heightMm": 230,
@@ -247,7 +247,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-glass-beer-500ml",
     "key": "glass-beer-500ml",
     "categoryKey": "bottle",
-    "label": "Glass beer bottle (500 ml)",
+    "label": "قنينة زجاجية (٥٠٠ مل)",
     "materialType": "GLASS",
     "volumeMl": 500,
     "heightMm": 250,
@@ -262,7 +262,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-glass-wine-750ml",
     "key": "glass-wine-750ml",
     "categoryKey": "bottle",
-    "label": "Wine bottle (750 ml)",
+    "label": "قنينة زجاجية طويلة (٧٥٠ مل)",
     "materialType": "GLASS",
     "volumeMl": 750,
     "heightMm": 300,
@@ -277,7 +277,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-glass-spirits-700ml",
     "key": "glass-spirits-700ml",
     "categoryKey": "bottle",
-    "label": "Spirits bottle (700 ml)",
+    "label": "قنينة زجاجية (٧٠٠ مل)",
     "materialType": "GLASS",
     "volumeMl": 700,
     "heightMm": 285,
@@ -292,7 +292,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-hdpe-milk-1000ml",
     "key": "hdpe-milk-1000ml",
     "categoryKey": "bottle",
-    "label": "Milk jug (1 L)",
+    "label": "عبوة حليب (١ لتر)",
     "materialType": "HDPE",
     "volumeMl": 1000,
     "heightMm": 240,
@@ -307,7 +307,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-hdpe-milk-2000ml",
     "key": "hdpe-milk-2000ml",
     "categoryKey": "bottle",
-    "label": "Milk jug (2 L)",
+    "label": "عبوة حليب (٢ لتر)",
     "materialType": "HDPE",
     "volumeMl": 2000,
     "heightMm": 270,
@@ -322,7 +322,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-hdpe-milk-3785ml",
     "key": "hdpe-milk-3785ml",
     "categoryKey": "bottle",
-    "label": "Milk jug (1 US gallon)",
+    "label": "عبوة حليب كبيرة (غالون)",
     "materialType": "HDPE",
     "volumeMl": 3785,
     "heightMm": 240,
@@ -337,7 +337,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-juice-250ml",
     "key": "pet-juice-250ml",
     "categoryKey": "bottle",
-    "label": "Juice bottle (250 ml)",
+    "label": "قنينة عصير (٢٥٠ مل)",
     "materialType": "PET",
     "volumeMl": 250,
     "heightMm": 145,
@@ -352,7 +352,7 @@ export const VARIANTS: Variant[] = [
     "id": "var-pet-juice-1000ml",
     "key": "pet-juice-1000ml",
     "categoryKey": "bottle",
-    "label": "Juice bottle (1 L)",
+    "label": "قنينة عصير (١ لتر)",
     "materialType": "PET",
     "volumeMl": 1000,
     "heightMm": 260,
@@ -369,153 +369,153 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-self-watering-planter",
     "slug": "self-watering-planter",
-    "title": "Self-watering planter",
-    "summary": "Turn a bottle into a little planter that waters itself from a water store in the base.",
+    "title": "مزهرية تسقي نفسها",
+    "summary": "حوّل القنينة لمزهرية فيها خزّان مي بالأسفل، والنبتة تشرب لحالها لمّا تحتاج.",
     "difficulty": "easy",
     "estimatedMinutes": 20,
     "minAge": 6,
-    "safetyNotes": "An adult should do the cutting. Cut edges can be sharp — cover them with tape.",
+    "safetyNotes": "القصّ يعمله شخص كبير. غطِّ الحواف المقصوصة بشريط لاصق حتى ما تجرح.",
     "thumbnailUrl": "media/ideas/self-watering-planter-thumb.svg",
     "finalImageUrl": "media/ideas/self-watering-planter-final.svg",
-    "model3dUrl": "media/models/self-watering-planter.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/self-watering-planter-3d.svg",
     "tools": [
       {
         "id": "tool-self-watering-planter-0",
         "kind": "tool",
-        "name": "Scissors or craft knife",
+        "name": "مقص أو سكين ورق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
-        "note": "For cutting the bottle."
+        "note": "لقصّ القنينة."
       },
       {
         "id": "tool-self-watering-planter-1",
         "kind": "tool",
-        "name": "Marker pen",
+        "name": "قلم تحديد",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-self-watering-planter-2",
         "kind": "material",
-        "name": "The clean plastic bottle",
+        "name": "القنينة البلاستيك نظيفة",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-self-watering-planter-3",
         "kind": "material",
-        "name": "A piece of cotton string or an old shoelace",
+        "name": "خيط قطن أو رباط حذاء قديم",
         "imageUrl": "",
-        "quantity": "15 cm",
+        "quantity": "١٥ سم",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-self-watering-planter-4",
         "kind": "material",
-        "name": "Potting soil",
+        "name": "تراب زراعة",
         "imageUrl": "",
-        "quantity": "2 handfuls",
+        "quantity": "حفنتين",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-self-watering-planter-5",
         "kind": "material",
-        "name": "A small plant or seeds",
+        "name": "نبتة صغيرة أو بذور",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-self-watering-planter-6",
         "kind": "material",
-        "name": "Sticky tape",
+        "name": "شريط لاصق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
-        "note": "To cover sharp edges."
+        "note": "لتغطية الحواف."
       }
     ],
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean the bottle",
-        "instruction": "Take off the label and wash the bottle with water. Let it dry.",
+        "title": "نظّف القنينة",
+        "instruction": "شيل الورقة اللاصقة واغسل القنينة بالمي وخلّيها تنشف.",
         "imageUrl": "media/steps/self-watering-planter-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Mark the middle",
-        "instruction": "Draw a line around the middle of the bottle with the marker.",
+        "title": "علّم النص",
+        "instruction": "ارسم خط دائري حوالين القنينة بالنص بالقلم.",
         "imageUrl": "media/steps/self-watering-planter-2.svg",
-        "tip": "Rest the marker on a stack of books and spin the bottle to get a straight line.",
+        "tip": "سنّد القلم على كومة كتب ودوّر القنينة حتى يطلع الخط مستقيم.",
         "warning": "",
-        "icon": "✏️"
+        "icon": "measure-mark"
       },
       {
         "stepNumber": 3,
-        "title": "Cut the bottle in two",
-        "instruction": "An adult cuts along the line so you have a top part and a bottom part.",
+        "title": "قصّ القنينة لنصّين",
+        "instruction": "شخص كبير يقصّ على الخط، فيصير عندك جزء فوق وجزء تحت.",
         "imageUrl": "media/steps/self-watering-planter-3.svg",
         "tip": "",
-        "warning": "Adults only for this step.",
-        "icon": "✂️"
+        "warning": "هاي الخطوة للكبار بس.",
+        "icon": "cut-around"
       },
       {
         "stepNumber": 4,
-        "title": "Cover the edges",
-        "instruction": "Put sticky tape over the cut edges so they are not sharp.",
+        "title": "غطِّ الحواف",
+        "instruction": "حطّ شريط لاصق على الحواف المقصوصة حتى ما تكون حادّة.",
         "imageUrl": "media/steps/self-watering-planter-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "🩹"
+        "icon": "decorate"
       },
       {
         "stepNumber": 5,
-        "title": "Add the wick",
-        "instruction": "Push the string through the bottle cap hole. Half hangs inside, half hangs out below.",
+        "title": "ركّب الفتيل",
+        "instruction": "مرّر الخيط من فتحة الغطا: نصّه ينزل داخل القنينة ونصّه يتدلّى تحت.",
         "imageUrl": "media/steps/self-watering-planter-5.svg",
-        "tip": "If there is no hole, an adult makes a small one in the cap.",
+        "tip": "إذا ما في فتحة، شخص كبير يعمل ثقب صغير بالغطا.",
         "warning": "",
-        "icon": "🧵"
+        "icon": "thread"
       },
       {
         "stepNumber": 6,
-        "title": "Turn the top upside down",
-        "instruction": "Put the top part upside down inside the bottom part, like a funnel.",
+        "title": "اقلب الجزء العلوي",
+        "instruction": "حطّ الجزء العلوي مقلوب داخل الجزء السفلي، مثل القمع.",
         "imageUrl": "media/steps/self-watering-planter-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔽"
+        "icon": "invert"
       },
       {
         "stepNumber": 7,
-        "title": "Add soil and plant",
-        "instruction": "Fill the top with soil and plant your seeds or small plant.",
+        "title": "حطّ التراب والنبتة",
+        "instruction": "عبّي الجزء العلوي تراب وازرع البذور أو النبتة الصغيرة.",
         "imageUrl": "media/steps/self-watering-planter-7.svg",
         "tip": "",
         "warning": "",
-        "icon": "🌱"
+        "icon": "fill-soil"
       },
       {
         "stepNumber": 8,
-        "title": "Fill the water store",
-        "instruction": "Pour water into the bottom part until the string touches it. The plant now drinks by itself.",
+        "title": "عبّي الخزّان",
+        "instruction": "صبّ مي بالجزء السفلي حتى يلمس الخيط المي. صار النبات يشرب لحاله.",
         "imageUrl": "media/steps/self-watering-planter-8.svg",
-        "tip": "Top up the water when the base looks empty.",
+        "tip": "زوّد المي لمّا تشوف الخزّان فاضي.",
         "warning": "",
-        "icon": "💧"
+        "icon": "fill-water"
       }
     ],
     "variantKeys": [
@@ -530,68 +530,68 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-bird-feeder",
     "slug": "bird-feeder",
-    "title": "Hanging bird feeder",
-    "summary": "A simple feeder that hangs from a tree and lets birds reach seeds through two small openings.",
+    "title": "مطعم عصافير معلّق",
+    "summary": "مطعم بسيط يتعلّق بشجرة، والعصافير توصل للحَب من فتحتين صغيرتين.",
     "difficulty": "easy",
     "estimatedMinutes": 25,
     "minAge": 7,
-    "safetyNotes": "An adult should make the holes. Hang it somewhere birds are safe from cats.",
+    "safetyNotes": "الثقوب يعملها شخص كبير. علّقه بمكان بعيد عن القطط.",
     "thumbnailUrl": "media/ideas/bird-feeder-thumb.svg",
     "finalImageUrl": "media/ideas/bird-feeder-final.svg",
-    "model3dUrl": "media/models/bird-feeder.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/bird-feeder-3d.svg",
     "tools": [
       {
         "id": "tool-bird-feeder-0",
         "kind": "tool",
-        "name": "Scissors or craft knife",
+        "name": "مقص أو سكين ورق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-bird-feeder-1",
         "kind": "tool",
-        "name": "A pencil",
+        "name": "قلم رصاص",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
-        "note": "To make the perch holes."
+        "note": "لعمل ثقوب المسند."
       },
       {
         "id": "tool-bird-feeder-2",
         "kind": "material",
-        "name": "The clean plastic bottle with its cap",
+        "name": "قنينة نظيفة مع غطاها",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-bird-feeder-3",
         "kind": "material",
-        "name": "Two wooden spoons or two sticks",
+        "name": "ملعقتين خشب أو عودين",
         "imageUrl": "",
-        "quantity": "2",
+        "quantity": "٢",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-bird-feeder-4",
         "kind": "material",
-        "name": "String",
+        "name": "خيط",
         "imageUrl": "",
-        "quantity": "40 cm",
+        "quantity": "٤٠ سم",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-bird-feeder-5",
         "kind": "material",
-        "name": "Bird seed",
+        "name": "حَب عصافير",
         "imageUrl": "",
-        "quantity": "1 cup",
+        "quantity": "كوب",
         "optional": false,
         "note": ""
       }
@@ -599,75 +599,75 @@ export const IDEAS: IdeaDetail[] = [
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean and dry the bottle",
-        "instruction": "Wash the bottle and lid. Take off the label. Let it dry fully.",
+        "title": "نظّف القنينة ونشّفها",
+        "instruction": "اغسل القنينة والغطا، شيل الورقة اللاصقة، وخلّيها تنشف تماماً.",
         "imageUrl": "media/steps/bird-feeder-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Mark two holes near the bottom",
-        "instruction": "Draw a small circle on each side of the bottle, near the bottom.",
+        "title": "علّم ثقبين قرب القاع",
+        "instruction": "ارسم دائرة صغيرة على كل جهة من القنينة، قريب من القاع.",
         "imageUrl": "media/steps/bird-feeder-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "⭕"
+        "icon": "holes-body"
       },
       {
         "stepNumber": 3,
-        "title": "Make the holes",
-        "instruction": "An adult cuts the two small holes where you marked.",
+        "title": "اعمل الثقوب",
+        "instruction": "شخص كبير يقصّ الثقبين مكان ما علّمت.",
         "imageUrl": "media/steps/bird-feeder-3.svg",
         "tip": "",
-        "warning": "Adults only for cutting.",
-        "icon": "✂️"
+        "warning": "القصّ للكبار بس.",
+        "icon": "holes-body"
       },
       {
         "stepNumber": 4,
-        "title": "Push the perch through",
-        "instruction": "Slide a wooden spoon through both holes so it sticks out on each side for birds to stand on.",
+        "title": "مرّر المسند",
+        "instruction": "دخّل ملعقة الخشب من الثقبين حتى تطلع من الجهتين ليقف عليها العصفور.",
         "imageUrl": "media/steps/bird-feeder-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "🥄"
+        "icon": "insert-rod"
       },
       {
         "stepNumber": 5,
-        "title": "Add a second perch higher up",
-        "instruction": "Make two more holes higher up, turned a quarter around, and push the second spoon through.",
+        "title": "ضيف مسند ثاني أعلى",
+        "instruction": "اعمل ثقبين آخرين أعلى، بزاوية ربع دورة، ومرّر الملعقة الثانية.",
         "imageUrl": "media/steps/bird-feeder-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "➕"
+        "icon": "insert-rod"
       },
       {
         "stepNumber": 6,
-        "title": "Make feeding openings",
-        "instruction": "Just above each perch, cut a small opening the size of a coin so seeds can come out.",
+        "title": "افتح منافذ الأكل",
+        "instruction": "فوق كل مسند بقليل، اقصّ فتحة صغيرة بحجم قطعة نقود ليخرج منها الحَب.",
         "imageUrl": "media/steps/bird-feeder-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "🪙"
+        "icon": "cut-window"
       },
       {
         "stepNumber": 7,
-        "title": "Fill with seed",
-        "instruction": "Pour bird seed into the bottle through the top and screw the cap back on.",
+        "title": "عبّي الحَب",
+        "instruction": "صبّ حَب العصافير جوّا القنينة من فوق وسكّر الغطا.",
         "imageUrl": "media/steps/bird-feeder-7.svg",
         "tip": "",
         "warning": "",
-        "icon": "🌾"
+        "icon": "fill-soil"
       },
       {
         "stepNumber": 8,
-        "title": "Hang it up",
-        "instruction": "Tie the string around the bottle neck and hang it from a branch.",
+        "title": "علّقه",
+        "instruction": "اربط الخيط حوالين رقبة القنينة وعلّقه بغصن شجرة.",
         "imageUrl": "media/steps/bird-feeder-8.svg",
-        "tip": "Hang it where you can watch from a window.",
+        "tip": "علّقه مكان تقدر تشوفه من الشبّاك.",
         "warning": "",
-        "icon": "🌳"
+        "icon": "hang"
       }
     ],
     "variantKeys": [
@@ -681,117 +681,117 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-pen-pot-organizer",
     "slug": "pen-pot-organizer",
-    "title": "Desk pen pot",
-    "summary": "A quick pot for pens, pencils and scissors made from the bottom of a bottle.",
+    "title": "علبة أقلام للمكتب",
+    "summary": "علبة سريعة للأقلام والمقص، من قاع القنينة.",
     "difficulty": "easy",
     "estimatedMinutes": 15,
     "minAge": 6,
-    "safetyNotes": "An adult should do the cutting. Cover the rim with tape or fold it over.",
+    "safetyNotes": "القصّ يعمله شخص كبير. غطِّ الحافة بشريط أو اطوِها للخارج.",
     "thumbnailUrl": "media/ideas/pen-pot-organizer-thumb.svg",
     "finalImageUrl": "media/ideas/pen-pot-organizer-final.svg",
-    "model3dUrl": "media/models/pen-pot-organizer.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/pen-pot-organizer-3d.svg",
     "tools": [
       {
         "id": "tool-pen-pot-organizer-0",
         "kind": "tool",
-        "name": "Scissors or craft knife",
+        "name": "مقص أو سكين ورق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-pen-pot-organizer-1",
         "kind": "tool",
-        "name": "Marker pen",
+        "name": "قلم تحديد",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-pen-pot-organizer-2",
         "kind": "material",
-        "name": "The clean plastic bottle",
+        "name": "القنينة البلاستيك نظيفة",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-pen-pot-organizer-3",
         "kind": "material",
-        "name": "Coloured tape or paint",
+        "name": "شريط ملوّن أو دهان",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
-        "note": "To decorate."
+        "note": "للتزيين."
       }
     ],
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean the bottle",
-        "instruction": "Wash the bottle, remove the label, and dry it.",
+        "title": "نظّف القنينة",
+        "instruction": "اغسل القنينة، شيل الورقة، ونشّفها.",
         "imageUrl": "media/steps/pen-pot-organizer-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Choose the height",
-        "instruction": "Decide how tall you want the pot. Around 10 cm works well for pens.",
+        "title": "اختَر الارتفاع",
+        "instruction": "قرّر شو ارتفاع العلبة. حوالي ١٠ سم مناسب للأقلام.",
         "imageUrl": "media/steps/pen-pot-organizer-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "📏"
+        "icon": "measure-mark"
       },
       {
         "stepNumber": 3,
-        "title": "Draw the cut line",
-        "instruction": "Draw a line all around the bottle at that height.",
+        "title": "ارسم خط القصّ",
+        "instruction": "ارسم خط دائري حوالين القنينة عند هذا الارتفاع.",
         "imageUrl": "media/steps/pen-pot-organizer-3.svg",
-        "tip": "Spin the bottle against a marker held steady for a neat line.",
+        "tip": "دوّر القنينة على قلم ثابت ليطلع الخط منظّم.",
         "warning": "",
-        "icon": "✏️"
+        "icon": "measure-mark"
       },
       {
         "stepNumber": 4,
-        "title": "Cut off the top",
-        "instruction": "An adult cuts along the line. Keep the bottom part.",
+        "title": "اقصّ الجزء العلوي",
+        "instruction": "شخص كبير يقصّ على الخط. احتفظ بالجزء السفلي.",
         "imageUrl": "media/steps/pen-pot-organizer-4.svg",
         "tip": "",
-        "warning": "Adults only for cutting.",
-        "icon": "✂️"
+        "warning": "القصّ للكبار بس.",
+        "icon": "cut-around"
       },
       {
         "stepNumber": 5,
-        "title": "Make the rim safe",
-        "instruction": "Fold the cut edge outward or cover it with a strip of tape.",
+        "title": "أمّن الحافة",
+        "instruction": "اطوِ الحافة المقصوصة للخارج أو غطّيها بشريط لاصق.",
         "imageUrl": "media/steps/pen-pot-organizer-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "🩹"
+        "icon": "decorate"
       },
       {
         "stepNumber": 6,
-        "title": "Decorate",
-        "instruction": "Wrap the pot in coloured tape or paint it. Let it dry.",
+        "title": "زيّنها",
+        "instruction": "لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.",
         "imageUrl": "media/steps/pen-pot-organizer-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "🎨"
+        "icon": "decorate"
       },
       {
         "stepNumber": 7,
-        "title": "Fill it up",
-        "instruction": "Stand your pens and pencils inside.",
+        "title": "عبّيها",
+        "instruction": "وقّف أقلامك جوّاها.",
         "imageUrl": "media/steps/pen-pot-organizer-7.svg",
         "tip": "",
         "warning": "",
-        "icon": "🖊️"
+        "icon": "stand"
       }
     ],
     "variantKeys": [
@@ -804,117 +804,117 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-coin-bank",
     "slug": "coin-bank",
-    "title": "Coin bank",
-    "summary": "A see-through money box. Drop coins through a slot in the cap area and watch it fill.",
+    "title": "حصّالة نقود",
+    "summary": "حصّالة شفّافة. تنزّل القروش من شقّ قرب الغطا وتشوفها تتجمّع.",
     "difficulty": "easy",
     "estimatedMinutes": 20,
     "minAge": 6,
-    "safetyNotes": "An adult should cut the coin slot.",
+    "safetyNotes": "شقّ النقود يعمله شخص كبير.",
     "thumbnailUrl": "media/ideas/coin-bank-thumb.svg",
     "finalImageUrl": "media/ideas/coin-bank-final.svg",
-    "model3dUrl": "media/models/coin-bank.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/coin-bank-3d.svg",
     "tools": [
       {
         "id": "tool-coin-bank-0",
         "kind": "tool",
-        "name": "Craft knife",
+        "name": "سكين ورق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
-        "note": "For the coin slot."
+        "note": "لشقّ النقود."
       },
       {
         "id": "tool-coin-bank-1",
         "kind": "tool",
-        "name": "Marker pen",
+        "name": "قلم تحديد",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-coin-bank-2",
         "kind": "material",
-        "name": "The clean plastic bottle with its cap",
+        "name": "قنينة نظيفة مع غطاها",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-coin-bank-3",
         "kind": "material",
-        "name": "Paper and glue, or paint",
+        "name": "ورق ولاصق، أو دهان",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
-        "note": "To decorate."
+        "note": "للتزيين."
       }
     ],
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean and dry the bottle",
-        "instruction": "Wash the bottle and cap, take off the label, and dry it.",
+        "title": "نظّف القنينة ونشّفها",
+        "instruction": "اغسل القنينة والغطا، شيل الورقة، ونشّفها.",
         "imageUrl": "media/steps/coin-bank-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Keep the bottle whole",
-        "instruction": "You will not cut it in half. Leave the cap on.",
+        "title": "خلّي القنينة كاملة",
+        "instruction": "ما رح تقصّها نصّين. خلّي الغطا مكانه.",
         "imageUrl": "media/steps/coin-bank-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "🍶"
+        "icon": "generic"
       },
       {
         "stepNumber": 3,
-        "title": "Mark a coin slot",
-        "instruction": "On the shoulder of the bottle, draw a thin rectangle a bit longer than your biggest coin.",
+        "title": "علّم شقّ النقود",
+        "instruction": "على كتف القنينة، ارسم مستطيل رفيع أطول شوي من أكبر قرش عندك.",
         "imageUrl": "media/steps/coin-bank-3.svg",
         "tip": "",
         "warning": "",
-        "icon": "✏️"
+        "icon": "measure-mark"
       },
       {
         "stepNumber": 4,
-        "title": "Cut the slot",
-        "instruction": "An adult cuts along the rectangle to make a slot.",
+        "title": "اقصّ الشقّ",
+        "instruction": "شخص كبير يقصّ على المستطيل ليصير شقّ.",
         "imageUrl": "media/steps/coin-bank-4.svg",
         "tip": "",
-        "warning": "Adults only for cutting.",
-        "icon": "✂️"
+        "warning": "القصّ للكبار بس.",
+        "icon": "cut-window"
       },
       {
         "stepNumber": 5,
-        "title": "Check a coin fits",
-        "instruction": "Try pushing a coin through. Make the slot slightly bigger if it is tight.",
+        "title": "جرّب قرش",
+        "instruction": "جرّب تدخّل قرش. كبّر الشقّ شوي إذا كان ضيّق.",
         "imageUrl": "media/steps/coin-bank-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "🪙"
+        "icon": "generic"
       },
       {
         "stepNumber": 6,
-        "title": "Decorate",
-        "instruction": "Wrap the bottle in paper or paint it. Leave the slot clear.",
+        "title": "زيّنها",
+        "instruction": "لفّ القنينة بورق أو ادهنها. خلّي الشقّ مكشوف.",
         "imageUrl": "media/steps/coin-bank-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "🎨"
+        "icon": "decorate"
       },
       {
         "stepNumber": 7,
-        "title": "Start saving",
-        "instruction": "Drop coins through the slot. To empty it, just open the cap.",
+        "title": "ابدأ توفّر",
+        "instruction": "نزّل القروش من الشقّ. لتفريغها، افتح الغطا بس.",
         "imageUrl": "media/steps/coin-bank-7.svg",
         "tip": "",
         "warning": "",
-        "icon": "💰"
+        "icon": "stand"
       }
     ],
     "variantKeys": [
@@ -927,41 +927,41 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-watering-can",
     "slug": "watering-can",
-    "title": "Mini watering can",
-    "summary": "Poke small holes in the cap and your bottle becomes a gentle watering can for plants.",
+    "title": "رشّاشة نباتات صغيرة",
+    "summary": "اثقب الغطا ثقوب صغيرة، وتصير القنينة رشّاشة لطيفة للنباتات.",
     "difficulty": "easy",
     "estimatedMinutes": 10,
     "minAge": 6,
-    "safetyNotes": "An adult should make the holes in the cap with a hot pin or a nail.",
+    "safetyNotes": "الثقوب يعملها شخص كبير بمسمار أو دبّوس سميك.",
     "thumbnailUrl": "media/ideas/watering-can-thumb.svg",
     "finalImageUrl": "media/ideas/watering-can-final.svg",
-    "model3dUrl": "media/models/watering-can.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/watering-can-3d.svg",
     "tools": [
       {
         "id": "tool-watering-can-0",
         "kind": "tool",
-        "name": "A nail or a thick pin",
+        "name": "مسمار أو دبّوس سميك",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
-        "note": "To make the holes."
+        "note": "لعمل الثقوب."
       },
       {
         "id": "tool-watering-can-1",
         "kind": "tool",
-        "name": "A hammer",
+        "name": "شاكوش",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
-        "note": "To tap the nail through."
+        "note": "لدقّ المسمار."
       },
       {
         "id": "tool-watering-can-2",
         "kind": "material",
-        "name": "The clean plastic bottle with its cap",
+        "name": "قنينة نظيفة مع غطاها",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       }
@@ -969,57 +969,57 @@ export const IDEAS: IdeaDetail[] = [
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean the bottle",
-        "instruction": "Wash the bottle and cap well, especially if it held juice or milk.",
+        "title": "نظّف القنينة",
+        "instruction": "اغسل القنينة والغطا منيح، خصوصاً إذا كانت لعصير أو حليب.",
         "imageUrl": "media/steps/watering-can-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Take off the cap",
-        "instruction": "Unscrew the cap and put it on a wooden board.",
+        "title": "شيل الغطا",
+        "instruction": "فكّ الغطا وحطّه على لوح خشب.",
         "imageUrl": "media/steps/watering-can-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔩"
+        "icon": "holes-cap"
       },
       {
         "stepNumber": 3,
-        "title": "Make the holes",
-        "instruction": "An adult pushes the nail through the cap about 8 to 12 times to make small holes.",
+        "title": "اعمل الثقوب",
+        "instruction": "شخص كبير يدقّ المسمار بالغطا من ٨ إلى ١٢ مرة ليعمل ثقوب صغيرة.",
         "imageUrl": "media/steps/watering-can-3.svg",
         "tip": "",
-        "warning": "Adults only. The nail may be hot if heated.",
-        "icon": "🕳️"
+        "warning": "للكبار بس.",
+        "icon": "holes-cap"
       },
       {
         "stepNumber": 4,
-        "title": "Fill with water",
-        "instruction": "Fill the bottle with water from the tap.",
+        "title": "عبّي مي",
+        "instruction": "عبّي القنينة مي من الحنفيّة.",
         "imageUrl": "media/steps/watering-can-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "💧"
+        "icon": "fill-water"
       },
       {
         "stepNumber": 5,
-        "title": "Put the cap back",
-        "instruction": "Screw the cap with holes back onto the full bottle.",
+        "title": "رجّع الغطا",
+        "instruction": "سكّر الغطا المثقوب على القنينة المليانة.",
         "imageUrl": "media/steps/watering-can-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔄"
+        "icon": "holes-cap"
       },
       {
         "stepNumber": 6,
-        "title": "Water your plants",
-        "instruction": "Tip the bottle over plants and gently squeeze. Water comes out like light rain.",
+        "title": "اسقِ نباتاتك",
+        "instruction": "اقلب القنينة فوق النبات واعصرها بهدوء. المي يطلع مثل الشتا الخفيف.",
         "imageUrl": "media/steps/watering-can-6.svg",
-        "tip": "Loosen the cap a little for a faster flow.",
+        "tip": "فكّ الغطا شوي إذا بدك تدفق أسرع.",
         "warning": "",
-        "icon": "🌧️"
+        "icon": "generic"
       }
     ],
     "variantKeys": [
@@ -1032,32 +1032,32 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-drip-irrigation-spike",
     "slug": "drip-irrigation-spike",
-    "title": "Slow drip plant waterer",
-    "summary": "An upside-down bottle in the soil that slowly waters one plant for days.",
+    "title": "سقّاية تنقيط بطيئة",
+    "summary": "قنينة مقلوبة مغروزة بالتراب تسقي نبتة وحدة بالتنقيط لأيام.",
     "difficulty": "easy",
     "estimatedMinutes": 10,
     "minAge": 7,
-    "safetyNotes": "An adult should make the holes.",
+    "safetyNotes": "الثقوب يعملها شخص كبير.",
     "thumbnailUrl": "media/ideas/drip-irrigation-spike-thumb.svg",
     "finalImageUrl": "media/ideas/drip-irrigation-spike-final.svg",
-    "model3dUrl": "media/models/drip-irrigation-spike.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/drip-irrigation-spike-3d.svg",
     "tools": [
       {
         "id": "tool-drip-irrigation-spike-0",
         "kind": "tool",
-        "name": "A thin nail or pin",
+        "name": "مسمار رفيع أو دبّوس",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-drip-irrigation-spike-1",
         "kind": "material",
-        "name": "The clean plastic bottle with its cap",
+        "name": "قنينة نظيفة مع غطاها",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       }
@@ -1065,57 +1065,57 @@ export const IDEAS: IdeaDetail[] = [
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean the bottle",
-        "instruction": "Wash the bottle and cap and take off the label.",
+        "title": "نظّف القنينة",
+        "instruction": "اغسل القنينة والغطا وشيل الورقة اللاصقة.",
         "imageUrl": "media/steps/drip-irrigation-spike-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Make tiny holes in the cap",
-        "instruction": "An adult makes 2 to 4 very small holes in the cap.",
+        "title": "ثقوب صغيرة بالغطا",
+        "instruction": "شخص كبير يعمل من ٢ إلى ٤ ثقوب صغيرة جداً بالغطا.",
         "imageUrl": "media/steps/drip-irrigation-spike-2.svg",
         "tip": "",
-        "warning": "Adults only.",
-        "icon": "🕳️"
+        "warning": "للكبار بس.",
+        "icon": "holes-cap"
       },
       {
         "stepNumber": 3,
-        "title": "Add a hole near the base",
-        "instruction": "Make one small hole in the bottom of the bottle so air can get in.",
+        "title": "ثقب قرب القاع",
+        "instruction": "اعمل ثقب صغير بقاع القنينة ليدخل الهوا.",
         "imageUrl": "media/steps/drip-irrigation-spike-3.svg",
         "tip": "",
         "warning": "",
-        "icon": "💨"
+        "icon": "holes-body"
       },
       {
         "stepNumber": 4,
-        "title": "Fill with water",
-        "instruction": "Fill the bottle with water and screw the cap on.",
+        "title": "عبّي مي",
+        "instruction": "عبّي القنينة مي وسكّر الغطا.",
         "imageUrl": "media/steps/drip-irrigation-spike-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "💧"
+        "icon": "fill-water"
       },
       {
         "stepNumber": 5,
-        "title": "Push it into the soil",
-        "instruction": "Turn the bottle upside down and push the cap end into the soil next to your plant.",
+        "title": "اغرزها بالتراب",
+        "instruction": "اقلب القنينة وادفع طرف الغطا بالتراب جنب نبتتك.",
         "imageUrl": "media/steps/drip-irrigation-spike-5.svg",
-        "tip": "Firm the soil around it so it stands up.",
+        "tip": "اكبس التراب حوالينها حتى تقف.",
         "warning": "",
-        "icon": "🌱"
+        "icon": "invert"
       },
       {
         "stepNumber": 6,
-        "title": "Let it work",
-        "instruction": "The water drips out slowly over a few days. Refill when empty.",
+        "title": "خلّيها تشتغل",
+        "instruction": "المي بينقّط ببطء خلال أيام. عبّيها لمّا تفضى.",
         "imageUrl": "media/steps/drip-irrigation-spike-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "⏳"
+        "icon": "generic"
       }
     ],
     "variantKeys": [
@@ -1128,108 +1128,108 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-kids-bowling-set",
     "slug": "kids-bowling-set",
-    "title": "Bottle bowling set",
-    "summary": "Six bottles become skittles. Add a little water for weight and knock them down with a ball.",
+    "title": "طقم بولينغ من القناني",
+    "summary": "ست قناني تصير قوارير بولينغ. حطّ فيها شوي مي حتى تثبت واضربها بكرة.",
     "difficulty": "easy",
     "estimatedMinutes": 30,
     "minAge": 5,
-    "safetyNotes": "Keep caps tight so no water spills. Play away from stairs.",
+    "safetyNotes": "خلّي الأغطية محكمة حتى ما تسكب مي. العب بعيد عن الدرج.",
     "thumbnailUrl": "media/ideas/kids-bowling-set-thumb.svg",
     "finalImageUrl": "media/ideas/kids-bowling-set-final.svg",
-    "model3dUrl": "media/models/kids-bowling-set.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/kids-bowling-set-3d.svg",
     "tools": [
       {
         "id": "tool-kids-bowling-set-0",
         "kind": "material",
-        "name": "Clean plastic bottles with caps",
+        "name": "قناني نظيفة مع أغطية",
         "imageUrl": "",
-        "quantity": "6",
+        "quantity": "٦",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-kids-bowling-set-1",
         "kind": "material",
-        "name": "A small soft ball",
+        "name": "كرة صغيرة طريّة",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-kids-bowling-set-2",
         "kind": "material",
-        "name": "Coloured tape or paint",
+        "name": "شريط ملوّن أو دهان",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
         "note": ""
       },
       {
         "id": "tool-kids-bowling-set-3",
         "kind": "material",
-        "name": "Water or sand",
+        "name": "مي أو رمل",
         "imageUrl": "",
-        "quantity": "a little",
+        "quantity": "شوي",
         "optional": false,
-        "note": "For weight."
+        "note": "للثقل."
       }
     ],
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean six bottles",
-        "instruction": "Wash six bottles and their caps and take off the labels.",
+        "title": "نظّف ست قناني",
+        "instruction": "اغسل ست قناني وأغطيتها وشيل الورق اللاصق.",
         "imageUrl": "media/steps/kids-bowling-set-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Add a little weight",
-        "instruction": "Put a few centimetres of water or dry sand in each bottle so they do not fall over in the wind.",
+        "title": "ضيف ثقل بسيط",
+        "instruction": "حطّ كم سنتيمتر مي أو رمل ناشف بكل قنينة حتى ما تقع بسهولة.",
         "imageUrl": "media/steps/kids-bowling-set-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "⚖️"
+        "icon": "fill-water"
       },
       {
         "stepNumber": 3,
-        "title": "Close them tightly",
-        "instruction": "Screw every cap on firmly. Check none leak.",
+        "title": "سكّرها محكم",
+        "instruction": "سكّر كل غطا منيح. تأكّد ما في تسريب.",
         "imageUrl": "media/steps/kids-bowling-set-3.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔩"
+        "icon": "holes-cap"
       },
       {
         "stepNumber": 4,
-        "title": "Decorate the pins",
-        "instruction": "Wrap each bottle with coloured tape or paint numbers on them.",
+        "title": "زيّن القوارير",
+        "instruction": "لفّ كل قنينة بشريط ملوّن أو اكتب عليها أرقام.",
         "imageUrl": "media/steps/kids-bowling-set-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "🎨"
+        "icon": "decorate"
       },
       {
         "stepNumber": 5,
-        "title": "Set up the triangle",
-        "instruction": "Stand the bottles in a triangle: one at the front, then two, then three.",
+        "title": "رتّبها مثلث",
+        "instruction": "وقّف القناني بشكل مثلث: وحدة قدّام، بعدين ثنتين، بعدين ثلاثة.",
         "imageUrl": "media/steps/kids-bowling-set-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔺"
+        "icon": "stand"
       },
       {
         "stepNumber": 6,
-        "title": "Roll the ball",
-        "instruction": "Step back a few steps and roll the ball to knock the pins down.",
+        "title": "دحرج الكرة",
+        "instruction": "ارجع كم خطوة ودحرج الكرة حتى توقّع القوارير.",
         "imageUrl": "media/steps/kids-bowling-set-6.svg",
-        "tip": "Count how many you knock down each turn.",
+        "tip": "عُدّ كم قارورة وقّعت كل دور.",
         "warning": "",
-        "icon": "🎳"
+        "icon": "generic"
       }
     ],
     "variantKeys": [
@@ -1241,68 +1241,68 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-wind-spinner",
     "slug": "wind-spinner",
-    "title": "Garden wind spinner",
-    "summary": "Cut fins into a bottle so it spins and shimmers when the wind blows.",
+    "title": "دوّارة رياح للحديقة",
+    "summary": "اقصّ زعانف بالقنينة حتى تدور وتلمع لمّا تهبّ الريح.",
     "difficulty": "medium",
     "estimatedMinutes": 35,
     "minAge": 8,
-    "safetyNotes": "An adult should do all the cutting. The fins have sharp corners — round them off.",
+    "safetyNotes": "كل القصّ يعمله شخص كبير. زوايا الزعانف حادّة — قصّها مدوّرة.",
     "thumbnailUrl": "media/ideas/wind-spinner-thumb.svg",
     "finalImageUrl": "media/ideas/wind-spinner-final.svg",
-    "model3dUrl": "media/models/wind-spinner.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/wind-spinner-3d.svg",
     "tools": [
       {
         "id": "tool-wind-spinner-0",
         "kind": "tool",
-        "name": "Craft knife",
+        "name": "سكين ورق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-wind-spinner-1",
         "kind": "tool",
-        "name": "Scissors",
+        "name": "مقص",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-wind-spinner-2",
         "kind": "tool",
-        "name": "Marker pen",
+        "name": "قلم تحديد",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-wind-spinner-3",
         "kind": "material",
-        "name": "The clean plastic bottle with its cap",
+        "name": "قنينة نظيفة مع غطاها",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-wind-spinner-4",
         "kind": "material",
-        "name": "String",
+        "name": "خيط",
         "imageUrl": "",
-        "quantity": "30 cm",
+        "quantity": "٣٠ سم",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-wind-spinner-5",
         "kind": "material",
-        "name": "Reflective stickers or paint",
+        "name": "ملصقات عاكسة أو دهان",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
         "note": ""
       }
@@ -1310,75 +1310,75 @@ export const IDEAS: IdeaDetail[] = [
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean the bottle",
-        "instruction": "Wash and dry the bottle. Keep the cap on.",
+        "title": "نظّف القنينة",
+        "instruction": "اغسل القنينة ونشّفها. خلّي الغطا مكانه.",
         "imageUrl": "media/steps/wind-spinner-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Draw the fin lines",
-        "instruction": "Draw 6 to 8 straight lines down the middle section of the bottle, evenly spaced.",
+        "title": "ارسم خطوط الزعانف",
+        "instruction": "ارسم من ٦ إلى ٨ خطوط مستقيمة بطول الجزء الأوسط من القنينة، متباعدة بالتساوي.",
         "imageUrl": "media/steps/wind-spinner-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "✏️"
+        "icon": "measure-mark"
       },
       {
         "stepNumber": 3,
-        "title": "Cut the fins",
-        "instruction": "An adult cuts along each line, only through the middle section, not the ends.",
+        "title": "اقصّ الزعانف",
+        "instruction": "شخص كبير يقصّ على كل خط، بالجزء الأوسط بس، مش الطرفين.",
         "imageUrl": "media/steps/wind-spinner-3.svg",
         "tip": "",
-        "warning": "Adults only for cutting.",
-        "icon": "✂️"
+        "warning": "القصّ للكبار بس.",
+        "icon": "twist-fins"
       },
       {
         "stepNumber": 4,
-        "title": "Twist the fins",
-        "instruction": "Gently push the top and bottom of the bottle toward each other and twist a little so the fins bend outward.",
+        "title": "لوِّ الزعانف",
+        "instruction": "ادفع أعلى وأسفل القنينة لبعض بهدوء ولفّ شوي حتى تنثني الزعانف للخارج.",
         "imageUrl": "media/steps/wind-spinner-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "🌀"
+        "icon": "twist-fins"
       },
       {
         "stepNumber": 5,
-        "title": "Round the corners",
-        "instruction": "Snip the sharp corners off each fin with scissors.",
+        "title": "دوّر الزوايا",
+        "instruction": "قصّ الزوايا الحادّة من كل زعنفة بالمقص.",
         "imageUrl": "media/steps/wind-spinner-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔵"
+        "icon": "decorate"
       },
       {
         "stepNumber": 6,
-        "title": "Decorate",
-        "instruction": "Add reflective stickers or paint spots so it catches the light.",
+        "title": "زيّنها",
+        "instruction": "حطّ ملصقات عاكسة أو دهان حتى تعكس الضو.",
         "imageUrl": "media/steps/wind-spinner-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "✨"
+        "icon": "decorate"
       },
       {
         "stepNumber": 7,
-        "title": "Make a hanger",
-        "instruction": "An adult makes a small hole in the base. Thread the string through and tie a loop.",
+        "title": "اعمل معلاقة",
+        "instruction": "شخص كبير يعمل ثقب صغير بالقاع. مرّر الخيط واعمل عروة.",
         "imageUrl": "media/steps/wind-spinner-7.svg",
         "tip": "",
         "warning": "",
-        "icon": "🪢"
+        "icon": "hang"
       },
       {
         "stepNumber": 8,
-        "title": "Hang it outside",
-        "instruction": "Hang the spinner from a branch or hook where the wind can reach it.",
+        "title": "علّقها برّا",
+        "instruction": "علّق الدوّارة بغصن أو خطّاف مكان توصله الريح.",
         "imageUrl": "media/steps/wind-spinner-8.svg",
         "tip": "",
         "warning": "",
-        "icon": "🍃"
+        "icon": "hang"
       }
     ],
     "variantKeys": [
@@ -1390,77 +1390,77 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-vertical-herb-garden",
     "slug": "vertical-herb-garden",
-    "title": "Hanging herb garden",
-    "summary": "Bottles laid on their side and hung in a row make a small wall garden for herbs.",
+    "title": "حديقة أعشاب معلّقة",
+    "summary": "قناني ممدّدة على جنبها ومعلّقة بصفّ تصير حديقة حائط صغيرة للأعشاب.",
     "difficulty": "medium",
     "estimatedMinutes": 40,
     "minAge": 9,
-    "safetyNotes": "An adult should cut the openings and make the holes. Hang it on a strong hook.",
+    "safetyNotes": "الفتحات والثقوب يعملها شخص كبير. علّقها على خطّاف قوي.",
     "thumbnailUrl": "media/ideas/vertical-herb-garden-thumb.svg",
     "finalImageUrl": "media/ideas/vertical-herb-garden-final.svg",
-    "model3dUrl": "media/models/vertical-herb-garden.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/vertical-herb-garden-3d.svg",
     "tools": [
       {
         "id": "tool-vertical-herb-garden-0",
         "kind": "tool",
-        "name": "Craft knife",
+        "name": "سكين ورق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-vertical-herb-garden-1",
         "kind": "tool",
-        "name": "Marker pen",
+        "name": "قلم تحديد",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-vertical-herb-garden-2",
         "kind": "tool",
-        "name": "A nail",
+        "name": "مسمار",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
-        "note": "For drainage and rope holes."
+        "note": "لثقوب التصريف والحبل."
       },
       {
         "id": "tool-vertical-herb-garden-3",
         "kind": "material",
-        "name": "Clean plastic bottles with caps",
+        "name": "قناني نظيفة مع أغطية",
         "imageUrl": "",
-        "quantity": "3",
+        "quantity": "٣",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-vertical-herb-garden-4",
         "kind": "material",
-        "name": "Strong rope or cord",
+        "name": "حبل أو دوبارة قوية",
         "imageUrl": "",
-        "quantity": "2 m",
+        "quantity": "٢ متر",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-vertical-herb-garden-5",
         "kind": "material",
-        "name": "Potting soil",
+        "name": "تراب زراعة",
         "imageUrl": "",
-        "quantity": "3 handfuls",
+        "quantity": "٣ حفنات",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-vertical-herb-garden-6",
         "kind": "material",
-        "name": "Herb seedlings or seeds",
+        "name": "شتلات أعشاب أو بذور",
         "imageUrl": "",
-        "quantity": "3",
+        "quantity": "٣",
         "optional": false,
         "note": ""
       }
@@ -1468,84 +1468,84 @@ export const IDEAS: IdeaDetail[] = [
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean the bottles",
-        "instruction": "Wash three bottles and caps and take off the labels.",
+        "title": "نظّف القناني",
+        "instruction": "اغسل ثلاث قناني وأغطيتها وشيل الورق اللاصق.",
         "imageUrl": "media/steps/vertical-herb-garden-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Lay a bottle on its side",
-        "instruction": "Put the cap on and lay the bottle down. The cap side will point sideways when it hangs.",
+        "title": "مدّد القنينة على جنبها",
+        "instruction": "حطّ الغطا ومدّد القنينة. جهة الغطا رح تكون للجنب لمّا تتعلّق.",
         "imageUrl": "media/steps/vertical-herb-garden-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔁"
+        "icon": "generic"
       },
       {
         "stepNumber": 3,
-        "title": "Draw a long opening",
-        "instruction": "On the side facing up, draw a large rectangle, leaving the ends of the bottle uncut.",
+        "title": "ارسم فتحة طويلة",
+        "instruction": "على الجهة اللي لفوق، ارسم مستطيل كبير، وخلّي طرفي القنينة بدون قصّ.",
         "imageUrl": "media/steps/vertical-herb-garden-3.svg",
         "tip": "",
         "warning": "",
-        "icon": "✏️"
+        "icon": "measure-mark"
       },
       {
         "stepNumber": 4,
-        "title": "Cut the opening",
-        "instruction": "An adult cuts out the rectangle. This is where the soil and plant go.",
+        "title": "اقصّ الفتحة",
+        "instruction": "شخص كبير يقصّ المستطيل. من هون يدخل التراب والنبتة.",
         "imageUrl": "media/steps/vertical-herb-garden-4.svg",
         "tip": "",
-        "warning": "Adults only for cutting.",
-        "icon": "✂️"
+        "warning": "القصّ للكبار بس.",
+        "icon": "cut-window"
       },
       {
         "stepNumber": 5,
-        "title": "Add drainage holes",
-        "instruction": "Make 3 or 4 small holes on the opposite side so extra water can drain.",
+        "title": "ثقوب تصريف",
+        "instruction": "اعمل ٣ أو ٤ ثقوب صغيرة على الجهة المقابلة ليخرج المي الزايد.",
         "imageUrl": "media/steps/vertical-herb-garden-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "🕳️"
+        "icon": "holes-body"
       },
       {
         "stepNumber": 6,
-        "title": "Make rope holes",
-        "instruction": "Near each end of the bottle, make two holes for the rope to pass through.",
+        "title": "ثقوب الحبل",
+        "instruction": "قرب كل طرف من القنينة، اعمل ثقبين ليمرّ منهم الحبل.",
         "imageUrl": "media/steps/vertical-herb-garden-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "⭕"
+        "icon": "holes-body"
       },
       {
         "stepNumber": 7,
-        "title": "Thread the rope",
-        "instruction": "Pass the rope through the end holes of all three bottles so they hang in a stack with gaps between them.",
+        "title": "مرّر الحبل",
+        "instruction": "مرّر الحبل من ثقوب أطراف القناني الثلاثة حتى تتعلّق فوق بعض مع فراغات.",
         "imageUrl": "media/steps/vertical-herb-garden-7.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧵"
+        "icon": "thread"
       },
       {
         "stepNumber": 8,
-        "title": "Fill and plant",
-        "instruction": "Add soil through the opening and plant one herb per bottle.",
+        "title": "عبّي وازرع",
+        "instruction": "ضيف تراب من الفتحة وازرع عشبة وحدة بكل قنينة.",
         "imageUrl": "media/steps/vertical-herb-garden-8.svg",
         "tip": "",
         "warning": "",
-        "icon": "🌿"
+        "icon": "fill-soil"
       },
       {
         "stepNumber": 9,
-        "title": "Hang and water",
-        "instruction": "Hang the rope on a strong hook in a sunny spot and water lightly.",
+        "title": "علّق واسقِ",
+        "instruction": "علّق الحبل على خطّاف قوي بمكان مشمس واسقِ برفق.",
         "imageUrl": "media/steps/vertical-herb-garden-9.svg",
         "tip": "",
         "warning": "",
-        "icon": "☀️"
+        "icon": "hang"
       }
     ],
     "variantKeys": [
@@ -1557,68 +1557,68 @@ export const IDEAS: IdeaDetail[] = [
   {
     "id": "idea-phone-charging-holder",
     "slug": "phone-charging-holder",
-    "title": "Phone charging holder",
-    "summary": "A little shelf that hangs on the wall socket and holds your phone while it charges.",
+    "title": "حامل شحن للجوّال",
+    "summary": "رفّ صغير يتعلّق على مقبس الكهربا ويمسك الجوّال وهو يشحن.",
     "difficulty": "medium",
     "estimatedMinutes": 25,
     "minAge": 9,
-    "safetyNotes": "An adult should do the cutting. Keep the holder away from water and heat.",
+    "safetyNotes": "القصّ يعمله شخص كبير. خلّي الحامل بعيد عن المي والحرارة.",
     "thumbnailUrl": "media/ideas/phone-charging-holder-thumb.svg",
     "finalImageUrl": "media/ideas/phone-charging-holder-final.svg",
-    "model3dUrl": "media/models/phone-charging-holder.glb",
+    "model3dUrl": "",
     "model3dPreviewUrl": "media/ideas/phone-charging-holder-3d.svg",
     "tools": [
       {
         "id": "tool-phone-charging-holder-0",
         "kind": "tool",
-        "name": "Craft knife",
+        "name": "سكين ورق",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-phone-charging-holder-1",
         "kind": "tool",
-        "name": "Scissors",
+        "name": "مقص",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-phone-charging-holder-2",
         "kind": "tool",
-        "name": "Marker pen",
+        "name": "قلم تحديد",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-phone-charging-holder-3",
         "kind": "material",
-        "name": "The clean plastic bottle",
+        "name": "القنينة البلاستيك نظيفة",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": false,
         "note": ""
       },
       {
         "id": "tool-phone-charging-holder-4",
         "kind": "material",
-        "name": "Sandpaper or a nail file",
+        "name": "ورق صنفرة أو مبرد أظافر",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
-        "note": "To smooth edges."
+        "note": "لتنعيم الحواف."
       },
       {
         "id": "tool-phone-charging-holder-5",
         "kind": "material",
-        "name": "Coloured tape",
+        "name": "شريط ملوّن",
         "imageUrl": "",
-        "quantity": "1",
+        "quantity": "١",
         "optional": true,
         "note": ""
       }
@@ -1626,66 +1626,66 @@ export const IDEAS: IdeaDetail[] = [
     "steps": [
       {
         "stepNumber": 1,
-        "title": "Clean and dry the bottle",
-        "instruction": "Wash the bottle well and dry it. Remove the label.",
+        "title": "نظّف القنينة ونشّفها",
+        "instruction": "اغسل القنينة منيح ونشّفها. شيل الورقة اللاصقة.",
         "imageUrl": "media/steps/phone-charging-holder-1.svg",
         "tip": "",
         "warning": "",
-        "icon": "🧼"
+        "icon": "clean"
       },
       {
         "stepNumber": 2,
-        "title": "Mark the shape",
-        "instruction": "Draw a shape with a tall back and a low front pocket, like a letter tray, on the side of the bottle.",
+        "title": "علّم الشكل",
+        "instruction": "ارسم على جنب القنينة شكل له ظهر عالي وجيب أمامي منخفض، مثل صينية الرسائل.",
         "imageUrl": "media/steps/phone-charging-holder-2.svg",
         "tip": "",
         "warning": "",
-        "icon": "✏️"
+        "icon": "measure-mark"
       },
       {
         "stepNumber": 3,
-        "title": "Cut out the holder",
-        "instruction": "An adult cuts along the line so you have an open pocket with a tall back.",
+        "title": "اقصّ الحامل",
+        "instruction": "شخص كبير يقصّ على الخط حتى يصير عندك جيب مفتوح مع ظهر عالي.",
         "imageUrl": "media/steps/phone-charging-holder-3.svg",
         "tip": "",
-        "warning": "Adults only for cutting.",
-        "icon": "✂️"
+        "warning": "القصّ للكبار بس.",
+        "icon": "cut-window"
       },
       {
         "stepNumber": 4,
-        "title": "Smooth the edges",
-        "instruction": "Rub the cut edges with sandpaper or cover them with tape.",
+        "title": "نعّم الحواف",
+        "instruction": "افرك الحواف المقصوصة بورق الصنفرة أو غطّيها بشريط.",
         "imageUrl": "media/steps/phone-charging-holder-4.svg",
         "tip": "",
         "warning": "",
-        "icon": "🩹"
+        "icon": "decorate"
       },
       {
         "stepNumber": 5,
-        "title": "Make a plug hole",
-        "instruction": "In the tall back, cut a hole big enough for a charger plug to pass through.",
+        "title": "اعمل فتحة للقابس",
+        "instruction": "بالظهر العالي، اقصّ فتحة تكفّي ليمرّ منها قابس الشاحن.",
         "imageUrl": "media/steps/phone-charging-holder-5.svg",
         "tip": "",
         "warning": "",
-        "icon": "🔌"
+        "icon": "holes-body"
       },
       {
         "stepNumber": 6,
-        "title": "Decorate",
-        "instruction": "Wrap the holder in coloured tape or draw on it.",
+        "title": "زيّنها",
+        "instruction": "لفّ الحامل بشريط ملوّن أو ارسم عليه.",
         "imageUrl": "media/steps/phone-charging-holder-6.svg",
         "tip": "",
         "warning": "",
-        "icon": "🎨"
+        "icon": "decorate"
       },
       {
         "stepNumber": 7,
-        "title": "Hang it on the charger",
-        "instruction": "Put the charger plug through the hole and into the wall socket. Rest the phone in the pocket.",
+        "title": "علّقه على الشاحن",
+        "instruction": "مرّر قابس الشاحن من الفتحة وحطّه بالمقبس. سنّد الجوّال بالجيب.",
         "imageUrl": "media/steps/phone-charging-holder-7.svg",
-        "tip": "Check the phone sits without pulling on the cable.",
+        "tip": "تأكّد إنه الجوّال قاعد بدون ما يشدّ السلك.",
         "warning": "",
-        "icon": "📱"
+        "icon": "stand"
       }
     ],
     "variantKeys": [

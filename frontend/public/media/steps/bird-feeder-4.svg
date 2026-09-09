@@ -1,7 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
-  <text x="26" y="150" fill="hsl(140 30% 60%)" font-family="'Segoe UI',Arial,sans-serif" font-size="120" font-weight="800" opacity="0.28">4</text>
-  <g transform="translate(96 60)" fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 4h20v10l8 14v58a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5V28l8-14z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280">
+<defs>
+  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#a7e8cf"/>
+  </marker>
+  <marker id="ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#ffd98a"/>
+  </marker>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M20 0H0V20" fill="none" stroke="#123f34" stroke-width="1"/>
+  </pattern>
+  <pattern id="soil" width="9" height="9" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="#5fb499"/><circle cx="6.5" cy="6" r="1.1" fill="#5fb499"/>
+  </pattern>
+  <pattern id="water" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+    <line x1="0" y1="0" x2="0" y2="10" stroke="#5fb499" stroke-width="1"/>
+  </pattern>
+</defs>
+  <rect width="400" height="280" fill="#0b2a23"/>
+  <rect width="400" height="280" fill="url(#grid)"/>
+  <rect x="8" y="8" width="384" height="264" fill="none" stroke="#5fb499" stroke-width="1.4"/>
+  <rect x="8" y="8" width="384" height="18" fill="none" stroke="#5fb499" stroke-width="1"/>
+  <text x="384" y="21" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="12" fill="#5fb499" text-anchor="start" direction="rtl">مخطط عمل — Waste 2 Worth</text>
+
+    <g fill="none" stroke="#a7e8cf" stroke-width="2.4" stroke-linejoin="round">
+    <rect x="185.72" y="55" width="28.560000000000002" height="11.2" rx="2"/>
+    <line x1="188.72" y1="57" x2="188.72" y2="64.2" stroke="#a7e8cf" stroke-width="1.2"/><line x1="194.36" y1="57" x2="194.36" y2="64.2" stroke="#a7e8cf" stroke-width="1.2"/><line x1="200" y1="57" x2="200" y2="64.2" stroke="#a7e8cf" stroke-width="1.2"/><line x1="205.64" y1="57" x2="205.64" y2="64.2" stroke="#a7e8cf" stroke-width="1.2"/><line x1="211.28" y1="57" x2="211.28" y2="64.2" stroke="#a7e8cf" stroke-width="1.2"/>
+    <path d="M185.72 66.2 v4.800000000000001
+      C 185.72 80.6, 158 78.68, 158 90.2
+      v124.8
+      q0 13.44 13.44 13.44
+      h57.120000000000005
+      q13.44 0 13.44 -13.44
+      v-124.8
+      C 242 78.68, 214.28 80.6, 214.28 71
+      v-4.800000000000001 z"/>
+    <path d="M158 97.688 h84" stroke="#5fb499" stroke-width="1.2" stroke-dasharray="3 3"/>
+    
   </g>
-  <g fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="120" cy="34" r="3.4" fill="hsl(140 40% 82%)" stroke="none"/><circle cx="138" cy="34" r="3.4" fill="hsl(140 40% 82%)" stroke="none"/><circle cx="129" cy="50" r="3.4" fill="hsl(140 40% 82%)" stroke="none"/></g>
+    <line x1="120" y1="150" x2="280" y2="150" stroke="#ffd98a" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="120" cy="150" r="6" fill="none" stroke="#ffd98a" stroke-width="2"/>
+    <circle cx="280" cy="150" r="6" fill="none" stroke="#ffd98a" stroke-width="2"/>
+    <path d="M300 150h-24" stroke="#a7e8cf" stroke-width="1.6" fill="none" marker-end="url(#ah)"/>
+    <g>
+    <rect x="135" y="182" width="205" height="26" rx="6" fill="#0b2a23" fill-opacity="0.86" stroke="#ffd98a" stroke-width="1"/>
+    <circle cx="332" cy="195" r="3" fill="#ffd98a"/>
+    <text x="324" y="200" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="14" fill="#ffd98a" text-anchor="start" direction="rtl">مرّر العود من الثقبين</text>
+  </g>
+  
+  <g>
+    <rect x="14" y="246" width="60" height="22" rx="4" fill="#ffd98a"/>
+    <text x="44" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="13" font-weight="700" fill="#0b2a23" text-anchor="middle">خطوة ٤</text>
+    <text x="380" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="15" fill="#dcf4ea" text-anchor="start" direction="rtl">مرّر المسند</text>
+  </g>
 </svg>

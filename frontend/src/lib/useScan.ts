@@ -28,7 +28,7 @@ export function useScan(scanId: string | undefined) {
       setError(
         err instanceof ApiError
           ? err.message
-          : 'تعذّر تحميل بيانات الجلسة. تأكد إنه الـ backend شغّال.',
+          : 'تعذّر تحميل بيانات الجلسة. جرّب مرة ثانية.',
       );
     } finally {
       setLoading(false);

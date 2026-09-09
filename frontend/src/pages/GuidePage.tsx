@@ -4,14 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { ErrorBanner, Loading } from '../components/Feedback';
 import { Header } from '../components/Header';
-import {
-  ArrowNext,
-  Cube,
-  Lightbulb,
-  Rotate,
-  Warning,
-  toolIcon,
-} from '../components/icons';
+import { Model3DView } from '../components/Model3DView';
+import { ArrowNext, Lightbulb, Warning, toolIcon } from '../components/icons';
 import { ApiError, api, mediaUrl } from '../lib/api';
 import type { IdeaDetail } from '../lib/types';
 import './GuidePage.css';
@@ -153,28 +147,10 @@ export function GuidePage() {
 
       <section className="gd__section">
         <h2 className="gd__h2">٣ · قارن مع النموذج ثلاثي الأبعاد</h2>
-        <div className="gd__model">
-          <div className="gd__model-frame">
-            {idea.model3dPreviewUrl ? (
-              <img src={mediaUrl(idea.model3dPreviewUrl)} alt="معاينة ثلاثية الأبعاد" />
-            ) : (
-              <Cube size={64} />
-            )}
-          </div>
-          <div className="stack" style={{ gap: 8 }}>
-            <div className="gd__model-hint">
-              <Rotate size={18} /> دوّر النموذج وقارنه مع اللي عملته
-            </div>
-            <a
-              className="gd__model-link"
-              href={mediaUrl(idea.model3dUrl)}
-              target="_blank"
-              rel="noreferrer"
-            >
-              افتح ملف النموذج ثلاثي الأبعاد
-            </a>
-          </div>
-        </div>
+        <Model3DView
+          image={mediaUrl(idea.model3dPreviewUrl)}
+          title={idea.title}
+        />
       </section>
 
       <Button block onClick={() => navigate('/')}>

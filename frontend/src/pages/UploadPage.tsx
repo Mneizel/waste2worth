@@ -54,7 +54,7 @@ export function UploadPage() {
       setError(
         err instanceof ApiError
           ? err.message
-          : 'ما قدرنا نرفع الصورة. تأكد إنه الـ backend شغّال.',
+          : 'ما قدرنا نحلّل الصورة. جرّب مرة ثانية.',
       );
       setBusy(false);
     }
@@ -67,7 +67,7 @@ export function UploadPage() {
       <div className="stack" style={{ gap: 10, marginBottom: 18 }}>
         <h1 style={{ fontSize: '1.6rem' }}>صوّر أو ارفع صورة القنينة</h1>
         <p className="sub" style={{ fontSize: '0.95rem' }}>
-          Take or upload a photo of a bottle and we&apos;ll show you how to upcycle it.
+          صوّر أو ارفع صورة قنينة، ومنوريك كيف تعيد تدويرها خطوة بخطوة.
         </p>
       </div>
 
@@ -97,7 +97,7 @@ export function UploadPage() {
             <>
               <UploadCloud size={56} className="drop__icon" />
               <div className="drop__title">اسحب صورة القنينة هون</div>
-              <div className="sub">Drag &amp; drop a photo — or click to choose a file</div>
+              <div className="sub">أو اضغط لاختيار صورة من جهازك</div>
             </>
           )}
           <input
@@ -134,7 +134,7 @@ export function UploadPage() {
 
         <div style={{ marginTop: 18 }}>
           <Button block loading={busy} onClick={submit}>
-            {busy ? 'جارٍ التحليل…' : 'حلّل الصورة · Analyse'}
+            {busy ? 'جارٍ التحليل…' : 'حلّل الصورة'}
           </Button>
         </div>
 

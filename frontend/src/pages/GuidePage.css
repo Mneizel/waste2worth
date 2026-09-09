@@ -132,16 +132,16 @@
   flex-direction: column;
 }
 .step__blueprint {
-  background: var(--green-dark);
-  min-height: 96px;
+  background: #0b2a23;
+  aspect-ratio: 400 / 280;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .step__blueprint img {
   width: 100%;
-  max-height: 190px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 }
 .step__text {
   padding: 14px 16px;

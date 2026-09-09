@@ -38,8 +38,8 @@ describe('GuidePage', () => {
     expect(screen.getByText('سهل')).toBeInTheDocument();
     expect(screen.getByText('من عمر 6+')).toBeInTheDocument();
     expect(
-      screen.getByRole('link', { name: 'افتح ملف النموذج ثلاثي الأبعاد' }),
-    ).toHaveAttribute('href', 'http://localhost:4000/static/models/planter.glb');
+      screen.getByRole('img', { name: /نموذج ثلاثي الأبعاد للمنتج/ }),
+    ).toBeInTheDocument();
   });
 
   it('hides the safety banner when there are no safety notes (hard difficulty)', async () => {
@@ -47,9 +47,7 @@ describe('GuidePage', () => {
     await screen.findByRole('heading', { name: 'Hanging lamp' });
     expect(document.querySelector('.gd__safety')).toBeNull();
     expect(screen.getByText('متقدّم')).toBeInTheDocument();
-    // no 3D preview image -> fallback cube icon
-    expect(screen.queryByAltText('معاينة ثلاثية الأبعاد')).toBeNull();
-    expect(document.querySelector('.gd__model-frame svg')).toBeInTheDocument();
+    expect(document.querySelector('.m3d__stage')).toBeInTheDocument();
   });
 
   it('shows the medium difficulty label', async () => {

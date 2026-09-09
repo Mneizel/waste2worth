@@ -125,7 +125,7 @@ describe('UploadPage', () => {
     const { container } = renderInRouter(<UploadPage />);
     fireEvent.change(fileInput(container), { target: { files: [goodImage()] } });
     fireEvent.click(screen.getByRole('button', { name: /حلّل الصورة/ }));
-    expect(await screen.findByText(/ما قدرنا نرفع الصورة/)).toBeInTheDocument();
+    expect(await screen.findByText(/ما قدرنا نحلّل الصورة/)).toBeInTheDocument();
     await waitFor(() =>
       expect(screen.getByRole('button', { name: /حلّل الصورة/ })).not.toBeDisabled(),
     );

@@ -25,7 +25,7 @@ export function IdeasPage() {
       setError(
         err instanceof ApiError
           ? err.message
-          : 'تعذّر تحميل الأفكار. تأكد إنه الـ backend شغّال.',
+          : 'تعذّر تحميل الأفكار. جرّب مرة ثانية.',
       );
     }
   }, [scanId]);

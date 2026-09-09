@@ -1,7 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="200" viewBox="0 0 320 200">
-  <text x="26" y="150" fill="hsl(140 30% 60%)" font-family="'Segoe UI',Arial,sans-serif" font-size="120" font-weight="800" opacity="0.28">7</text>
-  <g transform="translate(96 60)" fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 4h20v10l8 14v58a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5V28l8-14z"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280">
+<defs>
+  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#a7e8cf"/>
+  </marker>
+  <marker id="ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0 0L10 5L0 10z" fill="#ffd98a"/>
+  </marker>
+  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+    <path d="M20 0H0V20" fill="none" stroke="#123f34" stroke-width="1"/>
+  </pattern>
+  <pattern id="soil" width="9" height="9" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.1" fill="#5fb499"/><circle cx="6.5" cy="6" r="1.1" fill="#5fb499"/>
+  </pattern>
+  <pattern id="water" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+    <line x1="0" y1="0" x2="0" y2="10" stroke="#5fb499" stroke-width="1"/>
+  </pattern>
+</defs>
+  <rect width="400" height="280" fill="#0b2a23"/>
+  <rect width="400" height="280" fill="url(#grid)"/>
+  <rect x="8" y="8" width="384" height="264" fill="none" stroke="#5fb499" stroke-width="1.4"/>
+  <rect x="8" y="8" width="384" height="18" fill="none" stroke="#5fb499" stroke-width="1"/>
+  <text x="384" y="21" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="12" fill="#5fb499" text-anchor="start" direction="rtl">مخطط عمل — Waste 2 Worth</text>
+
+    <path d="M112 92l6 -10h64l6 10v110q0 12 -12 12h-52q-12 0 -12 -12z" fill="none" stroke="#a7e8cf" stroke-width="2.4"/>
+    <path d="M116 122h68v80q0 8 -8 8h-52q-8 0 -8 -8z" fill="url(#soil)"/>
+    <g stroke="#a7e8cf" stroke-width="2.2" fill="none"><path d="M150 122v-26"/><path d="M150 104q-14 -2 -18 -16q16 0 18 16z"/><path d="M150 100q12 -4 18 -16q-16 -2 -18 16z"/></g>
+    <g stroke="#5fb499" stroke-width="1.3" fill="none">
+    <line x1="232" y1="122" x2="232" y2="202" marker-start="url(#ah)" marker-end="url(#ah)"/>
+    <line x1="227" y1="122" x2="237" y2="122"/>
+    <line x1="227" y1="202" x2="237" y2="202"/>
   </g>
-  <g fill="none" stroke="hsl(140 40% 82%)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M100 84h84l-10 20h-64z"/><path d="M142 84c0-16 10-24 24-26-2 18-10 26-24 26z"/></g>
+  <rect x="238" y="151" width="52" height="22" rx="4" fill="#0b2a23" stroke="#5fb499" stroke-width="1"/>
+  <text x="264" y="167" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="14" fill="#dcf4ea" text-anchor="middle" direction="rtl">تراب</text>
+    <g>
+    <rect x="152" y="147" width="178" height="26" rx="6" fill="#0b2a23" fill-opacity="0.86" stroke="#5fb499" stroke-width="1"/>
+    <circle cx="322" cy="160" r="3" fill="#a7e8cf"/>
+    <text x="314" y="165" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="14" fill="#dcf4ea" text-anchor="start" direction="rtl">املأ بالتراب وازرع</text>
+  </g>
+  
+  <g>
+    <rect x="14" y="246" width="60" height="22" rx="4" fill="#ffd98a"/>
+    <text x="44" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="13" font-weight="700" fill="#0b2a23" text-anchor="middle">خطوة ٧</text>
+    <text x="380" y="261" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="15" fill="#dcf4ea" text-anchor="start" direction="rtl">حطّ التراب والنبتة</text>
+  </g>
 </svg>
