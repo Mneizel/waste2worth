@@ -1,11 +1,13 @@
 // Arabic-first content for the prototype. The generator (scripts/build-data.ts)
-// turns this into src/data/catalogue.ts + the step blueprints in src/data/media.ts.
+// turns this into src/data/catalogue.ts. Step blueprints are drawn at runtime
+// (src/components/blueprintSvg.ts) so every measurement is computed from the
+// CONFIRMED bottle's real dimensions — see src/data/measure.ts.
 //
 // Scope: 4 projects whose method is genuinely standard and unambiguous. Steps
-// and measurements follow the widely-published versions of each craft
-// (Instructables, Red Ted Art, The Spruce Crafts, library/museum guides).
-// Measurements are the values those sources agree on; where a craft is
-// forgiving the step says so ("تقريباً"). Wording and diagrams are our own.
+// follow the widely-published versions (Instructables, Red Ted Art,
+// The Spruce Crafts, library/museum guides). Wording and diagrams are our own.
+
+import type { MeasureId } from './measure';
 
 export type BlueprintKind =
   | 'clean'
@@ -38,8 +40,8 @@ export interface ContentStep {
   title: string;
   instruction: string;
   blueprint: BlueprintKind;
-  /** Short measurement shown on the blueprint's dimension line, e.g. "≈ ٧ سم". */
-  dim?: string;
+  /** if set, the exact measurement is computed from the confirmed bottle */
+  measure?: MeasureId;
   tip?: string;
   warning?: string;
 }
@@ -53,7 +55,6 @@ export interface ContentIdea {
   minAge: number;
   safetyNotes?: string;
   sortOrder: number;
-  /** Where the method / measurements come from (shown as a small credit). */
   source: string;
   variantKeys: string[];
   tools: ContentTool[];
@@ -93,7 +94,7 @@ export const IDEAS_AR: ContentIdea[] = [
     slug: 'self-watering-planter',
     title: 'مزهرية تسقي نفسها',
     summary:
-      'القنينة تنقصّ نصّين: الجزء العلوي مقلوب يحمل التراب والنبتة، والسفلي خزّان مي، وفتيل قماش يوصل المي للتراب.',
+      'القنينة تنقصّ نصّين: الجزء العلوي مقلوب يحمل التراب والنبتة، والسفلي خزّان ماء، وفتيل قماش يوصل الماء للتراب.',
     difficulty: 'easy',
     estimatedMinutes: 20,
     minAge: 6,
@@ -103,22 +104,22 @@ export const IDEAS_AR: ContentIdea[] = [
     variantKeys: ['pet-water-500ml', 'pet-water-600ml', 'pet-sports-750ml', 'pet-water-1000ml', 'pet-water-1500ml', 'pet-soda-2000ml'],
     tools: [
       { kind: 'tool', name: 'مقص أو سكين ورق', note: 'للقصّ — بيد شخص كبير.' },
-      { kind: 'tool', name: 'قلم تحديد' },
+      { kind: 'tool', name: 'قلم تحديد ومسطرة' },
       { kind: 'material', name: 'قنينة بلاستيك نظيفة', quantity: '١', note: '٥٠٠ مل حتى ٢ لتر.' },
-      { kind: 'material', name: 'شريط قماش قطني (من تيشيرت قديم)', quantity: '٢–٣ سم عرض × ٢٥ سم طول' },
+      { kind: 'material', name: 'شريط قماش قطني (من تيشيرت قديم)', quantity: 'حسب المخطّط' },
       { kind: 'material', name: 'تراب زراعة', quantity: 'كوب إلى كوبين' },
       { kind: 'material', name: 'نبتة صغيرة أو بذور', quantity: '١' },
       { kind: 'material', name: 'شريط لاصق', optional: true, note: 'لتغطية الحافة.' },
     ],
     steps: [
-      { blueprint: 'clean', title: 'نظّف القنينة', instruction: 'انزع الملصق، واغسل القنينة والغطا بالمي، وخلّيها تنشف تماماً.' },
-      { blueprint: 'measure-mark', title: 'علّم خط القصّ', dim: '≈ ثلث الارتفاع', instruction: 'علّم خطاً دائرياً حوالين القنينة على بُعد ثلث ارتفاعها من الغطا تقريباً (قنينة ٥٠٠ مل ≈ ٧ سم من الغطا، قنينة ٢ لتر ≈ ١٥ سم).', tip: 'سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيم.' },
-      { blueprint: 'cut-around', title: 'اقصّ القنينة نصّين', dim: 'على الخط', instruction: 'شخص كبير يقصّ على الخط بالضبط. بيصير عندك جزء علوي (بالغطا) وجزء سفلي.', warning: 'القصّ للكبار بس.' },
+      { blueprint: 'clean', title: 'نظّف القنينة', instruction: 'انزع الملصق، واغسل القنينة والغطا بالماء، وخلّيها تنشف تماماً.' },
+      { blueprint: 'measure-mark', measure: 'planter-cut', title: 'علّم خط القصّ', instruction: 'بالمسطرة، علّم خطاً دائرياً حوالين القنينة عند الارتفاع المبيّن بالمخطّط.', tip: 'سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيماً.' },
+      { blueprint: 'cut-around', measure: 'planter-cut', title: 'اقصّ القنينة نصّين', instruction: 'شخص كبير يقصّ على الخط بالضبط. بيصير جزء علوي (بالغطا) وجزء سفلي.', warning: 'القصّ للكبار بس.' },
       { blueprint: 'edge', title: 'أمّن الحافة', instruction: 'غطِّ حافة القصّ على القطعتين بشريط لاصق حتى ما تجرح.' },
-      { blueprint: 'thread', title: 'ركّب الفتيل', dim: 'نصف داخل · نصف خارج', instruction: 'مرّر شريط القماش من فتحة الغطا: نصفه ينزل داخل الجزء العلوي، ونصفه يتدلّى تحت الغطا.', tip: 'إذا الفتحة صغيرة، افتح الغطا واعمل فيه ثقب ٥ ملّي بمسمار.' },
+      { blueprint: 'thread', measure: 'planter-wick', title: 'ركّب الفتيل', instruction: 'اقصّ شريط القماش بالمقاس المبيّن، ومرّره من فتحة الغطا: نصفه داخل الجزء العلوي، ونصفه متدلٍّ تحت.', tip: 'إذا الفتحة صغيرة، افتح الغطا واعمل فيه ثقب ٥ ملّي بمسمار.' },
       { blueprint: 'nest', title: 'اقلب الجزء العلوي داخل السفلي', instruction: 'اقلب الجزء العلوي رأساً على عقب (الغطا للتحت) وحطّه داخل الجزء السفلي مثل القمع.' },
-      { blueprint: 'fill-soil', title: 'حطّ التراب والنبتة', instruction: 'عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ تحت التراب، بعدين ازرع البذور أو النبتة.' },
-      { blueprint: 'fill-water', title: 'عبّي الخزّان', dim: 'تحت الرقبة', instruction: 'ارفع الجزء العلوي وصبّ مي بالجزء السفلي حتى يلمس المي طرف الفتيل، وبدون ما يوصل لرقبة القنينة. رجّع الجزء العلوي مكانه.', tip: 'زوّد المي كل كم يوم لمّا يقلّ.' },
+      { blueprint: 'fill-soil', title: 'حطّ التراب والنبتة', instruction: 'عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ، بعدين ازرع البذور أو النبتة.' },
+      { blueprint: 'fill-water', measure: 'planter-fill', title: 'عبّي الخزّان', instruction: 'ارفع الجزء العلوي وصبّ الماء في الجزء السفلي حتى الارتفاع المبيّن، بعدين رجّع الجزء العلوي مكانه.', tip: 'زوّد الماء كل كم يوم لمّا يقلّ.' },
     ],
   },
   {
@@ -135,7 +136,7 @@ export const IDEAS_AR: ContentIdea[] = [
     variantKeys: ['pet-water-1000ml', 'pet-oil-1000ml', 'pet-water-1500ml', 'pet-soda-2000ml', 'pet-juice-1000ml'],
     tools: [
       { kind: 'tool', name: 'سكين ورق', note: 'للثقوب — بيد شخص كبير.' },
-      { kind: 'tool', name: 'قلم تحديد' },
+      { kind: 'tool', name: 'قلم تحديد ومسطرة' },
       { kind: 'material', name: 'قنينة نظيفة مع غطاها', quantity: '١', note: '١ لتر حتى ٢ لتر.' },
       { kind: 'material', name: 'ملعقتان خشب طويلتان', quantity: '٢' },
       { kind: 'material', name: 'خيط أو دوبارة', quantity: '٤٠ سم' },
@@ -143,11 +144,11 @@ export const IDEAS_AR: ContentIdea[] = [
     ],
     steps: [
       { blueprint: 'clean', title: 'نظّف القنينة ونشّفها', instruction: 'اغسل القنينة والغطا، انزع الملصق، وخلّيها تنشف تماماً.' },
-      { blueprint: 'holes-body', title: 'علّم مكان الملعقة الأولى', dim: '٥ سم من القاع', instruction: 'على جهتين متقابلتين، علّم نقطتين على ارتفاع ٥ سم من قاع القنينة.' },
-      { blueprint: 'insert-rod', title: 'مرّر الملعقة الأولى', instruction: 'شخص كبير يعمل ثقبين صغيرين مكان العلامتين، ثم مرّر ملعقة الخشب حتى تطلع من الجهتين بالتساوي.', warning: 'الثقوب للكبار بس.' },
-      { blueprint: 'insert-rod', title: 'مرّر الملعقة الثانية', dim: '٣ سم أعلى · زاوية ٩٠°', instruction: 'علّم ثقبين آخرين على ارتفاع ٣ سم فوق الأولى وبزاوية ربع دورة (متقاطعة معها)، ومرّر الملعقة الثانية.' },
-      { blueprint: 'cut-window', title: 'افتح منافذ الحَب', dim: '≈ ١ سم', instruction: 'فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة صغيرة قطرها ١ سم تقريباً ليخرج منها الحَب.' },
-      { blueprint: 'hang', title: 'اعمل معلاقة', dim: 'خيط ٤٠ سم', instruction: 'اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر الخيط، واعمل عروة.' },
+      { blueprint: 'holes-body', measure: 'feeder-perch1', title: 'علّم مكان الملعقة الأولى', instruction: 'على جهتين متقابلتين، علّم نقطتين على الارتفاع المبيّن بالمخطّط.' },
+      { blueprint: 'insert-rod', measure: 'feeder-perch1', title: 'مرّر الملعقة الأولى', instruction: 'شخص كبير يعمل ثقبين صغيرين مكان العلامتين، ثم مرّر ملعقة الخشب حتى تطلع من الجهتين بالتساوي.', warning: 'الثقوب للكبار بس.' },
+      { blueprint: 'insert-rod', measure: 'feeder-perch2', title: 'مرّر الملعقة الثانية', instruction: 'علّم ثقبين آخرين فوق الأولى بالمسافة المبيّنة وبزاوية ربع دورة، ومرّر الملعقة الثانية.' },
+      { blueprint: 'cut-window', measure: 'feeder-opening', title: 'افتح منافذ الحَب', instruction: 'فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة بالقياس المبيّن ليخرج منها الحَب.' },
+      { blueprint: 'hang', title: 'اعمل معلاقة', instruction: 'اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر خيط ٤٠ سم، واعمل عروة.' },
       { blueprint: 'fill-soil', title: 'عبّي الحَب', instruction: 'صبّ حَب العصافير جوّا القنينة من فوق، وسكّر الغطا.' },
       { blueprint: 'hang', title: 'علّقه', instruction: 'علّق المطعم بغصن شجرة، بمكان تقدر تشوفه من الشبّاك وبعيد عن القطط.' },
     ],
@@ -165,15 +166,15 @@ export const IDEAS_AR: ContentIdea[] = [
     variantKeys: ['pet-water-500ml', 'pet-water-600ml', 'pet-water-1000ml', 'pet-water-1500ml', 'pet-oil-1000ml'],
     tools: [
       { kind: 'tool', name: 'سكين ورق', note: 'للشقّ — بيد شخص كبير.' },
-      { kind: 'tool', name: 'قلم تحديد' },
+      { kind: 'tool', name: 'قلم تحديد ومسطرة' },
       { kind: 'material', name: 'قنينة نظيفة مع غطاها', quantity: '١' },
       { kind: 'material', name: 'ورق ملوّن ولاصق، أو دهان', quantity: '١', optional: true, note: 'للتزيين.' },
     ],
     steps: [
       { blueprint: 'clean', title: 'نظّف القنينة ونشّفها', instruction: 'اغسل القنينة والغطا، انزع الملصق، ونشّفها. خلّي الغطا مسكّراً.' },
-      { blueprint: 'measure-mark', title: 'علّم الشقّ', dim: '٣ سم × ٤ ملّي', instruction: 'ضع القنينة على جنبها. على الجهة اللي لفوق، علّم مستطيلاً رفيعاً: طوله ٣ سم وعرضه ٣–٤ ملّي (أطول شوي من أكبر قرش عندك).' },
-      { blueprint: 'cut-window', title: 'اقصّ الشقّ', instruction: 'شخص كبير يقصّ على المستطيل بسكين الورق ليصير شقّاً.', warning: 'القصّ للكبار بس.' },
-      { blueprint: 'generic', title: 'جرّب قرشاً', dim: 'وسّع ١–٢ ملّي', instruction: 'جرّب تدخّل أكبر قرش من الشقّ. إذا كان ضيّقاً، وسّعه ١–٢ ملّي فقط.' },
+      { blueprint: 'measure-mark', measure: 'bank-slot', title: 'علّم الشقّ', instruction: 'ضع القنينة على جنبها، وعلّم مستطيلاً رفيعاً على الجهة اللي لفوق بالمقاس المبيّن.' },
+      { blueprint: 'cut-window', measure: 'bank-slot', title: 'اقصّ الشقّ', instruction: 'شخص كبير يقصّ على المستطيل بسكين الورق ليصير شقّاً.', warning: 'القصّ للكبار بس.' },
+      { blueprint: 'generic', title: 'جرّب قرشاً', instruction: 'جرّب تدخّل أكبر قرش من الشقّ. إذا كان ضيّقاً، وسّعه ١–٢ ملّي فقط.' },
       { blueprint: 'decorate', title: 'زيّنها', instruction: 'لفّ القنينة بورق ملوّن أو ادهنها، وخلّي الشقّ مكشوفاً.' },
       { blueprint: 'stand', title: 'ابدأ توفّر', instruction: 'نزّل القروش من الشقّ. لتفريغها، افتح الغطا فقط.' },
     ],
@@ -191,16 +192,16 @@ export const IDEAS_AR: ContentIdea[] = [
     variantKeys: ['pet-water-500ml', 'pet-water-600ml', 'pet-sports-750ml', 'pet-water-1000ml', 'pet-oil-1000ml'],
     tools: [
       { kind: 'tool', name: 'مقص أو سكين ورق', note: 'للقصّ — بيد شخص كبير.' },
-      { kind: 'tool', name: 'قلم تحديد' },
+      { kind: 'tool', name: 'قلم تحديد ومسطرة' },
       { kind: 'material', name: 'قنينة بلاستيك نظيفة', quantity: '١', note: '٥٠٠ مل حتى ١ لتر.' },
       { kind: 'material', name: 'شريط ملوّن أو دهان', quantity: '١', optional: true },
     ],
     steps: [
       { blueprint: 'clean', title: 'نظّف القنينة', instruction: 'اغسل القنينة، انزع الملصق، ونشّفها.' },
-      { blueprint: 'measure-mark', title: 'حدّد الارتفاع', dim: 'طول القلم − ٢ سم', instruction: 'حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على ارتفاع = طول القلم ناقص ٢ سم (عادةً ١٠ إلى ١٣ سم من القاع).', tip: 'دوّر القنينة على قلم ثابت ليطلع الخط منظّماً.' },
-      { blueprint: 'cut-around', title: 'اقصّ الجزء العلوي', dim: 'على الخط', instruction: 'شخص كبير يقصّ على الخط بالضبط. احتفظ بالجزء السفلي.', warning: 'القصّ للكبار بس.' },
+      { blueprint: 'measure-mark', measure: 'pen-height', title: 'حدّد الارتفاع', instruction: 'حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على الارتفاع المبيّن بالمخطّط.', tip: 'دوّر القنينة على قلم ثابت ليطلع الخط منظّماً.' },
+      { blueprint: 'cut-around', measure: 'pen-height', title: 'اقصّ الجزء العلوي', instruction: 'شخص كبير يقصّ على الخط بالضبط. احتفظ بالجزء السفلي.', warning: 'القصّ للكبار بس.' },
       { blueprint: 'edge', title: 'أمّن الحافة', instruction: 'اطوِ الحافة المقصوصة للخارج، أو غطّيها بشريط لاصق.' },
-      { blueprint: 'holes-body', title: 'ثقب تصريف (اختياري)', instruction: 'إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج المي.' },
+      { blueprint: 'holes-body', title: 'ثقب تصريف (اختياري)', instruction: 'إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج الماء.' },
       { blueprint: 'decorate', title: 'زيّنها', instruction: 'لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.' },
       { blueprint: 'stand', title: 'استعملها', instruction: 'وقّف أقلامك وأدواتك جوّاها على المكتب.' },
     ],

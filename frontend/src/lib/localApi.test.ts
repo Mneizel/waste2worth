@@ -21,7 +21,7 @@ describe('localApi.mediaUrl', () => {
     expect(mediaUrl('media/ideas/self-watering-planter-final.svg')).toMatch(
       /^data:image\/svg\+xml,/,
     );
-    expect(mediaUrl('/media/steps/self-watering-planter-1.svg')).toMatch(
+    expect(mediaUrl('/media/ideas/coin-bank-3d.svg')).toMatch(
       /^data:image\/svg\+xml,/,
     );
   });

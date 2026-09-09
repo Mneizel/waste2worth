@@ -1,0 +1,11 @@
+.bp {
+  background: #0b2a23;
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 0;
+}
+.bp svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

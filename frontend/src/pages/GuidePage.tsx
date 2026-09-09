@@ -1,19 +1,30 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import { Blueprint } from '../components/Blueprint';
+import type { BlueprintKind } from '../components/blueprintSvg';
 import { Button } from '../components/Button';
 import { ErrorBanner, Loading } from '../components/Feedback';
 import { Header } from '../components/Header';
 import { Model3DView } from '../components/Model3DView';
-import { ArrowNext, Lightbulb, Warning, toolIcon } from '../components/icons';
+import { ArrowNext, Lightbulb, Ruler, Warning, toolIcon } from '../components/icons';
+import { VARIANTS } from '../data/catalogue';
+import { compute, type MeasureId } from '../data/measure';
 import { ApiError, api, mediaUrl } from '../lib/api';
-import type { IdeaDetail } from '../lib/types';
+import type { IdeaDetail, Variant } from '../lib/types';
+import { useScan } from '../lib/useScan';
 import './GuidePage.css';
+
+// A sensible default so the guide still renders on a direct link.
+const DEFAULT_VARIANT = VARIANTS.find(
+  (v) => v.key === 'pet-water-500ml',
+) as Variant;
 
 export function GuidePage() {
   // The route always supplies :scanId and :ideaId.
   const { scanId, ideaId } = useParams() as { scanId: string; ideaId: string };
   const navigate = useNavigate();
+  const { scan } = useScan(scanId);
 
   const [idea, setIdea] = useState<IdeaDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -25,9 +36,7 @@ export function GuidePage() {
       setIdea(detail);
       void api.selectIdea(scanId, ideaId).catch(() => undefined);
     } catch (err) {
-      setError(
-        err instanceof ApiError ? err.message : 'تعذّر تحميل الدليل.',
-      );
+      setError(err instanceof ApiError ? err.message : 'تعذّر تحميل الدليل.');
     }
   }, [ideaId, scanId]);
 
@@ -53,6 +62,7 @@ export function GuidePage() {
     );
   }
 
+  const variant = scan?.confirmedVariant ?? DEFAULT_VARIANT;
   const tools = idea.tools.filter((t) => t.kind === 'tool');
   const materials = idea.tools.filter((t) => t.kind === 'material');
 
@@ -76,6 +86,12 @@ export function GuidePage() {
           </div>
         </div>
       </div>
+
+      <p className="gd__bottle">
+        <Ruler size={16} /> المقاسات محسوبة لقنينتك: {variant.label} — ارتفاع{' '}
+        {toArabicDigits(variant.heightMm)} ملم، قطر{' '}
+        {toArabicDigits(variant.diameterMm)} ملم.
+      </p>
 
       {idea.safetyNotes && (
         <div className="gd__safety">
@@ -113,48 +129,59 @@ export function GuidePage() {
       <section className="gd__section">
         <h2 className="gd__h2">٢ · الخطوات</h2>
         <ol className="gd__steps">
-          {idea.steps.map((s) => (
-            <li key={s.stepNumber} className="step">
-              <div className="step__num">{toArabicDigits(s.stepNumber)}</div>
-              <div className="step__body">
-                <div className="step__blueprint">
-                  <img
-                    src={mediaUrl(s.imageUrl)}
-                    alt={`رسم الخطوة ${s.stepNumber}`}
-                    loading="lazy"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
+          {idea.steps.map((s) => {
+            const m = s.measure ? compute(s.measure as MeasureId, variant) : null;
+            return (
+              <li key={s.stepNumber} className="step">
+                <div className="step__num">{toArabicDigits(s.stepNumber)}</div>
+                <div className="step__body">
+                  <div className="step__blueprint">
+                    <Blueprint
+                      kind={s.blueprint as BlueprintKind}
+                      stepNumber={s.stepNumber}
+                      title={s.title}
+                      project={idea.title}
+                      variant={variant}
+                      instruction={s.instruction}
+                      measureSentence={m?.sentence}
+                      measureShort={m?.short}
+                      frac={m?.frac}
+                      tip={s.tip || undefined}
+                      warning={s.warning || undefined}
+                    />
+                  </div>
+                  <div className="step__text">
+                    <div className="step__title">{s.title}</div>
+                    <p className="step__instruction">{s.instruction}</p>
+                    {m && (
+                      <div className="step__hint step__hint--measure">
+                        <Ruler size={16} />
+                        <span>{m.sentence}</span>
+                      </div>
+                    )}
+                    {s.tip && (
+                      <div className="step__hint step__hint--tip">
+                        <Lightbulb size={16} />
+                        <span>{s.tip}</span>
+                      </div>
+                    )}
+                    {s.warning && (
+                      <div className="step__hint step__hint--warn">
+                        <Warning size={16} />
+                        <span>{s.warning}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="step__text">
-                  <div className="step__title">{s.title}</div>
-                  <p className="step__instruction">{s.instruction}</p>
-                  {s.tip && (
-                    <div className="step__hint step__hint--tip">
-                      <Lightbulb size={16} />
-                      <span>{s.tip}</span>
-                    </div>
-                  )}
-                  {s.warning && (
-                    <div className="step__hint step__hint--warn">
-                      <Warning size={16} />
-                      <span>{s.warning}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </li>
-          ))}
+              </li>
+            );
+          })}
         </ol>
       </section>
 
       <section className="gd__section">
         <h2 className="gd__h2">٣ · قارن مع النموذج ثلاثي الأبعاد</h2>
-        <Model3DView
-          image={mediaUrl(idea.model3dPreviewUrl)}
-          title={idea.title}
-        />
+        <Model3DView image={mediaUrl(idea.model3dPreviewUrl)} title={idea.title} />
       </section>
 
       <Button block onClick={() => navigate('/')}>

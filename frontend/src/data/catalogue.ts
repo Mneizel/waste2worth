@@ -370,7 +370,7 @@ export const IDEAS: IdeaDetail[] = [
     "id": "idea-self-watering-planter",
     "slug": "self-watering-planter",
     "title": "مزهرية تسقي نفسها",
-    "summary": "القنينة تنقصّ نصّين: الجزء العلوي مقلوب يحمل التراب والنبتة، والسفلي خزّان مي، وفتيل قماش يوصل المي للتراب.",
+    "summary": "القنينة تنقصّ نصّين: الجزء العلوي مقلوب يحمل التراب والنبتة، والسفلي خزّان ماء، وفتيل قماش يوصل الماء للتراب.",
     "difficulty": "easy",
     "estimatedMinutes": 20,
     "minAge": 6,
@@ -393,7 +393,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-self-watering-planter-1",
         "kind": "tool",
-        "name": "قلم تحديد",
+        "name": "قلم تحديد ومسطرة",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
@@ -413,7 +413,7 @@ export const IDEAS: IdeaDetail[] = [
         "kind": "material",
         "name": "شريط قماش قطني (من تيشيرت قديم)",
         "imageUrl": "",
-        "quantity": "٢–٣ سم عرض × ٢٥ سم طول",
+        "quantity": "حسب المخطّط",
         "optional": false,
         "note": ""
       },
@@ -449,74 +449,74 @@ export const IDEAS: IdeaDetail[] = [
       {
         "stepNumber": 1,
         "title": "نظّف القنينة",
-        "instruction": "انزع الملصق، واغسل القنينة والغطا بالمي، وخلّيها تنشف تماماً.",
-        "imageUrl": "media/steps/self-watering-planter-1.svg",
+        "instruction": "انزع الملصق، واغسل القنينة والغطا بالماء، وخلّيها تنشف تماماً.",
+        "blueprint": "clean",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "clean"
+        "warning": ""
       },
       {
         "stepNumber": 2,
         "title": "علّم خط القصّ",
-        "instruction": "علّم خطاً دائرياً حوالين القنينة على بُعد ثلث ارتفاعها من الغطا تقريباً (قنينة ٥٠٠ مل ≈ ٧ سم من الغطا، قنينة ٢ لتر ≈ ١٥ سم).",
-        "imageUrl": "media/steps/self-watering-planter-2.svg",
-        "tip": "سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيم.",
-        "warning": "",
-        "icon": "measure-mark"
+        "instruction": "بالمسطرة، علّم خطاً دائرياً حوالين القنينة عند الارتفاع المبيّن بالمخطّط.",
+        "blueprint": "measure-mark",
+        "measure": "planter-cut",
+        "tip": "سنّد القلم على كومة كتب ودوّر القنينة ليطلع الخط مستقيماً.",
+        "warning": ""
       },
       {
         "stepNumber": 3,
         "title": "اقصّ القنينة نصّين",
-        "instruction": "شخص كبير يقصّ على الخط بالضبط. بيصير عندك جزء علوي (بالغطا) وجزء سفلي.",
-        "imageUrl": "media/steps/self-watering-planter-3.svg",
+        "instruction": "شخص كبير يقصّ على الخط بالضبط. بيصير جزء علوي (بالغطا) وجزء سفلي.",
+        "blueprint": "cut-around",
+        "measure": "planter-cut",
         "tip": "",
-        "warning": "القصّ للكبار بس.",
-        "icon": "cut-around"
+        "warning": "القصّ للكبار بس."
       },
       {
         "stepNumber": 4,
         "title": "أمّن الحافة",
         "instruction": "غطِّ حافة القصّ على القطعتين بشريط لاصق حتى ما تجرح.",
-        "imageUrl": "media/steps/self-watering-planter-4.svg",
+        "blueprint": "edge",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "edge"
+        "warning": ""
       },
       {
         "stepNumber": 5,
         "title": "ركّب الفتيل",
-        "instruction": "مرّر شريط القماش من فتحة الغطا: نصفه ينزل داخل الجزء العلوي، ونصفه يتدلّى تحت الغطا.",
-        "imageUrl": "media/steps/self-watering-planter-5.svg",
+        "instruction": "اقصّ شريط القماش بالمقاس المبيّن، ومرّره من فتحة الغطا: نصفه داخل الجزء العلوي، ونصفه متدلٍّ تحت.",
+        "blueprint": "thread",
+        "measure": "planter-wick",
         "tip": "إذا الفتحة صغيرة، افتح الغطا واعمل فيه ثقب ٥ ملّي بمسمار.",
-        "warning": "",
-        "icon": "thread"
+        "warning": ""
       },
       {
         "stepNumber": 6,
         "title": "اقلب الجزء العلوي داخل السفلي",
         "instruction": "اقلب الجزء العلوي رأساً على عقب (الغطا للتحت) وحطّه داخل الجزء السفلي مثل القمع.",
-        "imageUrl": "media/steps/self-watering-planter-6.svg",
+        "blueprint": "nest",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "nest"
+        "warning": ""
       },
       {
         "stepNumber": 7,
         "title": "حطّ التراب والنبتة",
-        "instruction": "عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ تحت التراب، بعدين ازرع البذور أو النبتة.",
-        "imageUrl": "media/steps/self-watering-planter-7.svg",
+        "instruction": "عبّي الجزء العلوي تراباً، وامسك الفتيل حتى ما ينطمّ، بعدين ازرع البذور أو النبتة.",
+        "blueprint": "fill-soil",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "fill-soil"
+        "warning": ""
       },
       {
         "stepNumber": 8,
         "title": "عبّي الخزّان",
-        "instruction": "ارفع الجزء العلوي وصبّ مي بالجزء السفلي حتى يلمس المي طرف الفتيل، وبدون ما يوصل لرقبة القنينة. رجّع الجزء العلوي مكانه.",
-        "imageUrl": "media/steps/self-watering-planter-8.svg",
-        "tip": "زوّد المي كل كم يوم لمّا يقلّ.",
-        "warning": "",
-        "icon": "fill-water"
+        "instruction": "ارفع الجزء العلوي وصبّ الماء في الجزء السفلي حتى الارتفاع المبيّن، بعدين رجّع الجزء العلوي مكانه.",
+        "blueprint": "fill-water",
+        "measure": "planter-fill",
+        "tip": "زوّد الماء كل كم يوم لمّا يقلّ.",
+        "warning": ""
       }
     ],
     "variantKeys": [
@@ -555,7 +555,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-bird-feeder-1",
         "kind": "tool",
-        "name": "قلم تحديد",
+        "name": "قلم تحديد ومسطرة",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
@@ -603,73 +603,73 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 1,
         "title": "نظّف القنينة ونشّفها",
         "instruction": "اغسل القنينة والغطا، انزع الملصق، وخلّيها تنشف تماماً.",
-        "imageUrl": "media/steps/bird-feeder-1.svg",
+        "blueprint": "clean",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "clean"
+        "warning": ""
       },
       {
         "stepNumber": 2,
         "title": "علّم مكان الملعقة الأولى",
-        "instruction": "على جهتين متقابلتين، علّم نقطتين على ارتفاع ٥ سم من قاع القنينة.",
-        "imageUrl": "media/steps/bird-feeder-2.svg",
+        "instruction": "على جهتين متقابلتين، علّم نقطتين على الارتفاع المبيّن بالمخطّط.",
+        "blueprint": "holes-body",
+        "measure": "feeder-perch1",
         "tip": "",
-        "warning": "",
-        "icon": "holes-body"
+        "warning": ""
       },
       {
         "stepNumber": 3,
         "title": "مرّر الملعقة الأولى",
         "instruction": "شخص كبير يعمل ثقبين صغيرين مكان العلامتين، ثم مرّر ملعقة الخشب حتى تطلع من الجهتين بالتساوي.",
-        "imageUrl": "media/steps/bird-feeder-3.svg",
+        "blueprint": "insert-rod",
+        "measure": "feeder-perch1",
         "tip": "",
-        "warning": "الثقوب للكبار بس.",
-        "icon": "insert-rod"
+        "warning": "الثقوب للكبار بس."
       },
       {
         "stepNumber": 4,
         "title": "مرّر الملعقة الثانية",
-        "instruction": "علّم ثقبين آخرين على ارتفاع ٣ سم فوق الأولى وبزاوية ربع دورة (متقاطعة معها)، ومرّر الملعقة الثانية.",
-        "imageUrl": "media/steps/bird-feeder-4.svg",
+        "instruction": "علّم ثقبين آخرين فوق الأولى بالمسافة المبيّنة وبزاوية ربع دورة، ومرّر الملعقة الثانية.",
+        "blueprint": "insert-rod",
+        "measure": "feeder-perch2",
         "tip": "",
-        "warning": "",
-        "icon": "insert-rod"
+        "warning": ""
       },
       {
         "stepNumber": 5,
         "title": "افتح منافذ الحَب",
-        "instruction": "فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة صغيرة قطرها ١ سم تقريباً ليخرج منها الحَب.",
-        "imageUrl": "media/steps/bird-feeder-5.svg",
+        "instruction": "فوق رأس كل ملعقة مباشرة، وسّع الثقب إلى فتحة بالقياس المبيّن ليخرج منها الحَب.",
+        "blueprint": "cut-window",
+        "measure": "feeder-opening",
         "tip": "",
-        "warning": "",
-        "icon": "cut-window"
+        "warning": ""
       },
       {
         "stepNumber": 6,
         "title": "اعمل معلاقة",
-        "instruction": "اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر الخيط، واعمل عروة.",
-        "imageUrl": "media/steps/bird-feeder-6.svg",
+        "instruction": "اعمل ثقبين صغيرين على جهتين قرب الغطا، مرّر خيط ٤٠ سم، واعمل عروة.",
+        "blueprint": "hang",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "hang"
+        "warning": ""
       },
       {
         "stepNumber": 7,
         "title": "عبّي الحَب",
         "instruction": "صبّ حَب العصافير جوّا القنينة من فوق، وسكّر الغطا.",
-        "imageUrl": "media/steps/bird-feeder-7.svg",
+        "blueprint": "fill-soil",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "fill-soil"
+        "warning": ""
       },
       {
         "stepNumber": 8,
         "title": "علّقه",
         "instruction": "علّق المطعم بغصن شجرة، بمكان تقدر تشوفه من الشبّاك وبعيد عن القطط.",
-        "imageUrl": "media/steps/bird-feeder-8.svg",
+        "blueprint": "hang",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "hang"
+        "warning": ""
       }
     ],
     "variantKeys": [
@@ -707,7 +707,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-coin-bank-1",
         "kind": "tool",
-        "name": "قلم تحديد",
+        "name": "قلم تحديد ومسطرة",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
@@ -737,55 +737,55 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 1,
         "title": "نظّف القنينة ونشّفها",
         "instruction": "اغسل القنينة والغطا، انزع الملصق، ونشّفها. خلّي الغطا مسكّراً.",
-        "imageUrl": "media/steps/coin-bank-1.svg",
+        "blueprint": "clean",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "clean"
+        "warning": ""
       },
       {
         "stepNumber": 2,
         "title": "علّم الشقّ",
-        "instruction": "ضع القنينة على جنبها. على الجهة اللي لفوق، علّم مستطيلاً رفيعاً: طوله ٣ سم وعرضه ٣–٤ ملّي (أطول شوي من أكبر قرش عندك).",
-        "imageUrl": "media/steps/coin-bank-2.svg",
+        "instruction": "ضع القنينة على جنبها، وعلّم مستطيلاً رفيعاً على الجهة اللي لفوق بالمقاس المبيّن.",
+        "blueprint": "measure-mark",
+        "measure": "bank-slot",
         "tip": "",
-        "warning": "",
-        "icon": "measure-mark"
+        "warning": ""
       },
       {
         "stepNumber": 3,
         "title": "اقصّ الشقّ",
         "instruction": "شخص كبير يقصّ على المستطيل بسكين الورق ليصير شقّاً.",
-        "imageUrl": "media/steps/coin-bank-3.svg",
+        "blueprint": "cut-window",
+        "measure": "bank-slot",
         "tip": "",
-        "warning": "القصّ للكبار بس.",
-        "icon": "cut-window"
+        "warning": "القصّ للكبار بس."
       },
       {
         "stepNumber": 4,
         "title": "جرّب قرشاً",
         "instruction": "جرّب تدخّل أكبر قرش من الشقّ. إذا كان ضيّقاً، وسّعه ١–٢ ملّي فقط.",
-        "imageUrl": "media/steps/coin-bank-4.svg",
+        "blueprint": "generic",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "generic"
+        "warning": ""
       },
       {
         "stepNumber": 5,
         "title": "زيّنها",
         "instruction": "لفّ القنينة بورق ملوّن أو ادهنها، وخلّي الشقّ مكشوفاً.",
-        "imageUrl": "media/steps/coin-bank-5.svg",
+        "blueprint": "decorate",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "decorate"
+        "warning": ""
       },
       {
         "stepNumber": 6,
         "title": "ابدأ توفّر",
         "instruction": "نزّل القروش من الشقّ. لتفريغها، افتح الغطا فقط.",
-        "imageUrl": "media/steps/coin-bank-6.svg",
+        "blueprint": "stand",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "stand"
+        "warning": ""
       }
     ],
     "variantKeys": [
@@ -823,7 +823,7 @@ export const IDEAS: IdeaDetail[] = [
       {
         "id": "tool-pen-pot-organizer-1",
         "kind": "tool",
-        "name": "قلم تحديد",
+        "name": "قلم تحديد ومسطرة",
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
@@ -853,64 +853,64 @@ export const IDEAS: IdeaDetail[] = [
         "stepNumber": 1,
         "title": "نظّف القنينة",
         "instruction": "اغسل القنينة، انزع الملصق، ونشّفها.",
-        "imageUrl": "media/steps/pen-pot-organizer-1.svg",
+        "blueprint": "clean",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "clean"
+        "warning": ""
       },
       {
         "stepNumber": 2,
         "title": "حدّد الارتفاع",
-        "instruction": "حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على ارتفاع = طول القلم ناقص ٢ سم (عادةً ١٠ إلى ١٣ سم من القاع).",
-        "imageUrl": "media/steps/pen-pot-organizer-2.svg",
+        "instruction": "حطّ أطول قلم عندك جنب القنينة، وعلّم خطاً دائرياً على الارتفاع المبيّن بالمخطّط.",
+        "blueprint": "measure-mark",
+        "measure": "pen-height",
         "tip": "دوّر القنينة على قلم ثابت ليطلع الخط منظّماً.",
-        "warning": "",
-        "icon": "measure-mark"
+        "warning": ""
       },
       {
         "stepNumber": 3,
         "title": "اقصّ الجزء العلوي",
         "instruction": "شخص كبير يقصّ على الخط بالضبط. احتفظ بالجزء السفلي.",
-        "imageUrl": "media/steps/pen-pot-organizer-3.svg",
+        "blueprint": "cut-around",
+        "measure": "pen-height",
         "tip": "",
-        "warning": "القصّ للكبار بس.",
-        "icon": "cut-around"
+        "warning": "القصّ للكبار بس."
       },
       {
         "stepNumber": 4,
         "title": "أمّن الحافة",
         "instruction": "اطوِ الحافة المقصوصة للخارج، أو غطّيها بشريط لاصق.",
-        "imageUrl": "media/steps/pen-pot-organizer-4.svg",
+        "blueprint": "edge",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "edge"
+        "warning": ""
       },
       {
         "stepNumber": 5,
         "title": "ثقب تصريف (اختياري)",
-        "instruction": "إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج المي.",
-        "imageUrl": "media/steps/pen-pot-organizer-5.svg",
+        "instruction": "إذا رح توقّف فيها فُرَشاً رطبة، اعمل ثقباً صغيراً بالقاع ليخرج الماء.",
+        "blueprint": "holes-body",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "holes-body"
+        "warning": ""
       },
       {
         "stepNumber": 6,
         "title": "زيّنها",
         "instruction": "لفّ العلبة بشريط ملوّن أو ادهنها وخلّيها تنشف.",
-        "imageUrl": "media/steps/pen-pot-organizer-6.svg",
+        "blueprint": "decorate",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "decorate"
+        "warning": ""
       },
       {
         "stepNumber": 7,
         "title": "استعملها",
         "instruction": "وقّف أقلامك وأدواتك جوّاها على المكتب.",
-        "imageUrl": "media/steps/pen-pot-organizer-7.svg",
+        "blueprint": "stand",
+        "measure": "",
         "tip": "",
-        "warning": "",
-        "icon": "stand"
+        "warning": ""
       }
     ],
     "variantKeys": [

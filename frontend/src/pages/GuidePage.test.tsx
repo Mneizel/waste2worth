@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { vi } from 'vitest';
 
 import { ApiError, apiMock, mockApiFailure } from '../test/apiMock';
@@ -22,21 +22,27 @@ async function startAtGuide(ideaId: string, hint = '500') {
 }
 
 describe('GuidePage', () => {
-  it('renders tools, materials, steps, tips, warnings and the 3D block', async () => {
-    await startAtGuide('idea-planter');
+  it('renders tools, per-bottle steps + measurements, and the 3D block', async () => {
+    const { container } = await startAtGuide('idea-planter');
     expect(
       await screen.findByRole('heading', { name: 'Self-watering planter' }),
     ).toBeInTheDocument();
     expect(screen.getByText(/An adult should do the cutting/)).toBeInTheDocument();
     expect(screen.getByText('Scissors')).toBeInTheDocument();
     expect(screen.getByText('String')).toBeInTheDocument();
-    expect(screen.getByText('Clean it')).toBeInTheDocument();
-    expect(screen.getByText('Warm water helps.')).toBeInTheDocument();
-    expect(screen.getByText('Adults only.')).toBeInTheDocument();
-    expect(screen.getByText('١')).toBeInTheDocument();
-    expect(screen.getByText('٢')).toBeInTheDocument();
+    // step titles / hints appear both in the panel and on the blueprint sheet
+    expect(screen.getAllByText('Clean it').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Warm water helps.').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Adults only.').length).toBeGreaterThan(0);
     expect(screen.getByText('سهل')).toBeInTheDocument();
     expect(screen.getByText('من عمر 6+')).toBeInTheDocument();
+
+    // one runtime blueprint SVG per step (the test fixture idea has 2)
+    expect(container.querySelectorAll('.bp svg')).toHaveLength(2);
+    // step 2's cut is computed from the 210 mm test bottle -> 7.6 cm
+    expect(screen.getAllByText(/٧٫٦ سم/).length).toBeGreaterThan(0);
+    expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();
+
     expect(
       screen.getByRole('img', { name: /نموذج ثلاثي الأبعاد للمنتج/ }),
     ).toBeInTheDocument();
@@ -55,11 +61,26 @@ describe('GuidePage', () => {
     expect(await screen.findByText('متوسط')).toBeInTheDocument();
   });
 
-  it('hides a broken step image', async () => {
-    await startAtGuide('idea-planter');
-    const img = await screen.findByAltText('رسم الخطوة 1');
-    fireEvent.error(img);
-    expect(img).toHaveStyle({ display: 'none' });
+  it('falls back to the default bottle when the scan is unavailable', async () => {
+    // getIdea works, but this scan id 404s -> no confirmed variant
+    renderApp({ pathname: '/scan/missing/idea/idea-planter', state: {} });
+    expect(
+      await screen.findByRole('heading', { name: 'Self-watering planter' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();
+  });
+
+  it('uses the confirmed variant even before it is confirmed', async () => {
+    // a scan that exists but has no confirmedVariant yet
+    const scan = await apiMock.createScan(imageFile(), '500');
+    renderApp({
+      pathname: `/scan/${scan.id}/idea/idea-planter`,
+      state: { scanId: scan.id },
+    });
+    expect(
+      await screen.findByRole('heading', { name: 'Self-watering planter' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();
   });
 
   it('still renders when recording the choice fails', async () => {

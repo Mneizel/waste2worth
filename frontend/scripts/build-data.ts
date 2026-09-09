@@ -11,11 +11,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { BOTTLE_VARIANTS } from '../../backend/src/seed/bottleSizes';
-import {
-  IDEAS_AR,
-  VARIANT_LABELS_AR,
-  type BlueprintKind,
-} from '../src/data/content';
+import { IDEAS_AR, VARIANT_LABELS_AR } from '../src/data/content';
 import type { IdeaDetail, Variant } from '../src/lib/types';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -25,8 +21,7 @@ const SVG = 'image/svg+xml';
 
 const esc = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const ar = (n: number) =>
-  String(n).replace(/\d/g, (d) => '٠١٢٣٤٥٦٧٨٩'[Number(d)]!);
+const FONT = "font-family=\"'Segoe UI',Tahoma,Arial,sans-serif\"";
 
 // ------------------------------------------------------------------ data ----
 
@@ -73,10 +68,10 @@ const IDEAS: IdeaDetail[] = IDEAS_AR.map((idea) => ({
     stepNumber: i + 1,
     title: s.title,
     instruction: s.instruction,
-    imageUrl: `media/steps/${idea.slug}-${i + 1}.svg`,
+    blueprint: s.blueprint,
+    measure: s.measure ?? '',
     tip: s.tip ?? '',
     warning: s.warning ?? '',
-    icon: s.blueprint,
   })),
   variantKeys: idea.variantKeys,
 }));
@@ -95,291 +90,7 @@ export const IDEAS: IdeaDetail[] = ${JSON.stringify(IDEAS, null, 2)};
   'utf8',
 );
 
-// --------------------------------------------------------------- blueprint ---
-// A blueprint is a 400x280 technical drawing: dark ground, faint grid, a
-// dimensioned bottle, and an action overlay chosen by the step's `blueprint`
-// kind. Text is Arabic, right-to-left.
-
-const C = {
-  bg: '#0b2a23',
-  grid: '#123f34',
-  ink: '#a7e8cf',
-  ink2: '#5fb499',
-  hot: '#ffd98a',
-  text: '#dcf4ea',
-  warn: '#ff9d7d',
-};
-
-const DEFS = `<defs>
-  <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-    <path d="M0 0L10 5L0 10z" fill="${C.ink}"/>
-  </marker>
-  <marker id="ahh" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-    <path d="M0 0L10 5L0 10z" fill="${C.hot}"/>
-  </marker>
-  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-    <path d="M20 0H0V20" fill="none" stroke="${C.grid}" stroke-width="1"/>
-  </pattern>
-  <pattern id="soil" width="9" height="9" patternUnits="userSpaceOnUse">
-    <circle cx="2" cy="2" r="1.1" fill="${C.ink2}"/><circle cx="6.5" cy="6" r="1.1" fill="${C.ink2}"/>
-  </pattern>
-  <pattern id="water" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
-    <line x1="0" y1="0" x2="0" y2="10" stroke="${C.ink2}" stroke-width="1"/>
-  </pattern>
-</defs>`;
-
-const FONT = "font-family=\"'Segoe UI',Tahoma,Arial,sans-serif\"";
-
-/** Technical bottle outline. Body from (cx-w/2) width w, from topY down height h. */
-function bottle(cx: number, topY: number, h: number, w: number, dash = false) {
-  const bw = w;
-  const x = cx - bw / 2;
-  const capW = bw * 0.34;
-  const neckH = h * 0.1;
-  const shH = h * 0.12;
-  const bodyH = h - neckH - shH;
-  const capY = topY;
-  const capH = neckH * 0.7;
-  const s = C.ink;
-  const back = dash
-    ? `<ellipse cx="${cx}" cy="${topY + h}" rx="${bw / 2}" ry="${bw * 0.14}" fill="none" stroke="${C.ink2}" stroke-width="1.2" stroke-dasharray="4 4"/>`
-    : '';
-  const knurl = Array.from({ length: 5 }, (_, i) => {
-    const kx = cx - capW / 2 + 3 + i * ((capW - 6) / 4);
-    return `<line x1="${kx}" y1="${capY + 2}" x2="${kx}" y2="${capY + capH - 2}" stroke="${s}" stroke-width="1.2"/>`;
-  }).join('');
-  return `<g fill="none" stroke="${s}" stroke-width="2.4" stroke-linejoin="round">
-    <rect x="${cx - capW / 2}" y="${capY}" width="${capW}" height="${capH}" rx="2"/>
-    ${knurl}
-    <path d="M${cx - capW / 2} ${capY + capH} v${neckH - capH}
-      C ${cx - capW / 2} ${capY + neckH + shH * 0.5}, ${x} ${capY + neckH + shH * 0.4}, ${x} ${capY + neckH + shH}
-      v${bodyH}
-      q0 ${bw * 0.16} ${bw * 0.16} ${bw * 0.16}
-      h${bw - bw * 0.32}
-      q${bw * 0.16} 0 ${bw * 0.16} ${-bw * 0.16}
-      v${-bodyH}
-      C ${x + bw} ${capY + neckH + shH * 0.4}, ${cx + capW / 2} ${capY + neckH + shH * 0.5}, ${cx + capW / 2} ${capY + neckH}
-      v${-(neckH - capH)} z"/>
-    <path d="M${x} ${capY + neckH + shH + bodyH * 0.06} h${bw}" stroke="${C.ink2}" stroke-width="1.2" stroke-dasharray="3 3"/>
-    ${back}
-  </g>`;
-}
-
-function dimV(x: number, y1: number, y2: number, label: string) {
-  const my = (y1 + y2) / 2;
-  return `<g stroke="${C.ink2}" stroke-width="1.3" fill="none">
-    <line x1="${x}" y1="${y1}" x2="${x}" y2="${y2}" marker-start="url(#ah)" marker-end="url(#ah)"/>
-    <line x1="${x - 5}" y1="${y1}" x2="${x + 5}" y2="${y1}"/>
-    <line x1="${x - 5}" y1="${y2}" x2="${x + 5}" y2="${y2}"/>
-  </g>
-  <rect x="${x + 6}" y="${my - 11}" width="52" height="22" rx="4" fill="${C.bg}" stroke="${C.ink2}" stroke-width="1"/>
-  <text x="${x + 32}" y="${my + 5}" ${FONT} font-size="14" fill="${C.text}" text-anchor="middle" direction="rtl">${esc(label)}</text>`;
-}
-
-function note(x: number, y: number, text: string, hot = false) {
-  const w = Math.min(text.length * 9 + 16, 250);
-  return `<g>
-    <rect x="${x - w}" y="${y - 13}" width="${w}" height="26" rx="6" fill="${C.bg}" fill-opacity="0.86" stroke="${hot ? C.hot : C.ink2}" stroke-width="1"/>
-    <circle cx="${x - 8}" cy="${y}" r="3" fill="${hot ? C.hot : C.ink}"/>
-    <text x="${x - 16}" y="${y + 5}" ${FONT} font-size="14" fill="${hot ? C.hot : C.text}" text-anchor="start" direction="rtl">${esc(text)}</text>
-  </g>`;
-}
-
-function icon(kind: 'scissors' | 'nail' | 'marker' | 'drop', x: number, y: number, rot = 0) {
-  const g = (inner: string) =>
-    `<g transform="translate(${x} ${y}) rotate(${rot})" fill="none" stroke="${C.hot}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${inner}</g>`;
-  if (kind === 'scissors')
-    return g(`<circle cx="-7" cy="-6" r="4"/><circle cx="-7" cy="6" r="4"/><path d="M-4 -4L14 8M-4 4L14 -8"/>`);
-  if (kind === 'nail')
-    return g(`<path d="M-6 -10h12l-3 6h-6z"/><path d="M0 -4v18"/><path d="M-4 16l4 4l4 -4" stroke-dasharray="0"/>`);
-  if (kind === 'marker')
-    return g(`<path d="M-10 10l3 -1L8 -6l-3 -3L-9 7z"/><path d="M-10 10l-2 4l4 -2z" fill="${C.hot}"/>`);
-  return g(`<path d="M0 -12c6 8 8 12 8 16a8 8 0 0 1 -16 0c0 -4 2 -8 8 -16z"/>`);
-}
-
-function scene(n: number, title: string, inner: string) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280">
-${DEFS}
-  <rect width="400" height="280" fill="${C.bg}"/>
-  <rect width="400" height="280" fill="url(#grid)"/>
-  <rect x="8" y="8" width="384" height="264" fill="none" stroke="${C.ink2}" stroke-width="1.4"/>
-  <rect x="8" y="8" width="384" height="18" fill="none" stroke="${C.ink2}" stroke-width="1"/>
-  <text x="384" y="21" ${FONT} font-size="12" fill="${C.ink2}" text-anchor="start" direction="rtl">مخطط عمل — Waste 2 Worth</text>
-${inner}
-  <g>
-    <rect x="14" y="246" width="60" height="22" rx="4" fill="${C.hot}"/>
-    <text x="44" y="261" ${FONT} font-size="13" font-weight="700" fill="${C.bg}" text-anchor="middle">خطوة ${ar(n)}</text>
-    <text x="380" y="261" ${FONT} font-size="15" fill="${C.text}" text-anchor="start" direction="rtl">${esc(title)}</text>
-  </g>
-</svg>`;
-}
-
-type SceneFn = (dim: string) => string;
-
-/** vertical dimension line with a labelled bubble on its right */
-function vdim(x: number, y1: number, y2: number, label: string) {
-  const my = (y1 + y2) / 2;
-  const w = Math.max(46, label.length * 8.5 + 10);
-  return `<g stroke="${C.ink2}" stroke-width="1.3" fill="none">
-    <line x1="${x}" y1="${y1}" x2="${x}" y2="${y2}" marker-start="url(#ah)" marker-end="url(#ah)"/>
-    <line x1="${x - 5}" y1="${y1}" x2="${x + 5}" y2="${y1}"/>
-    <line x1="${x - 5}" y1="${y2}" x2="${x + 5}" y2="${y2}"/>
-  </g>
-  <rect x="${x + 6}" y="${my - 12}" width="${w}" height="24" rx="4" fill="${C.bg}" stroke="${C.ink2}" stroke-width="1"/>
-  <text x="${x + 6 + w / 2}" y="${my + 5}" ${FONT} font-size="13" fill="${C.text}" text-anchor="middle" direction="rtl">${esc(label)}</text>`;
-}
-
-/** horizontal dimension line with a labelled bubble above it */
-function hdim(x1: number, x2: number, y: number, label: string) {
-  const mx = (x1 + x2) / 2;
-  const w = Math.max(46, label.length * 8.5 + 10);
-  return `<g stroke="${C.ink2}" stroke-width="1.3" fill="none">
-    <line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" marker-start="url(#ah)" marker-end="url(#ah)"/>
-    <line x1="${x1}" y1="${y - 5}" x2="${x1}" y2="${y + 5}"/>
-    <line x1="${x2}" y1="${y - 5}" x2="${x2}" y2="${y + 5}"/>
-  </g>
-  <rect x="${mx - w / 2}" y="${y - 30}" width="${w}" height="24" rx="4" fill="${C.bg}" stroke="${C.ink2}" stroke-width="1"/>
-  <text x="${mx}" y="${y - 13}" ${FONT} font-size="13" fill="${C.text}" text-anchor="middle" direction="rtl">${esc(label)}</text>`;
-}
-
-const SCENES: Record<BlueprintKind, SceneFn> = {
-  clean: () => `
-    ${bottle(150, 70, 150, 74, true)}
-    <g stroke="${C.ink}" stroke-width="2" fill="none">
-      <path d="M250 40h44v14h-30v10"/>
-      <path d="M256 72q3 8 0 16M266 72q3 10 0 20M276 72q3 8 0 16" stroke-dasharray="2 4"/>
-    </g>
-    <g stroke="${C.hot}" stroke-width="2"><path d="M120 60l6 6M126 60l-6 6"/><path d="M172 118l6 6M178 118l-6 6"/></g>
-    ${note(320, 150, 'اشطف بالماء وانزع الملصق', false)}
-  `,
-  'measure-mark': (dim) => `
-    ${bottle(150, 52, 172, 78)}
-    <path d="M111 150h78" stroke="${C.hot}" stroke-width="2.6" stroke-dasharray="7 5"/>
-    <ellipse cx="150" cy="150" rx="39" ry="9" fill="none" stroke="${C.hot}" stroke-width="1.4" stroke-dasharray="4 5"/>
-    ${icon('marker', 198, 150, 0)}
-    <g stroke="${C.ink2}" stroke-width="1.2">
-      <line x1="246" y1="56" x2="246" y2="222"/>
-      ${Array.from({ length: 9 }, (_, i) => `<line x1="246" y1="${62 + i * 18}" x2="${i % 2 ? 258 : 264}" y2="${62 + i * 18}"/>`).join('')}
-    </g>
-    ${vdim(300, 150, 224, dim || 'ارتفاع القص')}
-  `,
-  'cut-around': (dim) => `
-    ${bottle(150, 46, 152, 78, true)}
-    ${bottle(150, 58, 78, 78)}
-    <path d="M111 136h78" stroke="${C.hot}" stroke-width="3.2" stroke-dasharray="9 6"/>
-    <ellipse cx="150" cy="136" rx="39" ry="9" fill="none" stroke="${C.hot}" stroke-width="1.6" stroke-dasharray="5 6"/>
-    ${icon('scissors', 100, 136, 0)}
-    <path d="M196 126l16 -10M196 146l16 10" stroke="${C.ink}" stroke-width="1.6" marker-end="url(#ah)" fill="none"/>
-    ${note(324, 150, 'قصّ على الخط ' + (dim || ''), true)}
-  `,
-  'cut-window': (dim) => `
-    ${bottle(150, 52, 176, 82)}
-    <rect x="118" y="122" width="64" height="66" rx="8" fill="none" stroke="${C.hot}" stroke-width="2.8" stroke-dasharray="8 5"/>
-    ${icon('scissors', 178, 120, 30)}
-    ${hdim(118, 182, 210, dim || 'الفتحة')}
-    ${note(326, 150, 'قصّ الفتحة', true)}
-  `,
-  edge: () => `
-    ${bottle(150, 52, 176, 82)}
-    <path d="M108 128q42 -16 84 0" fill="none" stroke="${C.hot}" stroke-width="3"/>
-    <path d="M108 128q42 -10 84 0" fill="none" stroke="${C.ink2}" stroke-width="6" stroke-linecap="round" opacity="0.5"/>
-    <g fill="none" stroke="${C.ink}" stroke-width="2"><circle cx="286" cy="120" r="16"/><circle cx="286" cy="120" r="6"/></g>
-    ${note(340, 165, 'غطِّ الحافة بشريط لاصق', true)}
-  `,
-  'holes-body': (dim) => `
-    ${bottle(150, 52, 172, 84)}
-    ${[[113, 172], [187, 172]].map(([x, y]) => `<g stroke="${C.hot}" stroke-width="1.8"><circle cx="${x}" cy="${y}" r="5" fill="none"/><path d="M${x! - 9} ${y}h18M${x} ${y! - 9}v18"/></g>`).join('')}
-    ${vdim(240, 224, 172, dim || 'من القاع')}
-    ${icon('nail', 300, 130, 25)}
-    <path d="M292 138l-96 34" stroke="${C.ink}" stroke-width="1.4" fill="none" marker-end="url(#ah)"/>
-    ${note(340, 200, 'اثقب عند العلامتين', true)}
-  `,
-  'holes-cap': () => `
-    <circle cx="164" cy="150" r="80" fill="none" stroke="${C.ink}" stroke-width="2.6"/>
-    ${Array.from({ length: 22 }, (_, i) => { const a = (i / 22) * Math.PI * 2; return `<line x1="${164 + Math.cos(a) * 68}" y1="${150 + Math.sin(a) * 68}" x2="${164 + Math.cos(a) * 80}" y2="${150 + Math.sin(a) * 80}" stroke="${C.ink}" stroke-width="1.4"/>`; }).join('')}
-    ${[[144, 130], [184, 130], [144, 170], [184, 170], [164, 150], [128, 150], [200, 150], [164, 116], [164, 184]].map(([x, y]) => `<g stroke="${C.hot}" stroke-width="1.7"><circle cx="${x}" cy="${y}" r="4.5" fill="none"/><path d="M${x! - 8} ${y}h16M${x} ${y! - 8}v16"/></g>`).join('')}
-    ${icon('nail', 300, 118, 20)}
-    ${note(348, 176, 'اثقب الغطا عدّة ثقوب', true)}
-  `,
-  thread: (dim) => `
-    <g fill="none" stroke="${C.ink}" stroke-width="2.4">
-      <path d="M150 74v66M198 74v66"/>
-      <rect x="140" y="54" width="68" height="20" rx="3"/>
-      <circle cx="174" cy="64" r="5" fill="${C.bg}"/>
-    </g>
-    <path d="M174 40q40 6 0 30q-40 20 0 50q30 24 0 60" fill="none" stroke="${C.hot}" stroke-width="2.6"/>
-    <path d="M174 64q-8 30 0 66" fill="none" stroke="${C.ink2}" stroke-width="1.6" stroke-dasharray="4 4"/>
-    ${note(330, 66, 'نصف الفتيل خارج', true)}
-    ${note(330, 150, dim || 'ونصفه داخل القنينة', false)}
-  `,
-  'insert-rod': (dim) => `
-    ${bottle(196, 52, 168, 88)}
-    <line x1="116" y1="150" x2="288" y2="150" stroke="${C.hot}" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="116" cy="150" r="6" fill="none" stroke="${C.hot}" stroke-width="2"/>
-    <circle cx="288" cy="150" r="6" fill="none" stroke="${C.hot}" stroke-width="2"/>
-    <path d="M110 150h-1" stroke="${C.ink}" stroke-width="1.6" fill="none"/>
-    <path d="M320 150h-26" stroke="${C.ink}" stroke-width="1.6" fill="none" marker-end="url(#ah)"/>
-    ${note(340, 196, 'مرّر الملعقة ' + (dim || 'من الثقبين'), true)}
-  `,
-  invert: () => `
-    <g transform="rotate(180 172 150)">${bottle(172, 88, 150, 80)}</g>
-    <path d="M92 150a80 80 0 1 1 30 62" fill="none" stroke="${C.hot}" stroke-width="2.8" marker-end="url(#ahh)"/>
-    ${note(336, 150, 'اقلب القنينة رأساً على عقب', true)}
-  `,
-  nest: () => `
-    <path d="M96 108v98q0 16 16 16h108q16 0 16 -16v-98" fill="none" stroke="${C.ink}" stroke-width="2.4"/>
-    <path d="M116 94l50 72l50 -72" fill="url(#soil)" stroke="${C.ink}" stroke-width="2.2"/>
-    <path d="M166 166v48" stroke="${C.hot}" stroke-width="2.4" stroke-dasharray="5 4"/>
-    <path d="M110 202h112v8q0 12 -12 12h-88q-12 0 -12 -12z" fill="url(#water)"/>
-    <g stroke="${C.ink}" stroke-width="2" fill="none"><path d="M166 94v-18"/><path d="M166 82q-12 -2 -16 -14q14 0 16 14z"/></g>
-    ${note(320, 96, 'تراب', false)}
-    ${note(320, 150, 'فتيل', true)}
-    ${note(320, 206, 'ماء', false)}
-  `,
-  'fill-soil': () => `
-    <path d="M112 92l6 -10h64l6 10v112q0 12 -12 12h-52q-12 0 -12 -12z" fill="none" stroke="${C.ink}" stroke-width="2.4"/>
-    <path d="M116 122h68v82q0 8 -8 8h-52q-8 0 -8 -8z" fill="url(#soil)"/>
-    <g stroke="${C.ink}" stroke-width="2.2" fill="none"><path d="M150 122v-26"/><path d="M150 104q-14 -2 -18 -16q16 0 18 16z"/><path d="M150 100q12 -4 18 -16q-16 -2 -18 16z"/></g>
-    ${note(320, 150, 'املأ بالتراب وازرع', false)}
-  `,
-  'fill-water': (dim) => `
-    ${bottle(150, 52, 176, 82)}
-    <path d="M112 152q9 -7 19 0t19 0t19 0t19 0" fill="none" stroke="${C.ink}" stroke-width="2"/>
-    <path d="M112 152h76v56q0 10 -10 10h-56q-10 0 -10 -10z" fill="url(#water)" opacity="0.8"/>
-    ${vdim(240, 152, 220, dim || 'مستوى الماء')}
-    ${icon('drop', 150, 58)}
-  `,
-  decorate: () => `
-    ${bottle(155, 52, 172, 84)}
-    <g stroke="${C.hot}" stroke-width="2.4"><path d="M116 120l78 42M116 152l78 42"/></g>
-    <g fill="none" stroke="${C.ink}" stroke-width="2"><circle cx="286" cy="120" r="16"/><circle cx="286" cy="120" r="6"/></g>
-    ${note(340, 178, 'لُفّ بشريط ملوّن أو لوّن', true)}
-  `,
-  hang: (dim) => `
-    <line x1="58" y1="46" x2="300" y2="46" stroke="${C.ink}" stroke-width="3"/>
-    <path d="M175 46c-18 6 -18 26 0 30" fill="none" stroke="${C.hot}" stroke-width="2.6"/>
-    <circle cx="175" cy="70" r="6" fill="none" stroke="${C.hot}" stroke-width="2"/>
-    ${bottle(175, 84, 150, 74)}
-    ${note(330, 96, dim || 'اربط عروة محكمة', true)}
-  `,
-  stand: () => `
-    <line x1="40" y1="214" x2="360" y2="214" stroke="${C.ink}" stroke-width="2"/>
-    <ellipse cx="160" cy="216" rx="70" ry="10" fill="#06201b"/>
-    <path d="M118 118l6 -12h72l6 12v82q0 14 -14 14h-56q-14 0 -14 -14z" fill="none" stroke="${C.ink}" stroke-width="2.4"/>
-    <g stroke="${C.ink}" stroke-width="2.4"><path d="M138 118v-34"/><path d="M160 118v-46"/><path d="M182 118v-30"/></g>
-    ${['84', '72', '88'].map((y, i) => `<circle cx="${138 + i * 22}" cy="${y}" r="5" fill="none" stroke="${C.hot}" stroke-width="2"/>`).join('')}
-    ${note(330, 150, 'جاهزة للاستعمال', false)}
-  `,
-  generic: (dim) => `
-    ${bottle(150, 52, 176, 84)}
-    <path d="M322 92l-92 60" stroke="${C.hot}" stroke-width="2.6" fill="none" marker-end="url(#ahh)"/>
-    ${note(360, 200, dim || 'اتبع الخطوة', true)}
-  `,
-};
-
-function blueprint(kind: BlueprintKind, n: number, title: string, dim: string) {
-  return scene(n, title, SCENES[kind](dim));
-}
+// (step blueprints are drawn at runtime — see src/components/blueprintSvg.ts)
 
 // ------------------------------------------------------------- product art ---
 // A distinct illustration of each finished project. Not photos — placeholders
@@ -513,20 +224,11 @@ function write(rel: string, body: string, mime: string) {
 }
 
 rmSync(MEDIA, { recursive: true, force: true });
-let stepCount = 0;
 for (const [i, idea] of IDEAS_AR.entries()) {
   const hue = HUES[i % HUES.length]!;
   write(`ideas/${idea.slug}-final.svg`, productArt(idea.slug, idea.title, hue, false), SVG);
   write(`ideas/${idea.slug}-thumb.svg`, productArt(idea.slug, idea.title, hue, false), SVG);
   write(`ideas/${idea.slug}-3d.svg`, productArt(idea.slug, idea.title, hue, true), SVG);
-  idea.steps.forEach((step, si) => {
-    stepCount += 1;
-    write(
-      `steps/${idea.slug}-${si + 1}.svg`,
-      blueprint(step.blueprint, si + 1, step.title, step.dim ?? ''),
-      SVG,
-    );
-  });
 }
 
 writeFileSync(
@@ -538,6 +240,6 @@ export const MEDIA: Record<string, string> = ${JSON.stringify(inlineMedia, null,
 );
 
 console.log(
-  `catalogue.ts: ${VARIANTS.length} variants, ${IDEAS.length} ideas\n` +
-    `media.ts: ${IDEAS_AR.length * 3} product images + ${stepCount} step blueprints inlined`,
+  `catalogue.ts: ${VARIANTS.length} variants, ${IDEAS.length} ideas · ` +
+    `media.ts: ${IDEAS_AR.length * 3} product images (step blueprints are runtime)`,
 );

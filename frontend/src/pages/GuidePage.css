@@ -231,3 +231,26 @@
   font-size: 0.78rem;
   color: var(--ink-faint);
 }
+
+.gd__bottle {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  background: var(--mint);
+  color: var(--green-dark);
+  border-radius: var(--radius-inset);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+.gd__bottle svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step__hint--measure {
+  background: #fff5e0;
+  color: #8a5a10;
+  font-weight: 600;
+}

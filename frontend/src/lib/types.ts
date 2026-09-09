@@ -79,10 +79,12 @@ export interface IdeaStep {
   stepNumber: number;
   title: string;
   instruction: string;
-  imageUrl: string;
+  /** blueprint kind, drawn at runtime */
+  blueprint: string;
+  /** MeasureId ('' if the step has no computed measurement) */
+  measure: string;
   tip: string;
   warning: string;
-  icon: string;
 }
 
 export interface IdeaDetail extends IdeaSummary {
