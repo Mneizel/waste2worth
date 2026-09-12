@@ -100,3 +100,41 @@
   outline: none;
   border-color: var(--green);
 }
+
+.cats {
+  margin-top: 22px;
+}
+.cats__h2 {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.cats__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.cat-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.cat-chip--available {
+  background: var(--mint);
+  color: var(--green-dark);
+}
+.cat-chip--soon {
+  background: var(--surface);
+  color: var(--ink-faint);
+  box-shadow: inset 0 0 0 1.5px var(--line-strong);
+}
+.cat-chip__badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  opacity: 0.75;
+}

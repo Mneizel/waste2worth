@@ -7,6 +7,7 @@ import { ErrorBanner } from '../components/Feedback';
 import { Header } from '../components/Header';
 import { Bottle, UploadCloud } from '../components/icons';
 import { SpeakButton } from '../components/SpeakButton';
+import { CATEGORIES } from '../data/categories';
 import { ApiError, api } from '../lib/api';
 import './UploadPage.css';
 
@@ -167,6 +168,31 @@ export function UploadPage() {
           </div>
         )}
       </Card>
+
+      <div className="cats">
+        <div className="page-title-row">
+          <h2 className="cats__h2">الأشياء اللي بيغطّيها التطبيق</h2>
+          <SpeakButton
+            text={`الأشياء اللي بيغطّيها التطبيق. متوفّر هلق: ${CATEGORIES.filter((c) => c.status === 'available')
+              .map((c) => c.label)
+              .join('، ')}. وجايي قريباً: ${CATEGORIES.filter((c) => c.status === 'soon')
+              .map((c) => c.label)
+              .join('، ')}.`}
+            label="اسمع الفئات"
+            size="sm"
+          />
+        </div>
+        <div className="cats__grid">
+          {CATEGORIES.map((c) => (
+            <div key={c.key} className={`cat-chip cat-chip--${c.status}`}>
+              <span className="cat-chip__label">{c.label}</span>
+              <span className="cat-chip__badge">
+                {c.status === 'available' ? 'متوفّر' : 'قريباً'}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
