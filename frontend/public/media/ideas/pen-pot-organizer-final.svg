@@ -1,20 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" role="img" aria-label="الشكل النهائي: علبة أقلام للمكتب">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="hsl(32 42% 74%)"/><stop offset="1" stop-color="hsl(32 34% 58%)"/></linearGradient>
-    <pattern id="soil" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="hsl(32 45% 22%)"/><circle cx="9" cy="8" r="1.5" fill="hsl(32 45% 22%)"/></pattern>
+    <pattern id="bsoil" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#5fb499"/><circle cx="6.5" cy="6" r="1.1" fill="#5fb499"/></pattern>
+    <pattern id="bwater" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="10" stroke="#5fb499" stroke-width="1"/></pattern>
   </defs>
-  <rect width="640" height="480" fill="url(#g)"/>
-  <ellipse cx="320" cy="392" rx="160" ry="24" fill="rgba(0,0,0,0.14)"/>
-  <g stroke-linecap="round">
-    <path d="M250 250h140v96q0 18 -18 18H268q-18 0 -18 -18z" fill="none" stroke="hsl(32 45% 22%)" stroke-width="7" stroke-linejoin="round"/>
-    <path d="M250 250q35 -16 70 0t70 0" fill="none" stroke="hsl(32 45% 22%)" stroke-width="7"/>
-    <g stroke-width="9" stroke-linecap="round">
-      <path d="M276 250l-12 -84" stroke="hsl(32 55% 40%)"/>
-      <path d="M304 250l6 -104" stroke="hsl(32 45% 22%)"/>
-      <path d="M330 250l-2 -70" stroke="#3f8f57"/>
-      <path d="M356 250l16 -96" stroke="hsl(32 55% 40%)"/>
-    </g>
-    <circle cx="264" cy="164" r="6" fill="hsl(32 55% 40%)"/><circle cx="372" cy="152" r="6" fill="hsl(32 55% 40%)"/></g>
-  <rect x="0" y="404" width="640" height="76" fill="hsl(32 40% 22%)"/>
-       <text x="320" y="452" fill="#fff" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle" direction="rtl">علبة أقلام للمكتب</text>
+  <rect width="400" height="400" fill="#0b2a23"/>
+  <ellipse cx="200" cy="378" rx="110" ry="14" fill="rgba(0,0,0,0.28)"/>
+  <g stroke-linecap="round"><path d="M152.85714285714286 170 V342 q0 14 14 14 H233.14285714285714 q14 0 14 -14 V170" fill="none" stroke="#a7e8cf" stroke-width="2.2" stroke-linejoin="round"/><line x1="148.85714285714286" y1="170" x2="158.85714285714286" y2="170" stroke="#5fb499" stroke-width="4"/><line x1="241.14285714285714" y1="170" x2="251.14285714285714" y2="170" stroke="#5fb499" stroke-width="4"/><line x1="184.44285714285715" y1="178" x2="170.14285714285714" y2="132" stroke="#a7e8cf" stroke-width="3" stroke-linecap="round"/><circle cx="170.14285714285714" cy="132" r="3.4" fill="#a7e8cf"/><line x1="201.4142857142857" y1="178" x2="202.71428571428572" y2="120" stroke="#a7e8cf" stroke-width="3" stroke-linecap="round"/><circle cx="202.71428571428572" cy="120" r="3.4" fill="#a7e8cf"/><line x1="216.97142857142856" y1="178" x2="232.57142857142856" y2="128" stroke="#a7e8cf" stroke-width="3" stroke-linecap="round"/><circle cx="232.57142857142856" cy="128" r="3.4" fill="#a7e8cf"/><circle cx="200" cy="350" r="3.6" fill="#0b2a23" stroke="#a7e8cf" stroke-width="1.7"/><rect x="152.85714285714286" y="158" width="94.28571428571429" height="27" fill="url(#bsoil)" opacity="0.55"/><rect x="152.85714285714286" y="212" width="94.28571428571429" height="27" fill="url(#bsoil)" opacity="0.55"/><rect x="152.85714285714286" y="266" width="94.28571428571429" height="27" fill="url(#bsoil)" opacity="0.55"/></g>
 </svg>

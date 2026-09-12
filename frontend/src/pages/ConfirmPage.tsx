@@ -6,6 +6,7 @@ import { Card } from '../components/Card';
 import { ErrorBanner, Loading } from '../components/Feedback';
 import { Header } from '../components/Header';
 import { Bottle, Check, Cross, Ruler } from '../components/icons';
+import { SpeakButton } from '../components/SpeakButton';
 import { ApiError, api, mediaUrl } from '../lib/api';
 import type { Variant } from '../lib/types';
 import { useScan } from '../lib/useScan';
@@ -130,9 +131,15 @@ export function ConfirmPage() {
           <div className="stack" style={{ gap: 6 }}>
             {recognised ? (
               <>
-                <h1 style={{ fontSize: '1.35rem' }}>
-                  هاي {scan.aiGuess.variant!.label}؟
-                </h1>
+                <div className="page-title-row">
+                  <h1 style={{ fontSize: '1.35rem' }}>
+                    هاي {scan.aiGuess.variant!.label}؟
+                  </h1>
+                  <SpeakButton
+                    text={`هاي ${scan.aiGuess.variant!.label}؟ إذا صح اضغط أيوا، وإذا غلط اضغط لأ.`}
+                    label="اسمع السؤال"
+                  />
+                </div>
                 <div className="sub">
                   {scan.aiGuess.label}
                   {scan.aiGuess.estimatedVolumeMl
@@ -147,7 +154,13 @@ export function ConfirmPage() {
               </>
             ) : (
               <>
-                <h1 style={{ fontSize: '1.3rem' }}>ما قدرنا نتعرّف على الجسم</h1>
+                <div className="page-title-row">
+                  <h1 style={{ fontSize: '1.3rem' }}>ما قدرنا نتعرّف على الجسم</h1>
+                  <SpeakButton
+                    text="ما قدرنا نتعرّف على الجسم. اختر حجم القنينة من القائمة تحت."
+                    label="اسمع الشرح"
+                  />
+                </div>
                 <div className="sub">اختَر حجم القنينة من القائمة تحت.</div>
               </>
             )}

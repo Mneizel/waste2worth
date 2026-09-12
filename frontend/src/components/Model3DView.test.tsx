@@ -9,22 +9,19 @@ const angleOf = (el: HTMLElement) =>
   Number(/rotateY\((-?\d+(?:\.\d+)?)deg\)/.exec(el.style.transform)?.[1] ?? 'NaN');
 
 describe('Model3DView', () => {
-  it('renders the product image inside a labelled 3D stage', () => {
+  it('renders the front content on both faces inside a labelled 3D stage', () => {
     const { container } = render(
-      <Model3DView image="data:image/svg+xml,abc" title="مزهرية" />,
+      <Model3DView front={<span data-testid="art">فن</span>} title="مزهرية" />,
     );
     expect(
       screen.getByRole('img', { name: 'نموذج ثلاثي الأبعاد للمنتج: مزهرية' }),
     ).toBeInTheDocument();
-    expect(container.querySelector('.m3d__face--front img')).toHaveAttribute(
-      'src',
-      'data:image/svg+xml,abc',
-    );
+    expect(container.querySelectorAll('[data-testid="art"]')).toHaveLength(2);
     expect(angleOf(box(container))).toBe(-26);
   });
 
   it('rotates on mouse drag and ignores a stray mousemove', () => {
-    const { container } = render(<Model3DView image="x" title="t" />);
+    const { container } = render(<Model3DView front={null} title="t" />);
     const stage = container.querySelector('.m3d__stage') as HTMLElement;
 
     fireEvent.mouseMove(stage, { clientX: 200 }); // no preceding mousedown
@@ -45,7 +42,7 @@ describe('Model3DView', () => {
   });
 
   it('rotates on touch drag', () => {
-    const { container } = render(<Model3DView image="x" title="t" />);
+    const { container } = render(<Model3DView front={null} title="t" />);
     const stage = container.querySelector('.m3d__stage') as HTMLElement;
 
     fireEvent.touchStart(stage, { touches: [{ clientX: 40 }] });
@@ -60,7 +57,7 @@ describe('Model3DView', () => {
   });
 
   it('rotates with the arrow keys and ignores other keys', () => {
-    const { container } = render(<Model3DView image="x" title="t" />);
+    const { container } = render(<Model3DView front={null} title="t" />);
     const stage = container.querySelector('.m3d__stage') as HTMLElement;
     fireEvent.keyDown(stage, { key: 'ArrowRight' });
     expect(angleOf(box(container))).toBe(-6);

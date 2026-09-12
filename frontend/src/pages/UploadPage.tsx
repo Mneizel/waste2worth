@@ -6,8 +6,12 @@ import { Card } from '../components/Card';
 import { ErrorBanner } from '../components/Feedback';
 import { Header } from '../components/Header';
 import { Bottle, UploadCloud } from '../components/icons';
+import { SpeakButton } from '../components/SpeakButton';
 import { ApiError, api } from '../lib/api';
 import './UploadPage.css';
+
+const HEADING = 'صوّر أو ارفع صورة القنينة';
+const SUBTITLE = 'صوّر أو ارفع صورة قنينة، ومنوريك كيف تعيد تدويرها خطوة بخطوة.';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/heic,image/heif';
 const MAX_BYTES = 8 * 1024 * 1024;
@@ -65,10 +69,11 @@ export function UploadPage() {
       <Header step={1} />
 
       <div className="stack" style={{ gap: 10, marginBottom: 18 }}>
-        <h1 style={{ fontSize: '1.6rem' }}>صوّر أو ارفع صورة القنينة</h1>
-        <p className="sub" style={{ fontSize: '0.95rem' }}>
-          صوّر أو ارفع صورة قنينة، ومنوريك كيف تعيد تدويرها خطوة بخطوة.
-        </p>
+        <div className="page-title-row">
+          <h1 style={{ fontSize: '1.6rem' }}>{HEADING}</h1>
+          <SpeakButton text={`${HEADING}. ${SUBTITLE}`} label="اسمع الشرح" />
+        </div>
+        <p className="sub" style={{ fontSize: '0.95rem' }}>{SUBTITLE}</p>
       </div>
 
       <Card>

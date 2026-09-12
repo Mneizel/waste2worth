@@ -1,0 +1,38 @@
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--mint);
+  color: var(--green-dark);
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.15s ease;
+}
+.speak-btn:active {
+  transform: scale(0.92);
+}
+.speak-btn--md {
+  width: 40px;
+  height: 40px;
+}
+.speak-btn--sm {
+  width: 32px;
+  height: 32px;
+}
+.speak-btn--on {
+  background: var(--green);
+  color: #fff;
+  animation: speak-pulse 1s ease-in-out infinite;
+}
+
+@keyframes speak-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(63, 125, 79, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(63, 125, 79, 0);
+  }
+}

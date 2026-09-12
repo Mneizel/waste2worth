@@ -135,6 +135,21 @@ export const Warning = (p: IconProps) => (
   </svg>
 );
 
+export const Speaker = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+    <path d="M17 9a4 4 0 0 1 0 6" />
+    <path d="M19.5 6.5a8 8 0 0 1 0 11" />
+  </svg>
+);
+
+export const SpeakerStop = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M4 9v6h4l5 4V5L8 9H4Z" />
+    <rect x="16" y="9" width="5" height="6" rx="1.2" />
+  </svg>
+);
+
 const iconByToolName: Array<[RegExp, (p: IconProps) => JSX.Element]> = [
   [/scissor|knife|مقص|سكين|قصّ|قص\b/i, Scissors],
   [/string|lace|rope|cord|خيط|حبل|دوبارة|رباط|فتيل/i, StringIcon],

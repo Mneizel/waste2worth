@@ -18,13 +18,17 @@ async function startAtIdeas(hint = '500') {
 describe('IdeasPage', () => {
   it('lists ideas for the chosen size and opens one', async () => {
     const { user } = await startAtIdeas('500');
-    expect(
-      await screen.findByRole('button', { name: /Self-watering planter/ }),
-    ).toBeInTheDocument();
+    await screen.findByText('Self-watering planter');
     expect(screen.getByText(/20 دقيقة · سهل/)).toBeInTheDocument();
     expect(screen.getByText(/متوسط/)).toBeInTheDocument();
+    // each card also has a "read it to me" button, for non-readers
+    expect(
+      screen.getByRole('button', { name: 'اسمع: Self-watering planter' }),
+    ).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /Self-watering planter/ }));
+    const cards = screen.getAllByRole('button', { name: /Self-watering planter/ });
+    const card = cards.find((b) => b.classList.contains('idea__btn'))!;
+    await user.click(card);
     expect(
       await screen.findByRole('heading', { name: 'Self-watering planter' }),
     ).toBeInTheDocument();

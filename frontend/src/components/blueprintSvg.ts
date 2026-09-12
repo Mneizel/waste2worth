@@ -550,3 +550,35 @@ export function renderBlueprint(o: BlueprintOpts): string {
   <text x="${W - 18}" y="${STRIP_Y + 26}" ${FONT} font-size="15" font-weight="700" fill="${C.text}" text-anchor="start" direction="rtl">${esc(o.title)}</text>
 </svg>`;
 }
+
+// ---- the finished product, drawn from the SAME workpiece model -----------
+// Used for the idea-grid thumbnail, the guide's hero image, and the 3D
+// turntable's faces — so "what it looks like" is always the true end state
+// of the same ops list the blueprint sheets used to get there, not a
+// separate, disconnected illustration.
+
+export interface FinalArtOpts {
+  /** the project's whole ordered op list */
+  ops: string[];
+  /** feature position per op, as in BlueprintOpts */
+  fracs: (number | null)[];
+  variant: Variant;
+  title: string;
+}
+
+export function renderFinalArt(o: FinalArtOpts): string {
+  const FW = 400;
+  const FH = 400;
+  const state = fold(o.ops as BpOp[], o.fracs, o.ops.length);
+  const g = bottleGeo(o.variant, { cx: FW / 2, baseY: FH - 44, maxH: 300, maxW: 190 });
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${FW} ${FH}" width="100%" role="img" aria-label="الشكل النهائي: ${esc(o.title)}">
+  <defs>
+    <pattern id="bsoil" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="${C.ink2}"/><circle cx="6.5" cy="6" r="1.1" fill="${C.ink2}"/></pattern>
+    <pattern id="bwater" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="10" stroke="${C.ink2}" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="${FW}" height="${FH}" fill="${C.bg}"/>
+  <ellipse cx="${FW / 2}" cy="${FH - 22}" rx="110" ry="14" fill="rgba(0,0,0,0.28)"/>
+  <g stroke-linecap="round">${drawState(g, state)}</g>
+</svg>`;
+}

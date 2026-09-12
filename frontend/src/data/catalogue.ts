@@ -379,7 +379,7 @@ export const IDEAS: IdeaDetail[] = [
     "thumbnailUrl": "media/ideas/self-watering-planter-thumb.svg",
     "finalImageUrl": "media/ideas/self-watering-planter-final.svg",
     "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/self-watering-planter-3d.svg",
+    "model3dPreviewUrl": "",
     "tools": [
       {
         "id": "tool-self-watering-planter-0",
@@ -541,7 +541,7 @@ export const IDEAS: IdeaDetail[] = [
     "thumbnailUrl": "media/ideas/bird-feeder-thumb.svg",
     "finalImageUrl": "media/ideas/bird-feeder-final.svg",
     "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/bird-feeder-3d.svg",
+    "model3dPreviewUrl": "",
     "tools": [
       {
         "id": "tool-bird-feeder-0",
@@ -693,7 +693,7 @@ export const IDEAS: IdeaDetail[] = [
     "thumbnailUrl": "media/ideas/coin-bank-thumb.svg",
     "finalImageUrl": "media/ideas/coin-bank-final.svg",
     "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/coin-bank-3d.svg",
+    "model3dPreviewUrl": "",
     "tools": [
       {
         "id": "tool-coin-bank-0",
@@ -809,7 +809,7 @@ export const IDEAS: IdeaDetail[] = [
     "thumbnailUrl": "media/ideas/pen-pot-organizer-thumb.svg",
     "finalImageUrl": "media/ideas/pen-pot-organizer-final.svg",
     "model3dUrl": "",
-    "model3dPreviewUrl": "media/ideas/pen-pot-organizer-3d.svg",
+    "model3dPreviewUrl": "",
     "tools": [
       {
         "id": "tool-pen-pot-organizer-0",

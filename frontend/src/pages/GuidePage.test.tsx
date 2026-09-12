@@ -38,7 +38,10 @@ describe('GuidePage', () => {
     expect(screen.getByText('من عمر 6+')).toBeInTheDocument();
 
     // one runtime blueprint SVG per step (the test fixture idea has 3)
-    expect(container.querySelectorAll('.bp svg')).toHaveLength(3);
+    expect(container.querySelectorAll('.step__blueprint .bp svg')).toHaveLength(3);
+    // the hero + both 3D turntable faces render the same live final-art SVG
+    expect(container.querySelectorAll('.gd__hero-art .bp svg')).toHaveLength(1);
+    expect(container.querySelectorAll('.m3d__face .bp svg')).toHaveLength(2);
     // step 2's cut is computed from the 210 mm test bottle -> 7.6 cm
     expect(screen.getAllByText(/٧٫٦ سم/).length).toBeGreaterThan(0);
     expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();

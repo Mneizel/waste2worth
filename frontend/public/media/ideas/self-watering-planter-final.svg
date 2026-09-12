@@ -1,17 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" role="img" aria-label="الشكل النهائي: مزهرية تسقي نفسها">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="hsl(150 42% 74%)"/><stop offset="1" stop-color="hsl(150 34% 58%)"/></linearGradient>
-    <pattern id="soil" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.5" fill="hsl(150 45% 22%)"/><circle cx="9" cy="8" r="1.5" fill="hsl(150 45% 22%)"/></pattern>
+    <pattern id="bsoil" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#5fb499"/><circle cx="6.5" cy="6" r="1.1" fill="#5fb499"/></pattern>
+    <pattern id="bwater" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="10" stroke="#5fb499" stroke-width="1"/></pattern>
   </defs>
-  <rect width="640" height="480" fill="url(#g)"/>
-  <ellipse cx="320" cy="392" rx="160" ry="24" fill="rgba(0,0,0,0.14)"/>
-  <g stroke-linecap="round">
-    <path d="M250 250h140v96q0 18 -18 18H268q-18 0 -18 -18z" fill="none" stroke="hsl(150 45% 22%)" stroke-width="7" stroke-linejoin="round"/>
-    <path d="M256 300q16 -12 32 0t32 0t32 0t20 -4" fill="none" stroke="#6fb0c6" stroke-width="6"/>
-    <path d="M262 250l58 -70l58 70" fill="none" stroke="hsl(150 45% 22%)" stroke-width="7" stroke-linejoin="round"/>
-    <path d="M320 180v-64" stroke="#3f8f57" stroke-width="7" fill="none"/>
-    <path d="M320 150 q18 -14 34 -4 q-16 16 -34 4 z" fill="#3f8f57"/><path d="M320 128 q-18 -14 -34 -4 q16 16 34 4 z" fill="#3f8f57"/><path d="M320 108 q18 -14 34 -4 q-16 16 -34 4 z" fill="#3f8f57"/>
-    <path d="M320 182v70" stroke="#6fb0c6" stroke-width="4" stroke-dasharray="6 5" fill="none"/></g>
-  <rect x="0" y="404" width="640" height="76" fill="hsl(150 40% 22%)"/>
-       <text x="320" y="452" fill="#fff" font-family="'Segoe UI',Tahoma,Arial,sans-serif" font-size="30" font-weight="700" text-anchor="middle" direction="rtl">مزهرية تسقي نفسها</text>
+  <rect width="400" height="400" fill="#0b2a23"/>
+  <ellipse cx="200" cy="378" rx="110" ry="14" fill="rgba(0,0,0,0.28)"/>
+  <g stroke-linecap="round"><path d="M153.85714285714286 323 H246.14285714285714 V342 q0 14 -14 14 H166.85714285714286 q-14 0 -14 -14 Z" fill="url(#bwater)"/><line x1="153.85714285714286" y1="323" x2="246.14285714285714" y2="323" stroke="#a7e8cf" stroke-width="1.6"/><path d="M152.85714285714286 164 V342 q0 14 14 14 H233.14285714285714 q14 0 14 -14 V164" fill="none" stroke="#a7e8cf" stroke-width="2.2" stroke-linejoin="round"/><path d="M152.85714285714286 174 L184.9142857142857 266 V282 h30.171428571428574 V266 L247.14285714285714 174" fill="none" stroke="#a7e8cf" stroke-width="2.2" stroke-linejoin="round"/><path d="M155.68571428571428 215.04 H244.31428571428572 L215.0857142857143 280 H184.9142857142857 Z" fill="url(#bsoil)"/><path d="M200 282 q10 11.879999999999999 0 23.759999999999998 q-10 11.879999999999999 0 23.759999999999998 q10 9.24 0 18.48" fill="none" stroke="#5fb499" stroke-width="2.4"/><path d="M200 174 v-22 M200 160 q-12 -3 -15 -14 q13 0 15 14 M200 156 q12 -3 15 -14 q-13 0 -15 14" fill="none" stroke="#a7e8cf" stroke-width="1.9"/><line x1="148.85714285714286" y1="164" x2="158.85714285714286" y2="164" stroke="#5fb499" stroke-width="4"/><line x1="241.14285714285714" y1="164" x2="251.14285714285714" y2="164" stroke="#5fb499" stroke-width="4"/></g>
 </svg>

@@ -134,3 +134,15 @@ img {
   font-weight: 600;
   font-size: 0.95rem;
 }
+
+/* a heading with a "read it to me" speaker button beside it */
+.page-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.page-title-row h1,
+.page-title-row h2 {
+  margin: 0;
+}

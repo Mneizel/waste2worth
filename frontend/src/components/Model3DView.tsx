@@ -3,18 +3,21 @@ import {
   useState,
   type KeyboardEvent,
   type MouseEvent,
+  type ReactNode,
   type TouchEvent,
 } from 'react';
 
 import './Model3DView.css';
 
 interface Props {
-  image: string;
+  /** the finished product's art (the same drawing used elsewhere, so front
+   * and back genuinely show the real shape instead of a generic bottle) */
+  front: ReactNode;
   title: string;
 }
 
 /** A draggable pseudo-3D turntable of the finished project (no external model). */
-export function Model3DView({ image, title }: Props) {
+export function Model3DView({ front, title }: Props) {
   const [angle, setAngle] = useState(-26);
   const lastX = useRef<number | null>(null);
 
@@ -70,15 +73,9 @@ export function Model3DView({ image, title }: Props) {
           className="m3d__box"
           style={{ transform: `rotateX(-12deg) rotateY(${angle}deg)` }}
         >
-          <div className="m3d__face m3d__face--front">
-            <img src={image} alt="" draggable={false} />
-          </div>
+          <div className="m3d__face m3d__face--front">{front}</div>
           <div className="m3d__face m3d__face--back" aria-hidden>
-            <svg viewBox="0 0 120 150" fill="none" stroke="#a7e8cf" strokeWidth="2">
-              <path d="M44 12h32v14l10 18v88a8 8 0 0 1-8 8H42a8 8 0 0 1-8-8V44l10-18z" />
-              <path d="M34 60h52M34 96h52" strokeDasharray="4 4" />
-              <ellipse cx="60" cy="140" rx="26" ry="6" />
-            </svg>
+            {front}
           </div>
           <div className="m3d__face m3d__face--left" aria-hidden />
           <div className="m3d__face m3d__face--right" aria-hidden />

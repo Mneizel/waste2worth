@@ -26,9 +26,10 @@ describe('App routing', () => {
 
     await user.click(await screen.findByRole('button', { name: /أيوا، صح/ }));
 
-    await user.click(
-      await screen.findByRole('button', { name: /Self-watering planter/ }),
-    );
+    const ideaCards = await screen.findAllByRole('button', {
+      name: /Self-watering planter/,
+    });
+    await user.click(ideaCards.find((b) => b.classList.contains('idea__btn'))!);
 
     await screen.findByRole('heading', { name: 'Self-watering planter' });
     await user.click(screen.getByRole('button', { name: 'رجوع للأفكار' }));

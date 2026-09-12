@@ -4,12 +4,14 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Blueprint } from '../components/Blueprint';
 import { Button } from '../components/Button';
 import { ErrorBanner, Loading } from '../components/Feedback';
+import { FinalArt } from '../components/FinalArt';
 import { Header } from '../components/Header';
 import { Model3DView } from '../components/Model3DView';
 import { ArrowNext, Lightbulb, Ruler, Warning, toolIcon } from '../components/icons';
+import { SpeakButton } from '../components/SpeakButton';
 import { VARIANTS } from '../data/catalogue';
 import { compute, type MeasureId } from '../data/measure';
-import { ApiError, api, mediaUrl } from '../lib/api';
+import { ApiError, api } from '../lib/api';
 import type { IdeaDetail, Variant } from '../lib/types';
 import { useScan } from '../lib/useScan';
 import './GuidePage.css';
@@ -81,9 +83,17 @@ export function GuidePage() {
       </button>
 
       <div className="gd__hero">
-        <img src={mediaUrl(idea.finalImageUrl)} alt={idea.title} />
+        <div className="gd__hero-art">
+          <FinalArt ops={stepOps} fracs={stepFracs} variant={variant} title={idea.title} />
+        </div>
         <div className="stack" style={{ gap: 6 }}>
-          <h1 style={{ fontSize: '1.5rem' }}>{idea.title}</h1>
+          <div className="page-title-row">
+            <h1 style={{ fontSize: '1.5rem' }}>{idea.title}</h1>
+            <SpeakButton
+              text={`${idea.title}. ${idea.summary} بتاخد حوالي ${idea.estimatedMinutes} دقيقة، مستوى ${difficultyAr(idea.difficulty)}، من عمر ${idea.minAge} سنين وفوق.`}
+              label="اسمع الشرح"
+            />
+          </div>
           <p className="sub" style={{ fontSize: '0.95rem' }}>{idea.summary}</p>
           <div className="gd__tags">
             <span>{idea.estimatedMinutes} دقيقة</span>
@@ -111,7 +121,14 @@ export function GuidePage() {
       )}
 
       <section className="gd__section">
-        <h2 className="gd__h2">١ · الأدوات والمواد اللي بتحتاجها</h2>
+        <div className="page-title-row">
+          <h2 className="gd__h2">١ · الأدوات والمواد اللي بتحتاجها</h2>
+          <SpeakButton
+            text={`الأدوات والمواد اللي بتحتاجها: ${[...tools, ...materials].map((t) => t.name).join('، ')}.`}
+            label="اسمع الأدوات"
+            size="sm"
+          />
+        </div>
         <div className="gd__tools">
           {[...tools, ...materials].map((t) => {
             const Icon = toolIcon(t.name);
@@ -157,7 +174,16 @@ export function GuidePage() {
                     />
                   </div>
                   <div className="step__text">
-                    <div className="step__title">{s.title}</div>
+                    <div className="step__title-row">
+                      <div className="step__title">{s.title}</div>
+                      <SpeakButton
+                        text={[s.title, s.instruction, m?.sentence, s.tip, s.warning]
+                          .filter(Boolean)
+                          .join('. ')}
+                        label={`اسمع الخطوة ${toArabicDigits(s.stepNumber)}`}
+                        size="sm"
+                      />
+                    </div>
                     <p className="step__instruction">{s.instruction}</p>
                     {m && (
                       <div className="step__hint step__hint--measure">
@@ -187,7 +213,10 @@ export function GuidePage() {
 
       <section className="gd__section">
         <h2 className="gd__h2">٣ · قارن مع النموذج ثلاثي الأبعاد</h2>
-        <Model3DView image={mediaUrl(idea.model3dPreviewUrl)} title={idea.title} />
+        <Model3DView
+          front={<FinalArt ops={stepOps} fracs={stepFracs} variant={variant} title={idea.title} />}
+          title={idea.title}
+        />
       </section>
 
       <Button block onClick={() => navigate('/')}>
