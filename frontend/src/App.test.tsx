@@ -12,7 +12,7 @@ describe('App routing', () => {
   it('redirects unknown routes to the upload screen', async () => {
     renderApp('/totally/unknown/path');
     expect(
-      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة القنينة/ }),
+      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة الغرض/ }),
     ).toBeInTheDocument();
   });
 

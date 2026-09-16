@@ -70,7 +70,7 @@ describe('IdeasPage', () => {
     ).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'ابدأ من جديد' }));
     expect(
-      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة القنينة/ }),
+      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة الغرض/ }),
     ).toBeInTheDocument();
   });
 });

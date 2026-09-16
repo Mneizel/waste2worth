@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" role="img" aria-label="الشكل النهائي: إصيص للنباتات الصغيرة">
+  <defs>
+    <pattern id="cbsoil" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#5fb499"/><circle cx="6.5" cy="6" r="1.1" fill="#5fb499"/></pattern>
+  </defs>
+  <rect width="400" height="400" fill="#0b2a23"/>
+  <ellipse cx="200" cy="378" rx="110" ry="14" fill="rgba(0,0,0,0.28)"/>
+  <g stroke-linecap="round"><path d="M92 240.58461538461535 H308 V348 q0 8 -8 8 H98 q-8 0 -8 -8 Z" fill="url(#cbsoil)"/><path d="M98 146.15384615384613 H302 q8 0 8 8 V348 q0 8 -8 8 H98 q-8 0 -8 -8 V154.15384615384613 q0 -8 8 -8 Z" fill="none" stroke="#a7e8cf" stroke-width="2.2" stroke-linejoin="round"/><ellipse cx="200" cy="157.35384615384612" rx="107" ry="5.6" fill="none" stroke="#a7e8cf" stroke-width="1.6"/><path d="M193 154.15384615384613 q7 -7 14 0" fill="none" stroke="#a7e8cf" stroke-width="1.8"/><path d="M200 146.15384615384613 v-22 M200 132.15384615384613 q-12 -3 -15 -14 q13 0 15 14 M200 128.15384615384613 q12 -3 15 -14 q-13 0 -15 14" fill="none" stroke="#a7e8cf" stroke-width="1.9"/><circle cx="134" cy="343.40923076923076" r="3.6" fill="none" stroke="#a7e8cf" stroke-width="1.7"/><circle cx="200" cy="343.40923076923076" r="3.6" fill="none" stroke="#a7e8cf" stroke-width="1.7"/><circle cx="266" cy="343.40923076923076" r="3.6" fill="none" stroke="#a7e8cf" stroke-width="1.7"/><rect x="90" y="230.09230769230768" width="220" height="20.984615384615388" fill="url(#cbsoil)" opacity="0.55"/><rect x="90" y="272.0615384615385" width="220" height="20.984615384615388" fill="url(#cbsoil)" opacity="0.55"/></g>
+</svg>

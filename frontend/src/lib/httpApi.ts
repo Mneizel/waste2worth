@@ -106,9 +106,11 @@ export const api = {
     return request<IdeaDetail>(`/api/ideas/${idOrSlug}`);
   },
 
-  bottleSizes(params?: { common?: boolean }): Promise<Variant[]> {
-    const q =
-      params?.common === undefined ? '' : `?common=${params.common ? 'true' : 'false'}`;
-    return request<Variant[]>(`/api/bottle-sizes${q}`);
+  bottleSizes(params?: { common?: boolean; category?: string }): Promise<Variant[]> {
+    const q = new URLSearchParams();
+    if (params?.common !== undefined) q.set('common', params.common ? 'true' : 'false');
+    if (params?.category !== undefined) q.set('category', params.category);
+    const qs = q.toString();
+    return request<Variant[]>(`/api/bottle-sizes${qs ? `?${qs}` : ''}`);
   },
 };

@@ -44,11 +44,20 @@ describe('GuidePage', () => {
     expect(container.querySelectorAll('.m3d__face .bp svg')).toHaveLength(2);
     // step 2's cut is computed from the 210 mm test bottle -> 7.6 cm
     expect(screen.getAllByText(/٧٫٦ سم/).length).toBeGreaterThan(0);
-    expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();
+    expect(screen.getByText(/محسوبة لـقنينتك/)).toBeInTheDocument();
 
     expect(
       screen.getByRole('img', { name: /نموذج ثلاثي الأبعاد للمنتج/ }),
     ).toBeInTheDocument();
+  });
+
+  it('renders a can idea with the can blueprint engine and label', async () => {
+    const { container } = await startAtGuide('idea-can-organizer', 'can:330');
+    expect(
+      await screen.findByRole('heading', { name: 'Can organizer' }),
+    ).toBeInTheDocument();
+    expect(container.querySelectorAll('.step__blueprint .bp svg')).toHaveLength(2);
+    expect(screen.getByText(/محسوبة لـعلبتك/)).toBeInTheDocument();
   });
 
   it('hides the safety banner when there are no safety notes (hard difficulty)', async () => {
@@ -70,7 +79,7 @@ describe('GuidePage', () => {
     expect(
       await screen.findByRole('heading', { name: 'Self-watering planter' }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();
+    expect(screen.getByText(/محسوبة لـقنينتك/)).toBeInTheDocument();
   });
 
   it('uses the confirmed variant even before it is confirmed', async () => {
@@ -83,7 +92,7 @@ describe('GuidePage', () => {
     expect(
       await screen.findByRole('heading', { name: 'Self-watering planter' }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/محسوبة لقنينتك/)).toBeInTheDocument();
+    expect(screen.getByText(/محسوبة لـقنينتك/)).toBeInTheDocument();
   });
 
   it('still renders when recording the choice fails', async () => {
@@ -127,10 +136,10 @@ describe('GuidePage', () => {
   it('the finish button returns to the upload screen', async () => {
     const { user } = await startAtGuide('idea-planter');
     await user.click(
-      await screen.findByRole('button', { name: /خلّصت! جرّب قنينة تانية/ }),
+      await screen.findByRole('button', { name: /خلّصت! جرّب غرض تاني/ }),
     );
     expect(
-      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة القنينة/ }),
+      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة الغرض/ }),
     ).toBeInTheDocument();
   });
 

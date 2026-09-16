@@ -33,6 +33,16 @@ export const VARIANTS: Variant[] = [
     isCommon: false,
     materialType: 'TIN',
   }),
+  makeVariant({
+    key: 'vcan330',
+    categoryKey: 'can',
+    volumeMl: 330,
+    heightMm: 115,
+    diameterMm: 66,
+    sortOrder: 9,
+    label: 'Soda can (330 ml)',
+    materialType: 'ALUMINIUM',
+  }),
 ];
 
 interface SeedIdea {
@@ -157,5 +167,38 @@ export const IDEAS: SeedIdea[] = [
     published: false,
     variantKeys: ['v500'],
     detail: ideaDetail({ id: 'idea-hidden', slug: 'hidden', title: 'Unpublished idea' }),
+  },
+  {
+    id: 'idea-can-organizer',
+    slug: 'can-organizer',
+    title: 'Can organizer',
+    published: true,
+    variantKeys: ['vcan330'],
+    detail: ideaDetail({
+      id: 'idea-can-organizer',
+      slug: 'can-organizer',
+      title: 'Can organizer',
+      variantKeys: ['vcan330'],
+      steps: [
+        {
+          stepNumber: 1,
+          title: 'Clean it',
+          instruction: 'Wash the can.',
+          op: 'clean',
+          measure: '',
+          tip: '',
+          warning: '',
+        },
+        {
+          stepNumber: 2,
+          title: 'Open the top',
+          instruction: 'An adult opens the lid all the way.',
+          op: 'open-top',
+          measure: 'can-planter-drain',
+          tip: '',
+          warning: 'Adults only.',
+        },
+      ],
+    }),
   },
 ];

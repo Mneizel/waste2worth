@@ -81,13 +81,20 @@ describe('api client', () => {
   });
 
   it('builds the bottle-sizes query string', async () => {
-    const { calls } = fakeFetch([{ body: { data: [] } }, { body: { data: [] } }, { body: { data: [] } }]);
+    const { calls } = fakeFetch([
+      { body: { data: [] } },
+      { body: { data: [] } },
+      { body: { data: [] } },
+      { body: { data: [] } },
+    ]);
     await api.bottleSizes();
     await api.bottleSizes({ common: true });
     await api.bottleSizes({ common: false });
+    await api.bottleSizes({ common: true, category: 'can' });
     expect(calls[0]!.url).toBe(`${API}/api/bottle-sizes`);
     expect(calls[1]!.url).toBe(`${API}/api/bottle-sizes?common=true`);
     expect(calls[2]!.url).toBe(`${API}/api/bottle-sizes?common=false`);
+    expect(calls[3]!.url).toBe(`${API}/api/bottle-sizes?common=true&category=can`);
   });
 
   it('resolves undefined on a 204', async () => {

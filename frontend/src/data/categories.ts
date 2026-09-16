@@ -25,7 +25,7 @@ export const CATEGORIES: CategoryInfo[] = [
     key: 'can',
     label: 'علب معدنية',
     examples: 'علب مشروبات، علب طعام',
-    status: 'soon',
+    status: 'available',
   },
   {
     key: 'jar',

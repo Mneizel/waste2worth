@@ -99,26 +99,37 @@ async function digestBytes(file: File): Promise<Uint8Array> {
 type ParsedHint =
   | { kind: 'none' }
   | { kind: 'unidentified' }
-  | { kind: 'volume'; volumeMl: number };
+  | { kind: 'volume'; category: string; volumeMl: number };
 
+// The real AI recognizer only auto-detects bottles so far (see
+// docs/adding-a-category.md — each category earns its own real recognition,
+// nothing is faked). Test mode can still target another registered category
+// explicitly with a "<category>:<amount>" hint, e.g. "can:330".
 function parseHint(hint?: string): ParsedHint {
   if (!hint || !hint.trim()) return { kind: 'none' };
   const t = hint.trim().toLowerCase();
   if (t === 'none' || t === 'unknown') return { kind: 'unidentified' };
-  const m = t.match(/^(\d+(?:\.\d+)?)\s*(ml|l)?$/);
+  const m = t.match(/^(?:(bottle|can):)?(\d+(?:\.\d+)?)\s*(ml|l)?$/);
   if (m) {
-    const value = Number(m[1]);
-    const volumeMl = m[2] === 'l' ? value * 1000 : value;
-    if (volumeMl > 0) return { kind: 'volume', volumeMl };
+    const category = m[1] ?? 'bottle';
+    const value = Number(m[2]);
+    const volumeMl = m[3] === 'l' ? value * 1000 : value;
+    if (volumeMl > 0) return { kind: 'volume', category, volumeMl };
   }
   return { kind: 'none' };
 }
 
-function nearestVariant(volumeMl: number): Variant {
-  return [...VARIANTS].sort(
+function nearestVariantInCategory(category: string, volumeMl: number): Variant {
+  const pool = VARIANTS.filter((v) => v.categoryKey === category);
+  return [...pool].sort(
     (a, b) => Math.abs(a.volumeMl - volumeMl) - Math.abs(b.volumeMl - volumeMl),
   )[0]!;
 }
+
+const CATEGORY_ITEM_LABEL_AR: Record<string, string> = {
+  bottle: 'قنينة',
+  can: 'علبة معدنية',
+};
 
 function summarise(detail: IdeaDetail): IdeaSummary {
   return {
@@ -151,14 +162,17 @@ export const api = {
       estimatedVolumeMl = null;
       confidence = 0.2;
     } else if (parsed.kind === 'volume') {
+      categoryKey = parsed.category;
       estimatedVolumeMl = parsed.volumeMl;
       confidence = 0.9;
     } else {
+      // no hint -> the deterministic "photo AI" stub, bottles only for now
       estimatedVolumeMl = CANDIDATE_VOLUMES_ML[digest[0]! % CANDIDATE_VOLUMES_ML.length]!;
       confidence = Number((0.7 + (digest[1]! % 26) / 100).toFixed(2));
     }
 
-    const variant = estimatedVolumeMl === null ? null : nearestVariant(estimatedVolumeMl);
+    const variant =
+      estimatedVolumeMl === null ? null : nearestVariantInCategory(categoryKey!, estimatedVolumeMl);
     counter += 1;
     const id = `scan-${Date.now().toString(36)}-${counter}`;
     const scan: Scan = {
@@ -175,7 +189,7 @@ export const api = {
         label:
           categoryKey === null
             ? 'ما قدرنا نتعرّف على الجسم'
-            : `قنينة، حوالي ${estimatedVolumeMl} مل`,
+            : `${CATEGORY_ITEM_LABEL_AR[categoryKey]}، حوالي ${estimatedVolumeMl} مل`,
         estimatedVolumeMl,
         confidence,
         variant: variant ? clone(variant) : null,
@@ -222,7 +236,13 @@ export const api = {
 
     const guessId = scan.aiGuess.variant?.id;
     const near = scan.aiGuess.estimatedVolumeMl;
-    const commons = VARIANTS.filter((v) => v.isCommon && v.id !== guessId);
+    const guessCategory = scan.aiGuess.categoryKey;
+    // "no" here means "wrong size", not "wrong kind of item" -- stay within
+    // the recognised category when we have one; offer everything otherwise.
+    const pool = guessCategory
+      ? VARIANTS.filter((v) => v.categoryKey === guessCategory)
+      : VARIANTS;
+    const commons = pool.filter((v) => v.isCommon && v.id !== guessId);
     const ordered =
       near != null
         ? [...commons].sort(
@@ -287,12 +307,11 @@ export const api = {
     return clone(idea);
   },
 
-  async bottleSizes(params?: { common?: boolean }): Promise<Variant[]> {
+  async bottleSizes(params?: { common?: boolean; category?: string }): Promise<Variant[]> {
     await wait();
-    const list =
-      params?.common === undefined
-        ? VARIANTS
-        : VARIANTS.filter((v) => v.isCommon === params.common);
+    const category = params?.category ?? 'bottle';
+    let list = VARIANTS.filter((v) => v.categoryKey === category);
+    if (params?.common !== undefined) list = list.filter((v) => v.isCommon === params.common);
     return list.map(clone);
   },
 };

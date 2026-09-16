@@ -18,18 +18,20 @@ export interface ContentTool {
   note?: string;
 }
 
-export interface ContentStep {
+/** Generic across categories: bottle content uses ContentStep<BpOp, MeasureId>,
+ * can content uses ContentStep<CanOp, CanMeasureId>, and so on. */
+export interface ContentStep<Op extends string = string, Measure extends string = string> {
   title: string;
   instruction: string;
   /** operation this step performs on the workpiece (drives the runtime blueprint) */
-  op: BpOp;
-  /** if set, the exact measurement is computed from the confirmed bottle */
-  measure?: MeasureId;
+  op: Op;
+  /** if set, the exact measurement is computed from the confirmed item */
+  measure?: Measure;
   tip?: string;
   warning?: string;
 }
 
-export interface ContentIdea {
+export interface ContentIdea<Op extends string = string, Measure extends string = string> {
   slug: string;
   title: string;
   summary: string;
@@ -41,7 +43,7 @@ export interface ContentIdea {
   source: string;
   variantKeys: string[];
   tools: ContentTool[];
-  steps: ContentStep[];
+  steps: ContentStep<Op, Measure>[];
 }
 
 /** Arabic labels for the bottle catalogue (keyed by the seed `key`). */
@@ -72,7 +74,7 @@ export const VARIANT_LABELS_AR: Record<string, string> = {
   'pet-juice-1000ml': 'قنينة عصير (١ لتر)',
 };
 
-export const IDEAS_AR: ContentIdea[] = [
+export const IDEAS_AR: ContentIdea<BpOp, MeasureId>[] = [
   {
     slug: 'self-watering-planter',
     title: 'مزهرية تسقي نفسها',

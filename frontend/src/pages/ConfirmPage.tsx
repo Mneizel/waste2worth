@@ -48,7 +48,7 @@ export function ConfirmPage() {
   async function loadAllSizes() {
     setShowAll(true);
     try {
-      setAllSizes(await api.bottleSizes());
+      setAllSizes(await api.bottleSizes({ category: guess?.categoryKey ?? undefined }));
     } catch {
       setAllSizes([]);
     }
@@ -123,7 +123,7 @@ export function ConfirmPage() {
         <div className="cf__head">
           <div className="cf__photo">
             {scan.image.url ? (
-              <img src={mediaUrl(scan.image.url)} alt="صورة القنينة" />
+              <img src={mediaUrl(scan.image.url)} alt="صورة الغرض" />
             ) : (
               <Bottle size={44} />
             )}
@@ -157,11 +157,11 @@ export function ConfirmPage() {
                 <div className="page-title-row">
                   <h1 style={{ fontSize: '1.3rem' }}>ما قدرنا نتعرّف على الجسم</h1>
                   <SpeakButton
-                    text="ما قدرنا نتعرّف على الجسم. اختر حجم القنينة من القائمة تحت."
+                    text="ما قدرنا نتعرّف على الجسم. اختر الحجم الصحيح من القائمة تحت."
                     label="اسمع الشرح"
                   />
                 </div>
-                <div className="sub">اختَر حجم القنينة من القائمة تحت.</div>
+                <div className="sub">اختَر الحجم الصحيح من القائمة تحت.</div>
               </>
             )}
           </div>
@@ -239,6 +239,7 @@ const MATERIAL_AR: Record<string, string> = {
   HDPE: 'بلاستيك',
   GLASS: 'زجاج',
   ALUMINIUM: 'ألمنيوم',
+  STEEL: 'صفيح',
 };
 
 function SizeChip({

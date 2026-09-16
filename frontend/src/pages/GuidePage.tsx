@@ -9,8 +9,9 @@ import { Header } from '../components/Header';
 import { Model3DView } from '../components/Model3DView';
 import { ArrowNext, Lightbulb, Ruler, Warning, toolIcon } from '../components/icons';
 import { SpeakButton } from '../components/SpeakButton';
+import { compute as computeCan, type CanMeasureId } from '../data/canMeasure';
 import { VARIANTS } from '../data/catalogue';
-import { compute, type MeasureId } from '../data/measure';
+import { compute as computeBottle, type MeasureId } from '../data/measure';
 import { ApiError, api } from '../lib/api';
 import type { IdeaDetail, Variant } from '../lib/types';
 import { useScan } from '../lib/useScan';
@@ -20,6 +21,19 @@ import './GuidePage.css';
 const DEFAULT_VARIANT = VARIANTS.find(
   (v) => v.key === 'pet-water-500ml',
 ) as Variant;
+
+const CATEGORY_ITEM_LABEL_AR: Record<string, string> = {
+  bottle: 'قنينتك',
+  can: 'علبتك',
+};
+
+/** Dispatches to the right category's measure module — see
+ * docs/adding-a-category.md for how a new category plugs in here. */
+function computeMeasure(categoryKey: string, measure: string, variant: Variant) {
+  return categoryKey === 'can'
+    ? computeCan(measure as CanMeasureId, variant)
+    : computeBottle(measure as MeasureId, variant);
+}
 
 export function GuidePage() {
   // The route always supplies :scanId and :ideaId.
@@ -64,6 +78,7 @@ export function GuidePage() {
   }
 
   const variant = scan?.confirmedVariant ?? DEFAULT_VARIANT;
+  const categoryKey = variant.categoryKey;
   const tools = idea.tools.filter((t) => t.kind === 'tool');
   const materials = idea.tools.filter((t) => t.kind === 'material');
 
@@ -71,7 +86,7 @@ export function GuidePage() {
   // it can draw the workpiece as it stands after all the earlier steps.
   const stepOps = idea.steps.map((s) => s.op);
   const stepFracs = idea.steps.map((s) =>
-    s.measure ? compute(s.measure as MeasureId, variant).frac ?? null : null,
+    s.measure ? computeMeasure(categoryKey, s.measure, variant).frac ?? null : null,
   );
 
   return (
@@ -84,7 +99,7 @@ export function GuidePage() {
 
       <div className="gd__hero">
         <div className="gd__hero-art">
-          <FinalArt ops={stepOps} fracs={stepFracs} variant={variant} title={idea.title} />
+          <FinalArt categoryKey={categoryKey} ops={stepOps} fracs={stepFracs} variant={variant} title={idea.title} />
         </div>
         <div className="stack" style={{ gap: 6 }}>
           <div className="page-title-row">
@@ -104,7 +119,8 @@ export function GuidePage() {
       </div>
 
       <p className="gd__bottle">
-        <Ruler size={16} /> المقاسات محسوبة لقنينتك: {variant.label} — ارتفاع{' '}
+        <Ruler size={16} /> المقاسات محسوبة لـ{CATEGORY_ITEM_LABEL_AR[categoryKey]}:{' '}
+        {variant.label} — ارتفاع{' '}
         {toArabicDigits(variant.heightMm)} ملم، قطر{' '}
         {toArabicDigits(variant.diameterMm)} ملم.
       </p>
@@ -153,13 +169,14 @@ export function GuidePage() {
         <h2 className="gd__h2">٢ · الخطوات</h2>
         <ol className="gd__steps">
           {idea.steps.map((s, idx) => {
-            const m = s.measure ? compute(s.measure as MeasureId, variant) : null;
+            const m = s.measure ? computeMeasure(categoryKey, s.measure, variant) : null;
             return (
               <li key={s.stepNumber} className="step">
                 <div className="step__num">{toArabicDigits(s.stepNumber)}</div>
                 <div className="step__body">
                   <div className="step__blueprint">
                     <Blueprint
+                      categoryKey={categoryKey}
                       ops={stepOps}
                       fracs={stepFracs}
                       index={idx}
@@ -214,13 +231,15 @@ export function GuidePage() {
       <section className="gd__section">
         <h2 className="gd__h2">٣ · قارن مع النموذج ثلاثي الأبعاد</h2>
         <Model3DView
-          front={<FinalArt ops={stepOps} fracs={stepFracs} variant={variant} title={idea.title} />}
+          front={
+            <FinalArt categoryKey={categoryKey} ops={stepOps} fracs={stepFracs} variant={variant} title={idea.title} />
+          }
           title={idea.title}
         />
       </section>
 
       <Button block onClick={() => navigate('/')}>
-        خلّصت! جرّب قنينة تانية <ArrowNext size={18} />
+        خلّصت! جرّب غرض تاني <ArrowNext size={18} />
       </Button>
     </div>
   );

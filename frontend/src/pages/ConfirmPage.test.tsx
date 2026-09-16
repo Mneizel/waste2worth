@@ -106,7 +106,7 @@ describe('ConfirmPage', () => {
     expect(await screen.findByRole('alert')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'رجوع للبداية' }));
     expect(
-      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة القنينة/ }),
+      await screen.findByRole('heading', { name: /صوّر أو ارفع صورة الغرض/ }),
     ).toBeInTheDocument();
   });
 
@@ -134,6 +134,7 @@ describe('ConfirmPage', () => {
         variant: {
           id: 'var-x',
           key: 'x',
+          categoryKey: 'bottle',
           label: 'Some bottle',
           materialType: 'PET',
           volumeMl: 500,

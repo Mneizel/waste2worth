@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" role="img" aria-label="الشكل النهائي: حصّالة نقود من علبة">
+  <defs>
+    <pattern id="cbsoil" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#5fb499"/><circle cx="6.5" cy="6" r="1.1" fill="#5fb499"/></pattern>
+  </defs>
+  <rect width="400" height="400" fill="#0b2a23"/>
+  <ellipse cx="200" cy="378" rx="110" ry="14" fill="rgba(0,0,0,0.28)"/>
+  <g stroke-linecap="round"><path d="M98 76.60000000000002 H302 q8 0 8 8 V348 q0 8 -8 8 H98 q-8 0 -8 -8 V84.60000000000002 q0 -8 8 -8 Z" fill="none" stroke="#a7e8cf" stroke-width="2.2" stroke-linejoin="round"/><ellipse cx="200" cy="87.80000000000003" rx="107" ry="5.6" fill="none" stroke="#a7e8cf" stroke-width="1.6"/><path d="M193 84.60000000000002 q7 -7 14 0" fill="none" stroke="#a7e8cf" stroke-width="1.8"/><ellipse cx="195" cy="346" rx="9" ry="4" fill="none" stroke="#a7e8cf" stroke-width="1.5"/><ellipse cx="205" cy="340" rx="9" ry="4" fill="none" stroke="#a7e8cf" stroke-width="1.5"/><ellipse cx="195" cy="334" rx="9" ry="4" fill="none" stroke="#a7e8cf" stroke-width="1.5"/><ellipse cx="205" cy="328" rx="9" ry="4" fill="none" stroke="#a7e8cf" stroke-width="1.5"/><rect x="151.6" y="86.20000000000002" width="96.8" height="4.5" rx="2" fill="#a7e8cf"/><rect x="90" y="188.36" width="220" height="27.939999999999998" fill="url(#cbsoil)" opacity="0.55"/><rect x="90" y="244.24" width="220" height="27.939999999999998" fill="url(#cbsoil)" opacity="0.55"/></g>
+</svg>

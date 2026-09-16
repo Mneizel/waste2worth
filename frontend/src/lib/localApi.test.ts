@@ -74,6 +74,14 @@ describe('localApi.createScan', () => {
     const scan = await api.createScan(img('x', ''));
     expect(scan.image.mimeType).toBe('image/jpeg');
   });
+
+  it('honours a "<category>:<amount>" hint for a non-bottle category', async () => {
+    const scan = await api.createScan(img(), 'can:330');
+    expect(scan.aiGuess.categoryKey).toBe('can');
+    expect(scan.aiGuess.estimatedVolumeMl).toBe(330);
+    expect(scan.aiGuess.variant?.categoryKey).toBe('can');
+    expect(scan.aiGuess.label).toContain('علبة معدنية');
+  });
 });
 
 describe('localApi digest fallback', () => {
@@ -182,6 +190,18 @@ describe('localApi flow', () => {
     expect(common.every((v) => v.isCommon)).toBe(true);
     expect(rare.every((v) => !v.isCommon)).toBe(true);
     expect(common.length + rare.length).toBe(24);
+  });
+
+  it('bottleSizes can list a different category', async () => {
+    const cans = await api.bottleSizes({ category: 'can' });
+    expect(cans.length).toBeGreaterThan(0);
+    expect(cans.every((v) => v.categoryKey === 'can')).toBe(true);
+  });
+
+  it('reject stays within the recognised category', async () => {
+    const scan = await api.createScan(img(), 'can:330');
+    const { alternatives } = await api.rejectScan(scan.id);
+    expect(alternatives.every((v) => v.categoryKey === 'can')).toBe(true);
   });
 });
 

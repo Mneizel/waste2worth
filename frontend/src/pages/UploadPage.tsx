@@ -11,8 +11,8 @@ import { CATEGORIES } from '../data/categories';
 import { ApiError, api } from '../lib/api';
 import './UploadPage.css';
 
-const HEADING = 'صوّر أو ارفع صورة القنينة';
-const SUBTITLE = 'صوّر أو ارفع صورة قنينة، ومنوريك كيف تعيد تدويرها خطوة بخطوة.';
+const HEADING = 'صوّر أو ارفع صورة الغرض';
+const SUBTITLE = 'صوّر أو ارفع صورة قنينة أو علبة معدنية، ومنوريك كيف تعيد تدويرها خطوة بخطوة.';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/heic,image/heif';
 const MAX_BYTES = 8 * 1024 * 1024;
@@ -102,7 +102,7 @@ export function UploadPage() {
           ) : (
             <>
               <UploadCloud size={56} className="drop__icon" />
-              <div className="drop__title">اسحب صورة القنينة هون</div>
+              <div className="drop__title">اسحب صورة الغرض هون</div>
               <div className="sub">أو اضغط لاختيار صورة من جهازك</div>
             </>
           )}
@@ -154,9 +154,10 @@ export function UploadPage() {
         {showHint && (
           <div className="hint-box">
             <p className="sub" style={{ margin: '0 0 8px' }}>
-              الذكاء الاصطناعي حالياً نموذج تجريبي. اكتب حجم لتثبيت النتيجة:{' '}
-              <code>500</code>، <code>1.5l</code>، أو <code>none</code> ليتصرّف كأنه
-              ما عرف الجسم.
+              الذكاء الاصطناعي حالياً بيتعرّف تلقائياً على القناني بس. اكتب حجم
+              لتثبيت النتيجة: <code>500</code> أو <code>1.5l</code> (قنينة)،{' '}
+              <code>can:330</code> (علبة معدنية)، أو <code>none</code> ليتصرّف
+              كأنه ما عرف الجسم.
             </p>
             <input
               className="hint-input"

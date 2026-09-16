@@ -10,7 +10,7 @@ export type ScanStatus =
 export interface Variant {
   id: string;
   key: string;
-  categoryKey?: string;
+  categoryKey: string;
   label: string;
   materialType: string;
   volumeMl: number;

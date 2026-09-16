@@ -1,19 +1,27 @@
 /**
  * Regenerates the bundled offline catalogue + artwork.
- * Run: `npm run gen:data`.
+ * Run: `npx tsx scripts/build-data.ts` (there is no npm script for this).
  *
- * Content (Arabic) comes from src/data/content.ts. Numeric bottle specs come
- * from the backend seed. Output: src/data/catalogue.ts, src/data/media.ts
- * (artwork inlined as data URIs) and public/media/**.
+ * Content (Arabic) comes from src/data/content.ts (bottle) and
+ * src/data/canContent.ts (can). Numeric specs come from the backend seed.
+ * Output: src/data/catalogue.ts, src/data/media.ts (artwork inlined as data
+ * URIs) and public/media/**.
+ *
+ * Adding a category: see docs/adding-a-category.md.
  */
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import type { SeedVariant } from '../../backend/src/seed/bottleSizes';
 import { BOTTLE_VARIANTS } from '../../backend/src/seed/bottleSizes';
-import { renderFinalArt } from '../src/components/blueprintSvg';
-import { IDEAS_AR, VARIANT_LABELS_AR } from '../src/data/content';
-import { compute, type MeasureId } from '../src/data/measure';
+import { CAN_VARIANTS } from '../../backend/src/seed/canSizes';
+import { renderFinalArt as renderBottleFinalArt } from '../src/components/blueprintSvg';
+import { renderFinalArt as renderCanFinalArt } from '../src/components/canSvg';
+import { CAN_IDEAS_AR, CAN_VARIANT_LABELS_AR } from '../src/data/canContent';
+import { compute as computeCan, type CanMeasureId } from '../src/data/canMeasure';
+import { IDEAS_AR, VARIANT_LABELS_AR, type ContentIdea } from '../src/data/content';
+import { compute as computeBottle, type MeasureId } from '../src/data/measure';
 import type { IdeaDetail, Variant } from '../src/lib/types';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -23,64 +31,79 @@ const SVG = 'image/svg+xml';
 
 // ------------------------------------------------------------------ data ----
 
-const VARIANTS: Variant[] = BOTTLE_VARIANTS.map((v) => ({
-  id: `var-${v.key}`,
-  key: v.key,
-  categoryKey: 'bottle',
-  label: VARIANT_LABELS_AR[v.key] ?? v.label,
-  materialType: v.materialType,
-  volumeMl: v.volumeMl,
-  heightMm: v.heightMm,
-  diameterMm: v.diameterMm,
-  region: v.region,
-  typicalContents: v.typicalContents,
-  isCommon: v.isCommon,
-  sortOrder: v.sortOrder,
-  notes: v.notes,
-}));
+function toVariants(seed: SeedVariant[], categoryKey: string, labels: Record<string, string>): Variant[] {
+  return seed.map((v) => ({
+    id: `var-${v.key}`,
+    key: v.key,
+    categoryKey,
+    label: labels[v.key] ?? v.label,
+    materialType: v.materialType,
+    volumeMl: v.volumeMl,
+    heightMm: v.heightMm,
+    diameterMm: v.diameterMm,
+    region: v.region,
+    typicalContents: v.typicalContents,
+    isCommon: v.isCommon,
+    sortOrder: v.sortOrder,
+    notes: v.notes,
+  }));
+}
 
-const IDEAS: IdeaDetail[] = IDEAS_AR.map((idea) => ({
-  id: `idea-${idea.slug}`,
-  slug: idea.slug,
-  title: idea.title,
-  summary: idea.summary,
-  difficulty: idea.difficulty,
-  estimatedMinutes: idea.estimatedMinutes,
-  minAge: idea.minAge,
-  safetyNotes: idea.safetyNotes ?? '',
-  source: idea.source,
-  thumbnailUrl: `media/ideas/${idea.slug}-thumb.svg`,
-  finalImageUrl: `media/ideas/${idea.slug}-final.svg`,
-  model3dUrl: '',
-  // the 3D turntable now renders live from the ops list (see GuidePage.tsx),
-  // sized to the user's actual bottle -- no static asset needed here.
-  model3dPreviewUrl: '',
-  tools: idea.tools.map((t, i) => ({
-    id: `tool-${idea.slug}-${i}`,
-    kind: t.kind,
-    name: t.name,
-    imageUrl: '',
-    quantity: t.quantity ?? '١',
-    optional: t.optional ?? false,
-    note: t.note ?? '',
-  })),
-  steps: idea.steps.map((s, i) => ({
-    stepNumber: i + 1,
-    title: s.title,
-    instruction: s.instruction,
-    op: s.op,
-    measure: s.measure ?? '',
-    tip: s.tip ?? '',
-    warning: s.warning ?? '',
-  })),
-  variantKeys: idea.variantKeys,
-}));
+// Bottles first: when a bottle and a can share an exact volume, the
+// deterministic recogniser's tie-break relies on bottles being scanned first.
+const VARIANTS: Variant[] = [
+  ...toVariants(BOTTLE_VARIANTS, 'bottle', VARIANT_LABELS_AR),
+  ...toVariants(CAN_VARIANTS, 'can', CAN_VARIANT_LABELS_AR),
+];
+
+function toIdeas<Op extends string, Measure extends string>(
+  ideas: ContentIdea<Op, Measure>[],
+): IdeaDetail[] {
+  return ideas.map((idea) => ({
+    id: `idea-${idea.slug}`,
+    slug: idea.slug,
+    title: idea.title,
+    summary: idea.summary,
+    difficulty: idea.difficulty,
+    estimatedMinutes: idea.estimatedMinutes,
+    minAge: idea.minAge,
+    safetyNotes: idea.safetyNotes ?? '',
+    source: idea.source,
+    thumbnailUrl: `media/ideas/${idea.slug}-thumb.svg`,
+    finalImageUrl: `media/ideas/${idea.slug}-final.svg`,
+    model3dUrl: '',
+    // the 3D turntable renders live from the ops list (see GuidePage.tsx),
+    // sized to the user's actual confirmed item -- no static asset needed.
+    model3dPreviewUrl: '',
+    tools: idea.tools.map((t, i) => ({
+      id: `tool-${idea.slug}-${i}`,
+      kind: t.kind,
+      name: t.name,
+      imageUrl: '',
+      quantity: t.quantity ?? '١',
+      optional: t.optional ?? false,
+      note: t.note ?? '',
+    })),
+    steps: idea.steps.map((s, i) => ({
+      stepNumber: i + 1,
+      title: s.title,
+      instruction: s.instruction,
+      op: s.op,
+      measure: s.measure ?? '',
+      tip: s.tip ?? '',
+      warning: s.warning ?? '',
+    })),
+    variantKeys: idea.variantKeys,
+  }));
+}
+
+const IDEAS: IdeaDetail[] = [...toIdeas(IDEAS_AR), ...toIdeas(CAN_IDEAS_AR)];
 
 mkdirSync(resolve(FRONTEND, 'src/data'), { recursive: true });
 writeFileSync(
   resolve(FRONTEND, 'src/data/catalogue.ts'),
   `// GENERATED by scripts/build-data.ts — do not edit by hand.
-// Regenerate with: npm run gen:data
+// Regenerate with: npx tsx scripts/build-data.ts
 import type { IdeaDetail, Variant } from '../lib/types';
 
 export const VARIANTS: Variant[] = ${JSON.stringify(VARIANTS, null, 2)};
@@ -90,24 +113,33 @@ export const IDEAS: IdeaDetail[] = ${JSON.stringify(IDEAS, null, 2)};
   'utf8',
 );
 
-// (step blueprints are drawn at runtime — see src/components/blueprintSvg.ts)
+// (step blueprints are drawn at runtime — see src/components/blueprintSvg.ts
+// for bottles and src/components/canSvg.ts for cans)
 
 // ------------------------------------------------------------- product art ---
 // The finished product's picture is generated by the SAME workpiece model as
 // the step blueprints (renderFinalArt), so the thumbnail always matches what
 // the steps actually build — no separate, hand-drawn illustration to go stale
-// or disagree with the instructions. A representative bottle (the idea's own
-// first size) is used here; the live app re-renders this to the user's exact
-// confirmed bottle (see GuidePage.tsx).
+// or disagree with the instructions. A representative size (the idea's own
+// first variant key) is used here; the live app re-renders this to the
+// user's exact confirmed item (see GuidePage.tsx).
 
-function finalArtFor(idea: (typeof IDEAS_AR)[number]): string {
-  const repVariant =
-    VARIANTS.find((v) => v.key === idea.variantKeys[0]) ?? VARIANTS[0]!;
+function bottleArtFor(idea: (typeof IDEAS_AR)[number]): string {
+  const repVariant = VARIANTS.find((v) => v.key === idea.variantKeys[0]) ?? VARIANTS[0]!;
   const ops = idea.steps.map((s) => s.op);
   const fracs = idea.steps.map((s) =>
-    s.measure ? compute(s.measure as MeasureId, repVariant).frac ?? null : null,
+    s.measure ? computeBottle(s.measure as MeasureId, repVariant).frac ?? null : null,
   );
-  return renderFinalArt({ ops, fracs, variant: repVariant, title: idea.title });
+  return renderBottleFinalArt({ ops, fracs, variant: repVariant, title: idea.title });
+}
+
+function canArtFor(idea: (typeof CAN_IDEAS_AR)[number]): string {
+  const repVariant = VARIANTS.find((v) => v.key === idea.variantKeys[0]) ?? VARIANTS[0]!;
+  const ops = idea.steps.map((s) => s.op);
+  const fracs = idea.steps.map((s) =>
+    s.measure ? computeCan(s.measure as CanMeasureId, repVariant).frac ?? null : null,
+  );
+  return renderCanFinalArt({ ops, fracs, variant: repVariant, title: idea.title });
 }
 
 // --------------------------------------------------------------- generate ----
@@ -122,7 +154,12 @@ function write(rel: string, body: string, mime: string) {
 
 rmSync(MEDIA, { recursive: true, force: true });
 for (const idea of IDEAS_AR) {
-  const art = finalArtFor(idea);
+  const art = bottleArtFor(idea);
+  write(`ideas/${idea.slug}-final.svg`, art, SVG);
+  write(`ideas/${idea.slug}-thumb.svg`, art, SVG);
+}
+for (const idea of CAN_IDEAS_AR) {
+  const art = canArtFor(idea);
   write(`ideas/${idea.slug}-final.svg`, art, SVG);
   write(`ideas/${idea.slug}-thumb.svg`, art, SVG);
 }
@@ -137,5 +174,5 @@ export const MEDIA: Record<string, string> = ${JSON.stringify(inlineMedia, null,
 
 console.log(
   `catalogue.ts: ${VARIANTS.length} variants, ${IDEAS.length} ideas · ` +
-    `media.ts: ${IDEAS_AR.length * 2} product images (step blueprints + 3D are runtime)`,
+    `media.ts: ${(IDEAS_AR.length + CAN_IDEAS_AR.length) * 2} product images (step blueprints + 3D are runtime)`,
 );

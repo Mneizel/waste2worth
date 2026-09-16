@@ -63,22 +63,24 @@ function maybeFail(method: Method): void {
   throw f;
 }
 
-function nearest(volumeMl: number): Variant {
-  return [...VARIANTS].sort(
+function nearest(category: string, volumeMl: number): Variant {
+  const pool = VARIANTS.filter((v) => v.categoryKey === category);
+  return [...pool].sort(
     (a, b) => Math.abs(a.volumeMl - volumeMl) - Math.abs(b.volumeMl - volumeMl),
   )[0]!;
 }
 
-function parseHint(hint?: string): { unknown: boolean; volumeMl: number | null } {
-  if (!hint || !hint.trim()) return { unknown: false, volumeMl: 500 };
+function parseHint(hint?: string): { unknown: boolean; category: string; volumeMl: number | null } {
+  if (!hint || !hint.trim()) return { unknown: false, category: 'bottle', volumeMl: 500 };
   const t = hint.trim().toLowerCase();
-  if (t === 'none' || t === 'unknown') return { unknown: true, volumeMl: null };
-  const m = t.match(/^(\d+(?:\.\d+)?)\s*(ml|l)?$/);
+  if (t === 'none' || t === 'unknown') return { unknown: true, category: 'bottle', volumeMl: null };
+  const m = t.match(/^(?:(bottle|can):)?(\d+(?:\.\d+)?)\s*(ml|l)?$/);
   if (m) {
-    const value = Number(m[1]);
-    return { unknown: false, volumeMl: m[2] === 'l' ? value * 1000 : value };
+    const category = m[1] ?? 'bottle';
+    const value = Number(m[2]);
+    return { unknown: false, category, volumeMl: m[3] === 'l' ? value * 1000 : value };
   }
-  return { unknown: false, volumeMl: 500 };
+  return { unknown: false, category: 'bottle', volumeMl: 500 };
 }
 
 function publicScan(s: StoredScan): Scan {
@@ -100,16 +102,16 @@ function summarise(detail: IdeaDetail): IdeaSummary {
 export const apiMock = {
   async createScan(_file: File, hint?: string): Promise<Scan> {
     maybeFail('createScan');
-    const { unknown, volumeMl } = parseHint(hint);
+    const { unknown, category, volumeMl } = parseHint(hint);
     counter += 1;
     const id = `scan-${counter}`;
-    const variant = unknown || volumeMl === null ? null : nearest(volumeMl);
+    const variant = unknown || volumeMl === null ? null : nearest(category, volumeMl);
     const stored: StoredScan = {
       id,
       status: 'PENDING_CONFIRMATION',
       image: { url: `/uploads/${id}.png`, mimeType: 'image/png', sizeBytes: 12, sha256: 'a'.repeat(64) },
       aiGuess: {
-        categoryKey: unknown ? null : 'bottle',
+        categoryKey: unknown ? null : category,
         label: unknown ? 'Object could not be identified' : `Plastic bottle, about ${volumeMl} ml`,
         estimatedVolumeMl: volumeMl,
         confidence: unknown ? 0.2 : 0.82,
@@ -196,7 +198,7 @@ export const apiMock = {
     return structuredClone(idea.detail);
   },
 
-  async bottleSizes(params?: { common?: boolean }): Promise<Variant[]> {
+  async bottleSizes(params?: { common?: boolean; category?: string }): Promise<Variant[]> {
     maybeFail('bottleSizes');
     const list =
       params?.common === undefined
