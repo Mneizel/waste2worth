@@ -154,10 +154,10 @@ export function UploadPage() {
         {showHint && (
           <div className="hint-box">
             <p className="sub" style={{ margin: '0 0 8px' }}>
-              الذكاء الاصطناعي حالياً بيتعرّف تلقائياً على القناني بس. اكتب حجم
-              لتثبيت النتيجة: <code>500</code> أو <code>1.5l</code> (قنينة)،{' '}
-              <code>can:330</code> (علبة معدنية)، أو <code>none</code> ليتصرّف
-              كأنه ما عرف الجسم.
+              هاد بيتجاوز تحليل الصورة الحقيقي ويثبّت النتيجة يدوياً — مفيد
+              للتجربة بدون صورة أو بدون مفتاح ذكاء اصطناعي: <code>500</code>{' '}
+              أو <code>1.5l</code> (قنينة)، <code>can:330</code> (علبة
+              معدنية)، أو <code>none</code> ليتصرّف كأنه ما عرف الجسم.
             </p>
             <input
               className="hint-input"

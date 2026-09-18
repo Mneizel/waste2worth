@@ -34,16 +34,47 @@ describe('localApi.mediaUrl', () => {
 });
 
 describe('localApi.createScan', () => {
-  it('recognises a bottle and picks a size deterministically', async () => {
-    const a = await api.createScan(img());
-    const b = await api.createScan(img());
-    expect(a.aiGuess.categoryKey).toBe('bottle');
-    expect(a.aiGuess.variant).not.toBeNull();
-    expect(a.aiGuess.estimatedVolumeMl).toBe(b.aiGuess.estimatedVolumeMl);
-    expect(a.aiGuess.confidence).toBeGreaterThanOrEqual(0.7);
-    expect(a.aiGuess.confidence).toBeLessThanOrEqual(0.95);
-    expect(a.image.sha256).toMatch(/^[0-9a-f]+$/);
-    expect(a.status).toBe('PENDING_CONFIRMATION');
+  it('is honest about not recognising anything without a hint or a vision key', async () => {
+    const scan = await api.createScan(img());
+    expect(scan.aiGuess.categoryKey).toBeNull();
+    expect(scan.aiGuess.variant).toBeNull();
+    expect(scan.aiGuess.estimatedVolumeMl).toBeNull();
+    expect(scan.aiGuess.confidence).toBe(0);
+    expect(scan.aiGuess.label).toBe('ما قدرنا نتعرّف على الجسم');
+    expect(scan.image.sha256).toMatch(/^[0-9a-f]+$/);
+    expect(scan.status).toBe('PENDING_CONFIRMATION');
+  });
+
+  it('calls the real vision API when a key is configured, and uses its guess', async () => {
+    vi.stubEnv('VITE_GEMINI_API_KEY', 'test-key');
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: async () => ({
+          candidates: [
+            { content: { parts: [{ text: JSON.stringify({ category: 'can', approxVolumeMl: 330, confidence: 0.77 }) }] } },
+          ],
+        }),
+      }),
+    );
+    const scan = await api.createScan(img());
+    expect(scan.aiGuess.categoryKey).toBe('can');
+    expect(scan.aiGuess.variant?.categoryKey).toBe('can');
+    expect(scan.aiGuess.confidence).toBe(0.77);
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
+  });
+
+  it('is honest when the vision call itself fails', async () => {
+    vi.stubEnv('VITE_GEMINI_API_KEY', 'test-key');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')));
+    const scan = await api.createScan(img());
+    expect(scan.aiGuess.categoryKey).toBeNull();
+    expect(scan.aiGuess.confidence).toBe(0);
+    vi.unstubAllGlobals();
+    vi.unstubAllEnvs();
   });
 
   it('honours a volume hint', async () => {
@@ -61,12 +92,11 @@ describe('localApi.createScan', () => {
     expect(scan.aiGuess.confidence).toBe(0.2);
   });
 
-  it('ignores junk / zero / blank hints', async () => {
+  it('treats junk / zero / blank hints the same as no hint at all', async () => {
     for (const h of ['abc', '0', '   ', '']) {
       const scan = await api.createScan(img(), h);
-      expect([250, 330, 500, 600, 750, 1000, 1500]).toContain(
-        scan.aiGuess.estimatedVolumeMl,
-      );
+      expect(scan.aiGuess.categoryKey).toBeNull();
+      expect(scan.aiGuess.estimatedVolumeMl).toBeNull();
     }
   });
 
@@ -94,13 +124,13 @@ describe('localApi digest fallback', () => {
   it('falls back when SubtleCrypto rejects', async () => {
     vi.spyOn(crypto.subtle, 'digest').mockRejectedValueOnce(new Error('no'));
     const scan = await api.createScan(img());
-    expect(scan.aiGuess.estimatedVolumeMl).not.toBeNull();
+    expect(scan.image.sha256).toMatch(/^[0-9a-f]+$/);
   });
 
   it('falls back when crypto is unavailable', async () => {
     vi.stubGlobal('crypto', undefined);
     const scan = await api.createScan(img());
-    expect(scan.aiGuess.estimatedVolumeMl).not.toBeNull();
+    expect(scan.image.sha256).toMatch(/^[0-9a-f]+$/);
     vi.unstubAllGlobals();
   });
 });

@@ -10,10 +10,42 @@ Web client for the Waste 2 Worth flow. **React + Vite + TypeScript**, styled in 
 
 | Mode | What it does |
 | --- | --- |
-| **`local`** (default) | Runs the whole flow **in the browser** — bundled catalogue (`src/data/catalogue.ts`) + a deterministic on-device recogniser. No backend, no network. This is what the hosted prototype ships. |
+| **`local`** (default) | Runs the whole flow **in the browser** — bundled catalogue (`src/data/catalogue.ts`) for ideas/sizes, plus real photo recognition via the Gemini API (see below). No backend of our own. This is what the hosted prototype ships. |
 | `remote` | Talks to the real backend API (`../backend`) via `VITE_API_BASE_URL`. For the production build later. |
 
 `src/lib/api.ts` is a thin switch between `src/lib/localApi.ts` and `src/lib/httpApi.ts`.
+
+## Real photo recognition
+
+`src/lib/visionApi.ts` calls Google's **Gemini API** (`gemini-2.0-flash`) directly
+from the browser to classify the uploaded photo (bottle / can / other) and
+estimate its size. This is genuinely real — it sends the photo's pixels, not
+a stub. **It needs online access** and a free API key; without one, the app
+is honest about it instead of guessing: it shows "ما قدرنا نتعرّف على
+الجسم" (could not identify it) and lets the user pick the size by hand.
+
+**Setup (free, no credit card):**
+
+1. Get a key at <https://aistudio.google.com/app/apikey>.
+2. Local dev: put it in `.env` as `VITE_GEMINI_API_KEY=...` (already
+   gitignored — never commit a real key).
+3. Hosted build (GitHub Pages): add it as a **repository secret** named
+   `VITE_GEMINI_API_KEY` (Settings → Secrets and variables → Actions → New
+   repository secret). `.github/workflows/deploy.yml` bakes it into the
+   build.
+
+**Security note:** this is a static site with no server of its own, so the
+key ends up embedded in the shipped JS bundle — anyone can read it from
+devtools. That's expected for a client-only app, but you should still
+**restrict the key** in [Google AI
+Studio](https://aistudio.google.com/app/apikey)/Google Cloud Console to only
+the Generative Language API and, if possible, to your site's domain (HTTP
+referrer restriction), and watch its usage. Free-tier quota is generous but
+not unlimited — a restricted key limits the damage if someone copies it.
+
+A manual test hint (`?hint=500`, `can:330`, `none` — see the "وضع الاختبار"
+toggle on the upload screen) always overrides the vision call, so the app is
+fully testable offline / without a key too.
 
 ## Run it
 

@@ -1,8 +1,10 @@
 /**
- * Fully in-browser implementation of the Waste 2 Worth API. No backend, no
- * network — the bundled catalogue in `src/data/catalogue.ts` plus a
- * deterministic on-device "recogniser" drive the whole flow. This is what the
- * static prototype ships with; swap `VITE_API_MODE=remote` to use `httpApi.ts`.
+ * Fully in-browser implementation of the Waste 2 Worth API. No backend of our
+ * own — the bundled catalogue in `src/data/catalogue.ts` drives the ideas
+ * and sizes, and real photo recognition (when configured — see
+ * README.md "Real photo recognition") calls Google's Gemini API directly
+ * from the browser. This is what the static prototype ships with; swap
+ * `VITE_API_MODE=remote` to use `httpApi.ts`.
  */
 import { IDEAS, VARIANTS } from '../data/catalogue';
 import { MEDIA } from '../data/media';
@@ -14,6 +16,7 @@ import type {
   ScanStatus,
   Variant,
 } from './types';
+import { classifyImage, visionConfigured } from './visionApi';
 
 export class ApiError extends Error {
   readonly status: number;
@@ -32,7 +35,6 @@ export function mediaUrl(path: string): string {
   return MEDIA[key] ?? `${import.meta.env.BASE_URL}${key}`;
 }
 
-const CANDIDATE_VOLUMES_ML = [250, 330, 500, 600, 750, 1000, 1500];
 const SETTLED: ScanStatus[] = ['CONFIRMED', 'VARIANT_SELECTED', 'IDEA_SELECTED'];
 const STORE_PREFIX = 'w2w:scan:';
 
@@ -101,10 +103,10 @@ type ParsedHint =
   | { kind: 'unidentified' }
   | { kind: 'volume'; category: string; volumeMl: number };
 
-// The real AI recognizer only auto-detects bottles so far (see
-// docs/adding-a-category.md — each category earns its own real recognition,
-// nothing is faked). Test mode can still target another registered category
-// explicitly with a "<category>:<amount>" hint, e.g. "can:330".
+// A manual hint always wins over the real vision call — lets you test a
+// specific size/category without a photo, or without VITE_GEMINI_API_KEY
+// configured at all. "<category>:<amount>" targets a non-bottle category
+// explicitly, e.g. "can:330".
 function parseHint(hint?: string): ParsedHint {
   if (!hint || !hint.trim()) return { kind: 'none' };
   const t = hint.trim().toLowerCase();
@@ -153,7 +155,7 @@ export const api = {
     const parsed = parseHint(hint);
     const digest = await digestBytes(file);
 
-    let categoryKey: string | null = 'bottle';
+    let categoryKey: string | null;
     let estimatedVolumeMl: number | null;
     let confidence: number;
 
@@ -165,14 +167,30 @@ export const api = {
       categoryKey = parsed.category;
       estimatedVolumeMl = parsed.volumeMl;
       confidence = 0.9;
+    } else if (visionConfigured()) {
+      // real recognition: this genuinely looks at the photo
+      try {
+        const guess = await classifyImage(file);
+        categoryKey = guess.categoryKey;
+        estimatedVolumeMl = guess.approxVolumeMl;
+        confidence = guess.confidence;
+      } catch {
+        categoryKey = null;
+        estimatedVolumeMl = null;
+        confidence = 0;
+      }
     } else {
-      // no hint -> the deterministic "photo AI" stub, bottles only for now
-      estimatedVolumeMl = CANDIDATE_VOLUMES_ML[digest[0]! % CANDIDATE_VOLUMES_ML.length]!;
-      confidence = Number((0.7 + (digest[1]! % 26) / 100).toFixed(2));
+      // no hint, and no vision key configured -- be honest instead of
+      // guessing. See README.md "Real photo recognition" to enable it.
+      categoryKey = null;
+      estimatedVolumeMl = null;
+      confidence = 0;
     }
 
     const variant =
-      estimatedVolumeMl === null ? null : nearestVariantInCategory(categoryKey!, estimatedVolumeMl);
+      categoryKey && estimatedVolumeMl != null
+        ? nearestVariantInCategory(categoryKey, estimatedVolumeMl)
+        : null;
     counter += 1;
     const id = `scan-${Date.now().toString(36)}-${counter}`;
     const scan: Scan = {
@@ -186,10 +204,9 @@ export const api = {
       },
       aiGuess: {
         categoryKey,
-        label:
-          categoryKey === null
-            ? 'ما قدرنا نتعرّف على الجسم'
-            : `${CATEGORY_ITEM_LABEL_AR[categoryKey]}، حوالي ${estimatedVolumeMl} مل`,
+        label: variant
+          ? `${CATEGORY_ITEM_LABEL_AR[categoryKey!]}، حوالي ${estimatedVolumeMl} مل`
+          : 'ما قدرنا نتعرّف على الجسم',
         estimatedVolumeMl,
         confidence,
         variant: variant ? clone(variant) : null,
