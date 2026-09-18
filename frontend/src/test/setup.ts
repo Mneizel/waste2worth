@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/vitest';
 
 import { cleanup } from '@testing-library/react';
-import { afterEach, beforeAll, vi } from 'vitest';
+import { afterEach, beforeAll, beforeEach, vi } from 'vitest';
 
 import { __setSimDelay } from '../lib/localApi';
 import { resetApiMock } from './apiMock';
@@ -22,15 +22,20 @@ class FakeUtterance {
   onerror: (() => void) | null = null;
   constructor(public text: string) {}
 }
-class FakeSpeechSynthesis {
+class FakeSpeechSynthesis extends EventTarget {
+  speaking = false;
   getVoices(): SpeechSynthesisVoice[] {
     return [{ lang: 'ar-SA', name: 'Arabic Test Voice' } as SpeechSynthesisVoice];
   }
   speak(u: FakeUtterance) {
-    setTimeout(() => u.onend?.(), 0);
+    this.speaking = true;
+    setTimeout(() => {
+      this.speaking = false;
+      u.onend?.();
+    }, 0);
   }
   cancel() {
-    /* no queue to clear in the fake */
+    this.speaking = false;
   }
 }
 if (!('speechSynthesis' in window)) {
@@ -45,6 +50,16 @@ if (typeof window.SpeechSynthesisUtterance === 'undefined') {
 }
 
 beforeAll(() => __setSimDelay(0));
+
+// A fresh instance each test, so a 'voiceschanged' listener left registered
+// by one test (e.g. one that never dispatches the event) can't leak into
+// and fire during a later, unrelated test.
+beforeEach(() => {
+  Object.defineProperty(window, 'speechSynthesis', {
+    value: new FakeSpeechSynthesis(),
+    configurable: true,
+  });
+});
 
 afterEach(() => {
   cleanup();

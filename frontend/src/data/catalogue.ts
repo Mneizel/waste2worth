@@ -541,7 +541,7 @@ export const IDEAS: IdeaDetail[] = [
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": "٥٠٠ مل حتى ٢ لتر."
+        "note": "٣٣٠ مل حتى ٥ لتر."
       },
       {
         "id": "tool-self-watering-planter-3",
@@ -655,12 +655,21 @@ export const IDEAS: IdeaDetail[] = [
       }
     ],
     "variantKeys": [
+      "pet-softdrink-330ml",
+      "pet-softdrink-350ml",
       "pet-water-500ml",
       "pet-water-600ml",
       "pet-sports-750ml",
       "pet-water-1000ml",
+      "pet-juice-1000ml",
+      "pet-water-1250ml",
       "pet-water-1500ml",
-      "pet-soda-2000ml"
+      "pet-soda-2000ml",
+      "pet-water-3000ml",
+      "pet-water-5000ml",
+      "hdpe-milk-1000ml",
+      "hdpe-milk-2000ml",
+      "hdpe-milk-3785ml"
     ]
   },
   {
@@ -703,7 +712,7 @@ export const IDEAS: IdeaDetail[] = [
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": "١ لتر حتى ٢ لتر."
+        "note": "٧٥٠ مل حتى ٥ لتر."
       },
       {
         "id": "tool-bird-feeder-3",
@@ -808,11 +817,18 @@ export const IDEAS: IdeaDetail[] = [
       }
     ],
     "variantKeys": [
+      "pet-sports-750ml",
       "pet-water-1000ml",
       "pet-oil-1000ml",
+      "pet-juice-1000ml",
+      "pet-water-1250ml",
       "pet-water-1500ml",
       "pet-soda-2000ml",
-      "pet-juice-1000ml"
+      "pet-water-3000ml",
+      "pet-water-5000ml",
+      "hdpe-milk-1000ml",
+      "hdpe-milk-2000ml",
+      "hdpe-milk-3785ml"
     ]
   },
   {
@@ -924,11 +940,25 @@ export const IDEAS: IdeaDetail[] = [
       }
     ],
     "variantKeys": [
+      "pet-water-200ml",
+      "pet-water-250ml",
+      "pet-softdrink-330ml",
+      "pet-softdrink-350ml",
       "pet-water-500ml",
       "pet-water-600ml",
+      "pet-sports-750ml",
       "pet-water-1000ml",
+      "pet-oil-1000ml",
+      "pet-juice-250ml",
+      "pet-juice-1000ml",
+      "pet-water-1250ml",
       "pet-water-1500ml",
-      "pet-oil-1000ml"
+      "pet-soda-2000ml",
+      "pet-water-3000ml",
+      "pet-water-5000ml",
+      "hdpe-milk-1000ml",
+      "hdpe-milk-2000ml",
+      "hdpe-milk-3785ml"
     ]
   },
   {
@@ -971,7 +1001,7 @@ export const IDEAS: IdeaDetail[] = [
         "imageUrl": "",
         "quantity": "١",
         "optional": false,
-        "note": "٥٠٠ مل حتى ١ لتر."
+        "note": "٢٥٠ مل حتى ٢ لتر."
       },
       {
         "id": "tool-pen-pot-organizer-3",
@@ -1049,11 +1079,19 @@ export const IDEAS: IdeaDetail[] = [
       }
     ],
     "variantKeys": [
+      "pet-water-250ml",
+      "pet-softdrink-330ml",
+      "pet-softdrink-350ml",
+      "pet-juice-250ml",
       "pet-water-500ml",
       "pet-water-600ml",
       "pet-sports-750ml",
       "pet-water-1000ml",
-      "pet-oil-1000ml"
+      "pet-oil-1000ml",
+      "pet-water-1250ml",
+      "pet-water-1500ml",
+      "pet-soda-2000ml",
+      "hdpe-milk-1000ml"
     ]
   },
   {
@@ -1156,6 +1194,11 @@ export const IDEAS: IdeaDetail[] = [
       }
     ],
     "variantKeys": [
+      "can-energy-250ml",
+      "can-soda-330ml",
+      "can-soda-355ml",
+      "can-beer-440ml",
+      "can-tallboy-473ml",
       "can-food-standard-425ml",
       "can-food-large-850ml",
       "can-coffee-tin-500ml"
@@ -1270,8 +1313,10 @@ export const IDEAS: IdeaDetail[] = [
       }
     ],
     "variantKeys": [
+      "can-energy-250ml",
       "can-soda-330ml",
       "can-soda-355ml",
+      "can-beer-440ml",
       "can-tallboy-473ml",
       "can-food-standard-425ml"
     ]
@@ -1386,6 +1431,11 @@ export const IDEAS: IdeaDetail[] = [
     ],
     "variantKeys": [
       "can-food-small-155ml",
+      "can-energy-250ml",
+      "can-soda-330ml",
+      "can-soda-355ml",
+      "can-beer-440ml",
+      "can-tallboy-473ml",
       "can-food-standard-425ml",
       "can-food-large-850ml"
     ]
@@ -1508,8 +1558,11 @@ export const IDEAS: IdeaDetail[] = [
       }
     ],
     "variantKeys": [
+      "can-energy-250ml",
       "can-soda-330ml",
       "can-soda-355ml",
+      "can-beer-440ml",
+      "can-tallboy-473ml",
       "can-food-standard-425ml"
     ]
   },

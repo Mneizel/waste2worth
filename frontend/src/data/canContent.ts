@@ -31,7 +31,11 @@ export const CAN_IDEAS_AR: ContentIdea<CanOp, CanMeasureId>[] = [
     safetyNotes: 'فتح الغطا وتنعيم الحافة يعملهم شخص كبير — حافة المعدن حادّة.',
     sortOrder: 10,
     source: 'الطريقة الشائعة (wikiHow · The Spruce Crafts)',
-    variantKeys: ['can-food-standard-425ml', 'can-food-large-850ml', 'can-coffee-tin-500ml'],
+    variantKeys: [
+      'can-energy-250ml', 'can-soda-330ml', 'can-soda-355ml', 'can-beer-440ml',
+      'can-tallboy-473ml', 'can-food-standard-425ml', 'can-food-large-850ml',
+      'can-coffee-tin-500ml',
+    ],
     tools: [
       { kind: 'tool', name: 'فتّاحة علب', note: 'لفتح الغطا — بيد شخص كبير.' },
       { kind: 'tool', name: 'صنفرة أو شريط لاصق', note: 'لتنعيم الحافة.' },
@@ -56,7 +60,10 @@ export const CAN_IDEAS_AR: ContentIdea<CanOp, CanMeasureId>[] = [
     safetyNotes: 'الثقب يعمله شخص كبير بمسمار ومطرقة. استعمل شمعة LED صغيرة بدل شمعة حقيقية إذا ممكن.',
     sortOrder: 20,
     source: 'طريقة الفانوس المثقوب الشائعة (Instructables)',
-    variantKeys: ['can-soda-330ml', 'can-soda-355ml', 'can-tallboy-473ml', 'can-food-standard-425ml'],
+    variantKeys: [
+      'can-energy-250ml', 'can-soda-330ml', 'can-soda-355ml', 'can-beer-440ml',
+      'can-tallboy-473ml', 'can-food-standard-425ml',
+    ],
     tools: [
       { kind: 'tool', name: 'مسمار ومطرقة', note: 'للثقب — بيد شخص كبير.' },
       { kind: 'tool', name: 'قلم تحديد' },
@@ -82,7 +89,10 @@ export const CAN_IDEAS_AR: ContentIdea<CanOp, CanMeasureId>[] = [
     safetyNotes: 'الثقب بالقاع يعمله شخص كبير.',
     sortOrder: 30,
     source: 'طريقة أواني النباتات من علب معدنية (The Spruce Crafts)',
-    variantKeys: ['can-food-small-155ml', 'can-food-standard-425ml', 'can-food-large-850ml'],
+    variantKeys: [
+      'can-food-small-155ml', 'can-energy-250ml', 'can-soda-330ml', 'can-soda-355ml',
+      'can-beer-440ml', 'can-tallboy-473ml', 'can-food-standard-425ml', 'can-food-large-850ml',
+    ],
     tools: [
       { kind: 'tool', name: 'مسمار ومطرقة', note: 'لثقب القاع — بيد شخص كبير.' },
       { kind: 'material', name: 'علبة معدنية فاضية ونظيفة', quantity: '١' },
@@ -108,7 +118,10 @@ export const CAN_IDEAS_AR: ContentIdea<CanOp, CanMeasureId>[] = [
     safetyNotes: 'الثقب يعمله شخص كبير. حواف الفتحات لازم تتغطّى بشريط.',
     sortOrder: 40,
     source: 'طريقة جرس الهوا من العلب الشائعة (Instructables · All Free Crafts)',
-    variantKeys: ['can-soda-330ml', 'can-soda-355ml', 'can-food-standard-425ml'],
+    variantKeys: [
+      'can-energy-250ml', 'can-soda-330ml', 'can-soda-355ml', 'can-beer-440ml',
+      'can-tallboy-473ml', 'can-food-standard-425ml',
+    ],
     tools: [
       { kind: 'tool', name: 'مسمار ومطرقة', note: 'للثقب — بيد شخص كبير.' },
       { kind: 'material', name: '٤-٦ علب معدنية فاضية ونظيفة', quantity: '٤-٦' },

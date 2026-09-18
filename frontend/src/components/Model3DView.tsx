@@ -10,15 +10,27 @@ import {
 import './Model3DView.css';
 
 interface Props {
-  /** the finished product's art (the same drawing used elsewhere, so front
-   * and back genuinely show the real shape instead of a generic bottle) */
+  /** the finished product's art (the same drawing used elsewhere, so it
+   * genuinely shows the real shape instead of a generic bottle) */
   front: ReactNode;
   title: string;
 }
 
-/** A draggable pseudo-3D turntable of the finished project (no external model). */
+const MAX_TILT = 42;
+const clamp = (a: number) => Math.max(-MAX_TILT, Math.min(MAX_TILT, a));
+
+/**
+ * A draggable tilt card of the finished project (no external model).
+ *
+ * This deliberately does NOT build a spinning cube out of backface-visibility
+ * faces — that combination (hidden backfaces + a clipped, rounded, embedded
+ * SVG on each face) is a known source of blank/glitchy rendering on some
+ * mobile GPUs. Constraining the rotation to a tilt range means the content
+ * never needs a "back" state at all, so there is nothing that can render
+ * broken: what you see is always the real front art, just angled.
+ */
 export function Model3DView({ front, title }: Props) {
-  const [angle, setAngle] = useState(-26);
+  const [angle, setAngle] = useState(-18);
   const lastX = useRef<number | null>(null);
 
   function start(x: number) {
@@ -28,7 +40,7 @@ export function Model3DView({ front, title }: Props) {
     if (lastX.current === null) return;
     const dx = x - lastX.current;
     lastX.current = x;
-    setAngle((a) => a + dx * 0.7);
+    setAngle((a) => clamp(a + dx * 0.5));
   }
   function end() {
     lastX.current = null;
@@ -49,8 +61,8 @@ export function Model3DView({ front, title }: Props) {
     if (t) drag(t.clientX);
   }
   function onKey(e: KeyboardEvent<HTMLDivElement>) {
-    if (e.key === 'ArrowLeft') setAngle((a) => a - 20);
-    if (e.key === 'ArrowRight') setAngle((a) => a + 20);
+    if (e.key === 'ArrowLeft') setAngle((a) => clamp(a - 14));
+    if (e.key === 'ArrowRight') setAngle((a) => clamp(a + 14));
   }
 
   return (
@@ -71,18 +83,13 @@ export function Model3DView({ front, title }: Props) {
       >
         <div
           className="m3d__box"
-          style={{ transform: `rotateX(-12deg) rotateY(${angle}deg)` }}
+          style={{ transform: `rotateX(8deg) rotateY(${angle}deg)` }}
         >
-          <div className="m3d__face m3d__face--front">{front}</div>
-          <div className="m3d__face m3d__face--back" aria-hidden>
-            {front}
-          </div>
-          <div className="m3d__face m3d__face--left" aria-hidden />
-          <div className="m3d__face m3d__face--right" aria-hidden />
+          <div className="m3d__face">{front}</div>
         </div>
         <div className="m3d__floor" aria-hidden />
       </div>
-      <p className="m3d__hint">اسحب لتدوير النموذج، وقارنه مع اللي بين إيديك</p>
+      <p className="m3d__hint">اسحب لتميل النموذج، وقارنه مع اللي بين إيديك</p>
     </div>
   );
 }
