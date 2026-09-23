@@ -53,18 +53,24 @@ beforeAll(() => __setSimDelay(0));
 
 // A fresh instance each test, so a 'voiceschanged' listener left registered
 // by one test (e.g. one that never dispatches the event) can't leak into
-// and fire during a later, unrelated test.
+// and fire during a later, unrelated test. Also force "no vision key"
+// as the default so tests are hermetic — a real VITE_GEMINI_API_KEY in the
+// developer's local .env (needed to actually run the app) must never change
+// which code path a test exercises; tests that want it configured stub it
+// explicitly with vi.stubEnv(...).
 beforeEach(() => {
   Object.defineProperty(window, 'speechSynthesis', {
     value: new FakeSpeechSynthesis(),
     configurable: true,
   });
+  vi.stubEnv('VITE_GEMINI_API_KEY', '');
 });
 
 afterEach(() => {
   cleanup();
   resetApiMock();
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
   try {
     sessionStorage.clear();
   } catch {

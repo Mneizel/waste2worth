@@ -73,11 +73,36 @@ describe('visionApi', () => {
     expect((await classifyImage(img())).confidence).toBe(0);
   });
 
-  it('throws when the request fails', async () => {
+  it('throws immediately on a non-retryable error', async () => {
     vi.stubEnv('VITE_GEMINI_API_KEY', 'test-key');
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: false, status: 429 }));
-    await expect(classifyImage(img())).rejects.toThrow(/429/);
+    const fetchSpy = vi.fn().mockResolvedValue({ ok: false, status: 400 });
+    vi.stubGlobal('fetch', fetchSpy);
+    await expect(classifyImage(img())).rejects.toThrow(/400/);
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
   });
+
+  it('retries a transient "server busy" error and succeeds', async () => {
+    vi.stubEnv('VITE_GEMINI_API_KEY', 'test-key');
+    const fetchSpy = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false, status: 503 })
+      .mockResolvedValueOnce({ ok: false, status: 429 })
+      .mockResolvedValueOnce(geminiResponse({ category: 'can', approxVolumeMl: 330, confidence: 0.9 }));
+    vi.stubGlobal('fetch', fetchSpy);
+
+    const guess = await classifyImage(img());
+    expect(guess.categoryKey).toBe('can');
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+  }, 10000);
+
+  it('gives up after repeated transient errors', async () => {
+    vi.stubEnv('VITE_GEMINI_API_KEY', 'test-key');
+    const fetchSpy = vi.fn().mockResolvedValue({ ok: false, status: 503 });
+    vi.stubGlobal('fetch', fetchSpy);
+
+    await expect(classifyImage(img())).rejects.toThrow(/503/);
+    expect(fetchSpy).toHaveBeenCalledTimes(3);
+  }, 10000);
 
   it('falls back to image/jpeg when the file has no mime type, and defaults a missing confidence to 0', async () => {
     vi.stubEnv('VITE_GEMINI_API_KEY', 'test-key');

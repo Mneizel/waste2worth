@@ -20,7 +20,7 @@ export interface VisionGuess {
 // Keep in sync with the category keys in src/data/categories.ts that have
 // real recognition support (i.e. 'available' ones).
 const KNOWN_CATEGORIES = ['bottle', 'can'];
-const MODEL = 'gemini-2.0-flash';
+const MODEL = 'gemini-3.6-flash';
 
 export function visionConfigured(): boolean {
   return Boolean(import.meta.env.VITE_GEMINI_API_KEY);
@@ -56,13 +56,26 @@ function buildPrompt(): string {
   ].join(' ');
 }
 
-/** Sends the photo to the vision model and returns a category + rough size
- * guess. Throws on any network/API error — the caller decides the fallback
- * (see localApi.ts, which reports "could not identify" rather than guessing). */
-export async function classifyImage(file: File): Promise<VisionGuess> {
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string;
-  const base64 = await fileToBase64(file);
+class VisionApiError extends Error {
+  constructor(
+    message: string,
+    readonly status?: number,
+  ) {
+    super(message);
+    this.name = 'VisionApiError';
+  }
+}
 
+// Gemini's free tier shares capacity across everyone using it, so a "the
+// model is busy, try again" reply (observed live: 503, and 429 for rate
+// limiting) is a routine, transient thing, not a real failure — retry a
+// couple of times with a short backoff before giving up.
+const RETRYABLE_STATUSES = new Set([429, 503]);
+const MAX_ATTEMPTS = 3;
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+async function requestOnce(base64: string, mimeType: string): Promise<VisionGuess> {
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY as string;
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${apiKey}`,
     {
@@ -73,7 +86,7 @@ export async function classifyImage(file: File): Promise<VisionGuess> {
           {
             parts: [
               { text: buildPrompt() },
-              { inline_data: { mime_type: file.type || 'image/jpeg', data: base64 } },
+              { inline_data: { mime_type: mimeType, data: base64 } },
             ],
           },
         ],
@@ -94,11 +107,11 @@ export async function classifyImage(file: File): Promise<VisionGuess> {
   );
 
   if (!res.ok) {
-    throw new Error(`Vision API request failed (${res.status})`);
+    throw new VisionApiError(`Vision API request failed (${res.status})`, res.status);
   }
   const data = await res.json();
   const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error('Vision API returned no answer');
+  if (!text) throw new VisionApiError('Vision API returned no answer');
 
   const parsed = JSON.parse(text) as GeminiAnswer;
   const categoryKey = KNOWN_CATEGORIES.includes(parsed.category) ? parsed.category : null;
@@ -109,4 +122,26 @@ export async function classifyImage(file: File): Promise<VisionGuess> {
     approxVolumeMl,
     confidence: Math.max(0, Math.min(1, parsed.confidence ?? 0)),
   };
+}
+
+/** Sends the photo to the vision model and returns a category + rough size
+ * guess. Retries transient "server busy" errors a couple of times; throws
+ * on a persistent or non-retryable error — the caller decides the fallback
+ * (see localApi.ts, which reports "could not identify" rather than guessing). */
+export async function classifyImage(file: File): Promise<VisionGuess> {
+  const base64 = await fileToBase64(file);
+  const mimeType = file.type || 'image/jpeg';
+
+  let attempt = 1;
+  while (true) {
+    try {
+      return await requestOnce(base64, mimeType);
+    } catch (err) {
+      const status = err instanceof VisionApiError ? err.status : undefined;
+      const canRetry = attempt < MAX_ATTEMPTS && status !== undefined && RETRYABLE_STATUSES.has(status);
+      if (!canRetry) throw err;
+      await sleep(600 * attempt);
+      attempt += 1;
+    }
+  }
 }
