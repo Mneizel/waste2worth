@@ -17,7 +17,9 @@ Web client for the Waste 2 Worth flow. **React + Vite + TypeScript**, styled in 
 
 ## Real photo recognition
 
-`src/lib/visionApi.ts` calls Google's **Gemini API** (`gemini-3.6-flash`) directly
+`src/lib/visionApi.ts` calls Google's **Gemini API** (`gemini-3.1-flash-lite` — a
+lite model, since this is a simple classification task and lite models carry
+a much bigger free-tier daily quota) directly
 from the browser to classify the uploaded photo (bottle / can / other) and
 estimate its size. This is genuinely real — it sends the photo's pixels, not
 a stub. **It needs online access** and a free API key; without one, the app

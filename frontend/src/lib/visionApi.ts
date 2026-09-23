@@ -20,7 +20,11 @@ export interface VisionGuess {
 // Keep in sync with the category keys in src/data/categories.ts that have
 // real recognition support (i.e. 'available' ones).
 const KNOWN_CATEGORIES = ['bottle', 'can'];
-const MODEL = 'gemini-3.6-flash';
+// A "flash-lite" model: this is a simple three-way classification + a rough
+// size guess, not a task that needs a full reasoning model, and lite models
+// carry a much larger free-tier daily quota — the full "flash" model hit
+// 429 (rate limited) after normal use within the same day during testing.
+const MODEL = 'gemini-3.1-flash-lite';
 
 export function visionConfigured(): boolean {
   return Boolean(import.meta.env.VITE_GEMINI_API_KEY);
